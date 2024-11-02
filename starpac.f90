@@ -2,23 +2,25 @@ subroutine abscom ( n, v, w, abstol, nfail )
 
 !*****************************************************************************80
 !
-!! ABSCOM counts the entries of | V(1:N) - W(1:N) | greater than ABSTOL.
+!! abscom() counts the entries of | V(1:N) - W(1:N) | greater than ABSTOL.
 !
 !  Discussion:
 !
 !    This routine computes the number of times the absolute difference
 !    between V(I) and W(I), I = 1, 2, ..., N, is greater than ABSTOL.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Robert Schnabel,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -55,16 +57,18 @@ subroutine accdig ( ax, x, ad, n )
 !
 !! ACCDIG returns the number of accurate digits in an approximation to X.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -139,16 +143,18 @@ subroutine acfd ( y, n, lagmax, nfac, nd, iod, ldstak )
 !    This is the user callable routine for computing the autocorrelations
 !    and partial autocorrelations of a time series with differencing.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -165,7 +171,7 @@ subroutine acfd ( y, n, lagmax, nfac, nd, iod, ldstak )
 !     logical differ
 !        the variable used to designate whether or not the series
 !        being analyzed was differenced or not.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ftest
 !        the starting location in dstak for
@@ -260,7 +266,7 @@ subroutine acfd ( y, n, lagmax, nfac, nd, iod, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -418,16 +424,18 @@ subroutine acfdtl ( ndf, nd, iod, ntimes )
 !
 !! ACFDTL prints titles for ACORRD.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -499,18 +507,20 @@ subroutine acfer ( nmsub, n, lagmax, lacov, ldstak, ldsmin, &
 
 !*****************************************************************************80
 !
-!! ACFER does error checking for the ACF routines.
+!! acfer() does error checking for the ACF routines.
+!
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
 !
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -674,7 +684,7 @@ subroutine acf ( y, n )
 
 !*****************************************************************************80
 !
-!! ACF is the simple interface to the autocorrelations routines.
+!! acf() is the simple interface to the autocorrelations routines.
 !
 !  Discussion:
 !
@@ -682,16 +692,18 @@ subroutine acf ( y, n )
 !     correlations and partial autocorrelations of a time series
 !     (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -869,16 +881,18 @@ subroutine acff ( yfft, n, lyfft, ldstak )
 !    correlations and partial autocorrelations of a time series
 !    using an fft (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -893,7 +907,7 @@ subroutine acff ( yfft, n, lyfft, ldstak )
 !     logical differ
 !        the indicator variable used to designate whether the calling
 !        routine is acfd (differ = true) or not (differ = false)
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real ftest(2, 100)
 !        the array in which the f ratio and probability are stored.
@@ -976,7 +990,7 @@ subroutine acff ( yfft, n, lyfft, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -1097,16 +1111,18 @@ subroutine acffs ( yfft, n, lyfft, ldstak, lagmax, lacov, acov, iar, phi, &
 !     using a fft with the computed acvf estimates returned to the users
 !     routine (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -1122,7 +1138,7 @@ subroutine acffs ( yfft, n, lyfft, ldstak, lagmax, lacov, acov, iar, phi, &
 !     logical differ
 !        the indicator variable used to designate whether the calling
 !        routine is acfd (differ = true) or not (differ = false)
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ftest
 !        the starting location in dstak for
@@ -1204,7 +1220,7 @@ subroutine acffs ( yfft, n, lyfft, ldstak, lagmax, lacov, acov, iar, phi, &
   integer ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -1319,16 +1335,18 @@ subroutine acflst ( rho, sdrho, nlppa, lagmax, ifmiss, chia, ndfchi, chiap )
 !
 !! ACFLST lists the autocorrelations and other information.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -1426,16 +1444,18 @@ subroutine acfm ( y, ymiss, n )
 !    correlations and partial autocorrelations of a time series
 !    with missing values (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -1632,16 +1652,18 @@ subroutine acfmn ( y, n, lagmax, rho, sdrho, ymean, prho, aic, &
 !    This is the main subroutine for computing autocorrelations and
 !    partial autocorrelations of a time series .
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -1747,16 +1769,18 @@ subroutine acfmnf ( yfft, n, nfft, lagmax, rho, sdrho, ymean, &
 !    This is the main subroutine for computing autocorrelations and
 !    partial autocorrelations of a time series .
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -1869,16 +1893,18 @@ subroutine acfmnm ( y, ymiss, n, lagmax, rho, sdrho, nlppa, ymean, &
 !    This is the main subroutine for computing autocorrelations and
 !    partial autocorrelations of a time series with missing data.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -2022,16 +2048,18 @@ subroutine acfms ( y, ymiss, n, lagmax, lacov, acov, amiss, nlppa, &
 !    This is the user callable routine for computing the auto-
 !    correlations of a time series with missing values (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -2050,7 +2078,7 @@ subroutine acfms ( y, ymiss, n, lagmax, lacov, acov, amiss, nlppa, &
 !     logical differ
 !        the indicator variable used to designate whether the calling
 !        routine is acfd (differ = true) or not (differ = false)
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fplm
 !        the floating point largest magnitude.
@@ -2151,7 +2179,7 @@ subroutine acfms ( y, ymiss, n, lagmax, lacov, acov, amiss, nlppa, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -2296,16 +2324,18 @@ subroutine acfout ( ymean, ysd, n, nused, lagmax, rho, sdrho, &
 !    standard errors, as well and the partial autocorrelations
 !    and miscellaneous summary information.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -2511,16 +2541,18 @@ subroutine acfsd ( rho, sdrho, nc, n )
 !
 !! ACFSD computes the standard error of autocorrelations.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -2570,16 +2602,18 @@ subroutine acfsdm ( rho, sdrho, nc, n, nlppa )
 !
 !! ACFSDM computes the standard error of autocorrelations with missing data.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -2646,16 +2680,18 @@ subroutine acfs ( y, n, lagmax, lacov, acov, iar, phi, nprt, ldstak )
 !    with the computed acvf estimates returned to the users
 !    routine (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -2671,7 +2707,7 @@ subroutine acfs ( y, n, lagmax, lacov, acov, iar, phi, nprt, ldstak )
 !     logical differ
 !        the indicator variable used to designate whether the calling
 !        routine is acfd (differ = true) or not (differ = false)
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ftest
 !        the starting location in dstak for
@@ -2755,7 +2791,7 @@ subroutine acfs ( y, n, lagmax, lacov, acov, iar, phi, nprt, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -2869,16 +2905,18 @@ subroutine acvf ( y, n, ymean, acov, lagmax, lacov )
 !
 !! ACVF computes the autocovariance function of a series.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -2955,16 +2993,18 @@ subroutine acvff ( yfft, n, nfft, ymean, acov, lagmax, lacov, &
 !    This routine computes the acvf of a series using two
 !    passes of a fft.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -3066,16 +3106,18 @@ subroutine acvfm ( y, ymiss, n, ymean, acov, lagmax, laglst, nlppa, lacov )
 !    This routine computes the autocovariances when missing data are
 !    involved.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -3189,16 +3231,18 @@ subroutine adjlmt ( ymn, ymx )
 !
 !! ADJLMT corrects the plot limits when all observations are equal.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -3233,23 +3277,25 @@ subroutine aime ( y, n, mspec, nfac, par, npar, res, ldstak )
 !    this is the user callable subroutine for arima estimation
 !    (control call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
 !     real delta
 !        the maximum change allowed in the model parameters at the
 !        first iteration.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the value returned by this routine designating
@@ -3361,7 +3407,7 @@ subroutine aime ( y, n, mspec, nfac, par, npar, res, ldstak )
   integer nfac
   integer npar
 
-  double precision dstak(12)
+  double precision dstak(3000)
   integer ierr
   integer mspec(4,nfac)
   real par(npar)
@@ -3432,23 +3478,25 @@ subroutine aimec ( y, n, mspec, nfac, par, npar, res, ldstak, &
 !    this is the user callable subroutine for arima estimation
 !    (control call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
 !     real delta
 !        the maximum change allowed in the model parameters at the
 !        first iteration.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the value returned by this routine designating
@@ -3571,7 +3619,7 @@ subroutine aimec ( y, n, mspec, nfac, par, npar, res, ldstak, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -3631,23 +3679,25 @@ subroutine aimes ( y, n, mspec, nfac, par, npar, res, ldstak, &
 !    this is the user callable subroutine for arima estimation
 !    (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
 !     real delta
 !        the maximum change allowed in the model parameters at the
 !        first iteration.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the value returned by this routine designating
@@ -3770,7 +3820,7 @@ subroutine aimes ( y, n, mspec, nfac, par, npar, res, ldstak, &
      ierr
 
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 
   integer &
@@ -3832,20 +3882,22 @@ subroutine aimf ( y, n, mspec, nfac, par, npar, ldstak )
 !    this is the user callable subroutine for arima estimation
 !    (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fcst(1,1)
 !        the storage array for the forecasts.
@@ -3904,7 +3956,7 @@ subroutine aimf ( y, n, mspec, nfac, par, npar, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer &
@@ -3957,20 +4009,22 @@ subroutine aimfs ( y, n, mspec, nfac, par, npar, ldstak, &
 !    this is the user callable subroutine for arima estimation
 !    (control call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fcst(ifcst,nfcsto)
 !        the storage array for the forecasts.
@@ -4031,7 +4085,7 @@ subroutine aimfs ( y, n, mspec, nfac, par, npar, ldstak, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer nfcstu
@@ -4077,16 +4131,18 @@ subroutine aimx1 ( mxn, mxpar, mxfc, mxfco, mxfac, &
 !
 !! AIMX1 sets the starting parameter values for the AIMX example.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -4283,15 +4339,18 @@ function albeta ( a, b )
 !
 !! ALBETA computes the logarithm of the Beta function.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Wayne Fullerton,
-!    Los Alamos National Laboratory,
-!    Los Alamos, New Mexico.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -4301,7 +4360,6 @@ function albeta ( a, b )
   real alnrel
   real b
   real corr
-  real gamma
   real p
   real q
   real r9lgmc
@@ -4347,15 +4405,18 @@ subroutine algams ( x, algam, sgngam )
 !    Evaluate log abs (gamma(x)) and return the sign of gamma(x) in sgngam.
 !    sgngam is either +1.0 or -1.0.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Wayne Fullerton,
-!    Los Alamos National Laboratory,
-!    Los Alamos, New Mexico.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -4381,15 +4442,18 @@ function alngam ( x )
 !
 !! ALNGAM computes the logarithm of the absolute value of the Gamma function.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Wayne Fullerton,
-!    Los Alamos National Laboratory,
-!    Los Alamos, New Mexico.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -4400,8 +4464,8 @@ function alngam ( x )
   real dxrel,pi,sinpiy,sq2pil,sqpi2l,xmax,y
 !
 !  external functions
-  real gamma,r9lgmc
-  external gamma,r9lgmc
+  real r9lgmc
+  external r9lgmc
 !
   data sq2pil / 0.91893853320467274e0/
 ! sq2pil = log(sqrt(2.*pi)),  sqpi2l = log (sqrt(pi/2.))
@@ -4457,15 +4521,18 @@ function alnrel ( x )
 !
 !! ALNREL evaluates log ( 1 + X ) with relative error control.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Wayne Fullerton,
-!    Los Alamos National Laboratory,
-!    Los Alamos, New Mexico.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -4551,16 +4618,18 @@ subroutine amdrv ( mdlts3, drv, done, ifixd, par, npar, xm, n, m, &
 !    This routine computes the numerical approximations to the
 !    derivative matrix (jacobian).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -4690,16 +4759,18 @@ subroutine amean ( y, n, ymean )
 !
 !! AMEAN computes the arithmetic mean of a series.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -4729,16 +4800,18 @@ subroutine ameanm ( y, ymiss, n, nused, ymean )
 !
 !! AMEANM computes the arithmetic mean of a series with missing data.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -4811,16 +4884,18 @@ subroutine amecnt ( y, wt, lwt, xm, n, m, ixm, mdl, nldrv, aprxdv, &
 !    This is the controlling subroutine for nonlinear least
 !    squares regression.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -4838,7 +4913,7 @@ subroutine amecnt ( y, wt, lwt, xm, n, m, ixm, mdl, nldrv, aprxdv, &
 !     external drv
 !        the name of the user supplied subroutine which computes the
 !        derivative (jacobian) matrix of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     logical hlfrpt
 !        the variable which indicates whether the derivative
@@ -5052,7 +5127,7 @@ subroutine amecnt ( y, wt, lwt, xm, n, m, ixm, mdl, nldrv, aprxdv, &
   external drv,mdl,nldrv,nlhdr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer &
@@ -5153,16 +5228,18 @@ subroutine amedrv ( y, n, mspec, nfac, par, npar, &
 !    This is the controlling subroutine for nonlinear least
 !    squares regression using numerically approximated derivatives.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    28 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -5178,7 +5255,7 @@ subroutine amedrv ( y, n, mspec, nfac, par, npar, &
 !     external drv
 !        the name of the user supplied subroutine which computes the
 !        derivative (jacobian) matrix of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real exmpt
 !        the proportion of observations for which the computed
@@ -5386,7 +5463,7 @@ subroutine amedrv ( y, n, mspec, nfac, par, npar, &
   external amehdr
   real delta
   external drv
-  double precision dstak(12)
+  double precision dstak(3000)
   real exmpt
   integer ierr
   integer ifixed(*)
@@ -5596,16 +5673,18 @@ subroutine ameer ( nmsub, n, npar, npare, ldstak, ldsmin, &
 !     this is the error checking routine for nonlinear least squares
 !     estimation routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -5794,16 +5873,18 @@ subroutine amefin ( y, weight, nnzw, wt, lwt, xm, n, m, ixm, ifixd, &
 !    least squares estimation routines once the estimates
 !    have been found.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -5975,16 +6056,18 @@ subroutine amehdr ( page, wide, isubhd )
 !    least squares estimation routines for arima models that use
 !    numerical approximations to the derivatives.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -6043,16 +6126,18 @@ subroutine ameism ( amehdr, page, wide, hlfrpt, npar, m, n, nnzw, &
 !    estimates and the control parameters for the nonlinear
 !    least squares subroutines for arima modeling.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -6062,7 +6147,7 @@ subroutine ameism ( amehdr, page, wide, hlfrpt, npar, m, n, nnzw, &
 !        the variable used to indicate whether numerical
 !        approximations to the derivative were used (true) or not
 !        (false).
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     logical hlfrpt
 !        the variable which indicates whether the derivative
@@ -6201,7 +6286,7 @@ subroutine ameism ( amehdr, page, wide, hlfrpt, npar, m, n, nnzw, &
      parar,pardf,parma,t,temp
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -6300,16 +6385,18 @@ subroutine amemn ( y, weight, nnzw, wt, lwt, xm, n, m, ixm, nrests, &
 !
 !    This routine was adapted from subroutine nl2sol.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -6646,7 +6733,16 @@ subroutine amemn ( y, weight, nnzw, wt, lwt, xm, n, m, ixm, nrests, &
   call nlsupk ( pare, npare, par, ifixd, npar )
 
   newitr = (iwork(cnvcod)==0)
-  if (iwork(1)-2) 10, 40, 60
+
+! if (iwork(1)-2) 10, 40, 60
+
+  if ( iwork(1) < 2 ) then
+    go to 10
+  else if ( iwork(1) == 2 ) then
+    go to 40
+  else
+    go to 60
+  end if
 
    60 done = .true.
   go to 40
@@ -6706,22 +6802,24 @@ subroutine ameout ( y, n, ifixd, &
 !    This routine prints the final summary output from the
 !    arima estimation subroutines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
 !     real cond
 !        the condition number of d.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     logical exact
 !        an indicator value used to designate whether the fit
@@ -6865,7 +6963,7 @@ subroutine ameout ( y, n, ifixd, &
      nrests,parar,pardf,parma,t,temp
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -7023,16 +7121,18 @@ subroutine amept1 ( n, y, pvt, sdpvt, res, sdrest, iptout, ndigit )
 !    This routine prints the data summary for the nonlinear
 !    least squares subroutines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -7137,16 +7237,18 @@ subroutine amept2 ( res, sdrest, n, rss )
 !    This routine, adapted from omnitab ii, prints
 !    the four standardized residual plots.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -7248,7 +7350,7 @@ subroutine amept2 ( res, sdrest, n, rss )
      ierr
 
   real &
-     an,dot,fac1,fac2,fplm,gamma,pi,ratio,rowdiv,rowmax,rowmid, &
+     an,dot,fac1,fac2,fplm,gamm,pi,ratio,rowdiv,rowmax,rowmid, &
      rowmin,ylabel,ymax,ymin
   integer &
      i,i1,i2,imid,iplot,iprb,irow,ix,k,l,ncol,ncolp1, &
@@ -7290,9 +7392,9 @@ subroutine amept2 ( res, sdrest, n, rss )
 !  initialize values for probability plot
 !
   call getpi(pi)
-  gamma = pi/8.0e0
+  gamm = pi/8.0e0
   an = real ( n )
-  fac1 = 1.0e0 / (an - 2.0e0*gamma + 1.0e0)
+  fac1 = 1.0e0 / (an - 2.0e0*gamm + 1.0e0)
   fac2 = 10.0e0
 !
 !  initialize the plot size (in plot units)
@@ -7370,7 +7472,7 @@ subroutine amept2 ( res, sdrest, n, rss )
                   irow = int(((real ( i ) -rowmin)/rowdiv)+1.5e0)
                   line(irow) = istar
                else
-                  ratio = (an-gamma) * fac1
+                  ratio = (an-gamm) * fac1
                   iprb = int(4.91e0*(ratio**0.14e0- &
                             (1.0e0-ratio)**0.14e0)*fac2) + 77
                   if (iprb <= ncol) iprb = ncol+1
@@ -7378,7 +7480,7 @@ subroutine amept2 ( res, sdrest, n, rss )
                   line(iprb) = istar
                   an = an - 1.0e0
                   if ((an<2.0e0) .and. (n <= 10)) then
-                     gamma = 1.0e0/3.0e0
+                     gamm = 1.0e0/3.0e0
                   end if
                end if
             end if
@@ -7461,16 +7563,18 @@ subroutine amestp ( xm, n, m, ixm, mdl, par, npar, stp, &
 !
 !! AMESTP controls the step size selection.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -7478,7 +7582,7 @@ subroutine amestp ( xm, n, m, ixm, mdl, par, npar, stp, &
 !        the starting location in the work area of
 !        the central difference quotient approximation to the
 !        derivative of the model with respect to the jth parameter.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real eta
 !        the relative noise in the model.
@@ -7683,7 +7787,7 @@ subroutine amestp ( xm, n, m, ixm, mdl, par, npar, stp, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   real &
      eta,exm,fplrs,scl,tau
@@ -7848,20 +7952,22 @@ subroutine amfcnt ( y, n, mspec, nfac, par, npar, ldstak, &
 !
 !    This is the controlling subroutine for forecasting using arima models.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer f
 !        the starting location in the work vector for
@@ -7980,7 +8086,7 @@ subroutine amfcnt ( y, n, mspec, nfac, par, npar, ldstak, &
      nrests,parar,pardf,parma,t,temp
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   integer &
      f,fsd,ifp,ldsmin,nall0,pv
@@ -8078,16 +8184,18 @@ subroutine amfer ( nmsub, n, npar, ldstak, ldsmin, &
 !    This is the error checking routine for nonlinear least squares
 !    estimation routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -8240,16 +8348,18 @@ subroutine amfhdr ( page, wide, isubhd )
 !    least squares estimation routines for arima models that use
 !    numerical approximations to the derivatives.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -8299,16 +8409,18 @@ subroutine amfmn ( par, pv, y, npar, n, nfac, mspect, &
 !
 !    This is the main routine for computing and printing the arima forecasts
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -8615,16 +8727,18 @@ subroutine amfout ( f, fsd, n, nfcst, ifcsto, ifo, nfcsto, y, t975, page )
 !
 !! AMFOUT produces ARIMA forecasting output.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -8831,16 +8945,18 @@ subroutine amlst1 ( iamhd, par, npar, mspect, nfac, vcvl, lvcvl, &
 !
 !! AMLST1 prints parameters for the ARIMA routine.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -9057,16 +9173,18 @@ subroutine amlst ( iamhd, par, npar, nfac, mspect, n, vcvl, &
 !    This routine prints the parameter summary output from the
 !    ARIMA forecasting subroutines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -9233,16 +9351,18 @@ subroutine aos ( n, lagmax, acov, prho, iar, ospvar, phi, work, &
 !    for selecting order.   The routine is modeled after
 !    subroutine UFPE written by Dick Jones.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -9407,16 +9527,18 @@ subroutine aoslst ( prho, aic, ftest, lagmax, laic, iar, phi, &
 !    This routine lists the autoregressive model order selection
 !    statistics.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -9555,20 +9677,22 @@ subroutine aov1er ( y, tag, n, igstat, nztags, ng, ldstak, nmsub, &
 !    This routine does preliminary checking for errors in the input
 !    parameters of the oneway family.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     logical error
 !        set true if the error checking routine found any errors
@@ -9632,7 +9756,7 @@ subroutine aov1er ( y, tag, n, igstat, nztags, ng, ldstak, nmsub, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   integer &
      i,j,ldsmin,nv
@@ -9775,13 +9899,13 @@ subroutine aov1er ( y, tag, n, igstat, nztags, ng, ldstak, nmsub, &
 
   return
 
- 1000 format(/' note.  the value of ldstak mentioned above is the', &
-    ' minimum necessary'/ &
-    ' to continue checking for errors and', &
-    ' to calculate the correct value'/ &
-    ' of ldstak.  the correct', &
-    ' value will be larger.  consult the documentation'/ &
-    ' for the formulas used to calculate ldstak.')
+!1000 format(/' note.  the value of ldstak mentioned above is the', &
+!   ' minimum necessary'/ &
+!   ' to continue checking for errors and', &
+!   ' to calculate the correct value'/ &
+!   ' of ldstak.  the correct', &
+!   ' value will be larger.  consult the documentation'/ &
+!   ' for the formulas used to calculate ldstak.')
 end
 subroutine aov1 ( y, tag, n, ldstak )
 
@@ -9797,22 +9921,24 @@ subroutine aov1 ( y, tag, n, ldstak )
 !    3. calls aov1mn to compute a comprehensive set of results for a
 !    oneway analysis of variance with automatic printout.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
 !     integer b10
 !        starting location in the stack area for b10
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer dtmean
 !        the starting location in the stack area for the means
@@ -9890,7 +10016,7 @@ subroutine aov1 ( y, tag, n, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   integer &
      b10,dtmean,dtsd,dtsize,gpmax,gpmin,ifp,index,int, &
@@ -9979,16 +10105,18 @@ subroutine aov1hd ( )
 !    A subroutine to print out the heading for the one-way ANOVA
 !    family, and is the only source for headings in that family.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    02 December 2006 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -10022,16 +10150,18 @@ subroutine aov1mn ( y, tag, n, tvalue, tsize, tmean, tsd, nprt, &
 !    tag values can be any value where all measurements with tag
 !    values less than or equal to zero are excluded from analysis.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, David Hogben,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -10882,22 +11012,24 @@ subroutine aov1s ( y, tag, n, ldstak, nprt, gstat, igstat, ng )
 !    3. calls aov1mn to compute a comprehensive set of results for a
 !       oneway analysis of variance with optional output.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
 !     integer b10
 !        starting location in the stack area for b10
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer gpmax
 !        the starting location in the stack area of maximum
@@ -10969,7 +11101,7 @@ subroutine aov1s ( y, tag, n, ldstak, nprt, gstat, igstat, ng )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   integer &
      b10,gpmax,gpmin,ifp,index,int,itemp,nall0,nztags, &
@@ -11055,16 +11187,18 @@ subroutine aov1xp ( gstat, igstat, ng )
 !
 !    Print storage for oneway family exerciser and clear storage vectors
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -11114,16 +11248,18 @@ subroutine arcoef ( acov, phi, rss, lag, lagmax, acov0 )
 !    the autoregressive coefficients of an order LAG process,
 !    given on input the coefficients of an order (LAG-1) process.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -11198,16 +11334,18 @@ subroutine arflt ( y, n, iar, phi, yf, nyf )
 !    This routine performs the autoregressive filtering
 !    operation defined by PHI, returning the filtered series in YF.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -11339,13 +11477,18 @@ subroutine assess ( d, iv, p, step, stlstg, v, x, x0 )
 !    change the stopping tolerances and call ASSESS again, in which
 !    case the stopping tests will be repeated.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    04 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -11983,16 +12126,18 @@ subroutine axpby ( n, sa, sx, incx, sb, sy, incy, sz, incz )
 !    and ly and lz are defined in a similar way using incy and incz,
 !    respectively.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -12066,16 +12211,18 @@ subroutine backop ( mspec, nfac, npardf, mbol, mbo, nparma, nparar )
 !
 !! BACKOP computes the number of back order terms for an ARIMA model.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -12123,15 +12270,18 @@ function betai ( x, pin, qin )
 !
 !! BETAI computes the incomplete Beta ratio.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Wayne Fullerton,
-!    Los Alamos National Laboratory,
-!    Los Alamos, New Mexico.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -12305,16 +12455,18 @@ subroutine bfsdrv ( y1, y2, ymiss1, ymiss2, ccov, nlppc, spcf1, &
 !
 !! BFSDRV is the driver for time series Fourier spectrum analysis.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -12700,16 +12852,18 @@ subroutine bfser ( nmsub, n, lagmax, iccov, jccov, inlppc, jnlppc, &
 !
 !! BFSER checks errors for time series Fourier univariate spectrum analysis.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -12964,16 +13118,18 @@ subroutine bfs ( y1, y2, n )
 !
 !! BFS: short interface for time series Fourier bivariate spectrum analysis.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -13162,16 +13318,18 @@ subroutine bfsf ( yfft1, yfft2, n, lyfft, ldstak )
 !
 !! BFSF: short interface for time series Fourier bivariate spectrum analysis.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -13187,7 +13345,7 @@ subroutine bfsf ( yfft1, yfft2, n, lyfft, ldstak )
 !        the squared coherency component of the bivariate spectra.
 !     real delta
 !        the sampling interval.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fmax, fmin
 !        the maximum and minimum frequency at which the
@@ -13304,7 +13462,7 @@ subroutine bfsf ( yfft1, yfft2, n, lyfft, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -13419,16 +13577,18 @@ subroutine bfsfs ( yfft1, yfft2, n, lyfft, ldstak, nw, lags, nf, &
 !
 !! BFSFS: long interface for time series Fourier bivariate spectrum analysis.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -13447,7 +13607,7 @@ subroutine bfsfs ( yfft1, yfft2, n, lyfft, ldstak, nw, lags, nf, &
 !        the squared coherency component of the bivariate spectra.
 !     real delta
 !        the sampling interval.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fmax, fmin
 !        the maximum and minimum frequency at which the
@@ -13575,7 +13735,7 @@ subroutine bfsfs ( yfft1, yfft2, n, lyfft, ldstak, nw, lags, nf, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -13723,16 +13883,18 @@ subroutine bfslag ( ccov, lagmax, lags, n, nw, nwused, iccov, &
 !
 !! BFSLAG: lag window truncation points for Fourier bivariate spectral analysis.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -13880,16 +14042,18 @@ subroutine bfsm ( y1, ymiss1, y2, ymiss2, n )
 !    Fourier spectrum analysis of series with missing observations
 !    (short call)
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -14094,16 +14258,18 @@ subroutine bfsmn ( spcf1, spcf2, ceven, codd, w, lw, lag, df, nprt, &
 !
 !! BFSMN computes square coherency and phase components of a bivariate spectrum.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Steven Keefer,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -14348,16 +14514,18 @@ subroutine bfsms ( y1, ymiss1, y2, ymiss2, n, nw, lags, nf, fmin, &
 !    Fourier spectrum analysis of series with missing observations
 !    (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -14376,7 +14544,7 @@ subroutine bfsms ( y1, ymiss1, y2, ymiss2, n, nw, lags, nf, fmin, &
 !        the squared coherency component of the bivariate spectra.
 !     real delta
 !        the sampling interval.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fmax, fmin
 !        the maximum and minimum frequency at which the
@@ -14502,7 +14670,7 @@ subroutine bfsms ( y1, ymiss1, y2, ymiss2, n, nw, lags, nf, fmin, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -14658,16 +14826,18 @@ subroutine bfsmv ( ccov, nlppc, index1, index2, n, lagmax, iccov, &
 !    and covariances input rather than original series
 !    (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -14871,16 +15041,18 @@ subroutine bfsmvs ( ccov, nlppc, index1, index2, n, iccov, jccov, &
 !    with user input of the covariances rather than the series
 !    (long call)
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -14898,7 +15070,7 @@ subroutine bfsmvs ( ccov, nlppc, index1, index2, n, iccov, jccov, &
 !        the squared coherency component of the bivariate spectra.
 !     real delta
 !        the sampling interval.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fmax, fmin
 !        the maximum and minimum frequency at which the
@@ -15027,7 +15199,7 @@ subroutine bfsmvs ( ccov, nlppc, index1, index2, n, iccov, jccov, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -15161,16 +15333,18 @@ subroutine bfss ( y1, y2, n, nw, lags, nf, fmin, fmax, nprt, cspc2, &
 !
 !! BFSS: long call for time series bivariate Fourier spectrum analysis.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -15189,7 +15363,7 @@ subroutine bfss ( y1, y2, n, nw, lags, nf, fmin, fmax, nprt, cspc2, &
 !        the squared coherency component of the bivariate spectra.
 !     real delta
 !        the sampling interval.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fmax, fmin
 !        the maximum and minimum frequency at which the
@@ -15316,7 +15490,7 @@ subroutine bfss ( y1, y2, n, nw, lags, nf, fmin, fmax, nprt, cspc2, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -15477,16 +15651,18 @@ subroutine bfsv ( ccov, index1, index2, n, lagmax, iccov, jccov )
 !    covariances input rather than original series
 !    (short call)
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -15685,16 +15861,18 @@ subroutine bfsvs ( ccov, index1, index2, n, iccov, jccov, &
 !    user input of the covariances rather than the series
 !    (long call)
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -15712,7 +15890,7 @@ subroutine bfsvs ( ccov, index1, index2, n, iccov, jccov, &
 !        the squared coherency component of the bivariate spectra.
 !     real delta
 !        the sampling interval.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fmax, fmin
 !        the maximum and minimum frequency at which the
@@ -15838,7 +16016,7 @@ subroutine bfsvs ( ccov, index1, index2, n, iccov, jccov, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -15970,16 +16148,18 @@ subroutine ccfer ( nmsub, n, lagmax, ldstak, ldsmin, iccov, jccov, &
 !
 !! CCFER does error checking for CCF routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -16182,16 +16362,18 @@ subroutine ccf ( y1, y2, n )
 !    This is the user callable routine for computing the cross
 !    correlations of two time series (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -16364,22 +16546,24 @@ subroutine ccff ( yfft1, yfft2, n, lyfft, ldstak )
 !    correlations of two time series using the singleton fft
 !    (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
 !     real ccov(101, 2, 2)
 !        the ccvf matrix.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer iccov
 !        the actual first dimension of the array ccov, as
@@ -16462,7 +16646,7 @@ subroutine ccff ( yfft1, yfft2, n, lyfft, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -16594,22 +16778,24 @@ subroutine ccffs ( ymfft, n, m, iymfft, lagmax, &
 !    correlations and covariances of a multivariate series using the
 !    Singleton FFT (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
 !     real ccov(iccov, jccov, m)
 !        the cross covariance matrix.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer iccov
 !        the actual first dimension of the array ccov, as
@@ -16720,7 +16906,7 @@ subroutine ccffs ( ymfft, n, m, iymfft, lagmax, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer &
@@ -16877,16 +17063,18 @@ subroutine ccflst ( rhoc, sdrhoc, nlpp12, nlpp21, lagmax, lccov, &
 !
 !! CCFLST lists cross-correlations, standard errors, and summary information.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -17035,16 +17223,18 @@ subroutine ccfm ( y1, y1miss, y2, y2miss, n )
 !
 !! CCFM computes cross-correlation of two series with missing data.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -17233,16 +17423,18 @@ subroutine ccfmn ( y1, y2, n, lagmax, ncc, ccov11, ccov22, ccov12, &
 !
 !! CCFMN is the main routine for cross-correlations.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -17337,16 +17529,18 @@ subroutine ccfmnf ( y1, y2, n, nfft, lagmax, ncc, ccov11, ccov22, &
 !
 !! CCFMNF is the main routine for cross-correlations using an FFT.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -17447,16 +17641,18 @@ subroutine ccfmnm ( y1, y1miss, y2, y2miss, n, lagmax, ncc, &
 !
 !! CCFMNM is the main routine for cross-correlations with missing data.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -17569,16 +17765,18 @@ subroutine ccfms ( ym, ymmiss, n, m, iym, lagmax, ccov, &
 !
 !! CCFMS is a user routine for multivariate cross-correlations.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -17586,7 +17784,7 @@ subroutine ccfms ( ym, ymmiss, n, m, iym, lagmax, ccov, &
 !        the cross covariance matrix.
 !     real cmiss
 !        the missing value code for the ccvf estimates.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fplm
 !        the floating point largest magnitude.
@@ -17712,7 +17910,7 @@ subroutine ccfms ( ym, ymmiss, n, m, iym, lagmax, ccov, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -17875,16 +18073,18 @@ subroutine ccfout ( j, ymeanj, ysdj, nj, nusedj, k, ymeank, ysdk, &
 !
 !! CCFOUT prints cross-correlations and standard errors.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -18036,16 +18236,18 @@ subroutine ccfsd ( ccov11, ccov22, sdrhoc, lagmax, ncc, n, iccov )
 !
 !! CCFSD is the main routine for computing standard error of cross-correlations.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -18121,16 +18323,18 @@ subroutine ccfsdm ( ccov11, ccov22, sdrhoc, lagmax, ncc, laglst, n, &
 !
 !! CCFSDM: standard error of cross-correlations with missing data.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    19 May 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -18236,22 +18440,24 @@ subroutine ccfs ( ym, n, m, iym, lagmax, ccov, iccov, jccov, &
 !    This is the user callable routine for computing the cross
 !    correlations and covariances of a multivariate series (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
 !     real ccov(iccov, jccov, m)
 !        the cross covariance matrix.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer iccov
 !        the actual first dimension of the array ccov, as
@@ -18358,7 +18564,7 @@ subroutine ccfs ( ym, n, m, iym, lagmax, ccov, iccov, jccov, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   integer &
      i,ifp,inlppc,io,iymfft,j,jnlppc,k,ldsmin,lyfft,nall0, &
@@ -18501,16 +18707,18 @@ subroutine ccfxp ( store, lagmax, m, ccov, iccov, jccov, miss, &
 !
 !! CCFXP lists results for the time series cross-correlation routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -18686,16 +18894,18 @@ subroutine ccvf ( y1, y2, n, lagmax, y1mean, y2mean, ccov12, ccov21, iccov )
 !
 !! CCVF computes the cross covariance function between two series.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -18768,16 +18978,18 @@ subroutine ccvff ( yfft1, yfft2, n, nfft, lagmax, ccov12, ccov21, &
 !
 !! CCVFF computes the cross covariance function between two series.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -18869,16 +19081,18 @@ subroutine ccvfm ( y1, y1miss, y2, y2miss, n, nc, y1mean, y2mean, &
 !
 !! CCVFM computes the cross covariance function of two series with missing data.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -18979,16 +19193,18 @@ function cdfchi ( chisqr, df )
 !    chapter 17 of distributions in statistics - continuous univariate
 !    distributions - 1, by Johnson and Kotz.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -19006,7 +19222,6 @@ function cdfchi ( chisqr, df )
   real df
   real fplpm
   real gami
-  real gamma
   logical mvchk
 
   fplpm = huge ( fplpm )
@@ -19053,16 +19268,18 @@ function cdff ( f, df1, df2 )
 !        on page 84 of distributions in statistics - continuous
 !        univariate distributions - 2, by johnson and kotz.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -19159,16 +19376,18 @@ function cdfnml ( x )
 !    of distributions in statistics - continuous univariate
 !    distributions - 1, by Johnson and Kotz.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -19178,10 +19397,9 @@ function cdfnml ( x )
   implicit none
 
   real cdfnml
-  real erf
   real x
 
-  cdfnml = 0.5e0 * (1.0e0 +  erf(x/sqrt(2.0e0)))
+  cdfnml = 0.5e0 * (1.0e0 +  erf (x/sqrt(2.0e0)))
 
   return
 end
@@ -19435,16 +19653,18 @@ subroutine center ( y, n, yc )
 !    This is the user routine for centering the observed series Y,
 !    returning the centered series in YC.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -19531,16 +19751,18 @@ subroutine chirho ( rho, n, nc, chi, chip )
 !    This routine computes the chi squared statistic and its
 !    probability based in a vector of autocorrelations.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -19584,16 +19806,18 @@ subroutine cmpfd ( n, stp, pvstp, pv, fd )
 !    assuming that if the difference between pvstp(i) and pv(i) is
 !    small enough the derivative is zero.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -19650,16 +19874,18 @@ subroutine cntr ( y, n, yc )
 !    This routine centers the input series Y about its mean,
 !    returning the centered series in YC.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -19703,16 +19929,18 @@ subroutine correr ( nmsub, m, n, iym, ivcv, ldstak, icor, nprt )
 !    This routine checks for errors in the input parameters.
 !    If any are found a flag is set and computation stops.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -19865,16 +20093,18 @@ subroutine corr ( ym, n, m, iym, ldstak )
 !    vectors needed and calls the main routine CORRMN to
 !    do the correlation analysis.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -19887,7 +20117,7 @@ subroutine corr ( ym, n, m, iym, ldstak )
 !     integer ciup
 !                  occupies the same space as slsc and is the upper
 !                  confidence interval
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !                  the double precision version of
 !                  the /cstak/ work area.
 !     integer icor
@@ -19988,7 +20218,7 @@ subroutine corr ( ym, n, m, iym, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   integer &
      avg,cilo,ciup,icor,ifp,iwrk,liwrk,lwrk,nall0,nprt,pc, &
@@ -20094,16 +20324,18 @@ subroutine corrhd ( m, n )
 !
 !! CORRHD prints headers for the correlation family.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -20148,16 +20380,18 @@ subroutine corrmn ( ym, n, m, iym, avg, sd, t, rank, sc, pc, scinv, &
 !      quadratic relationship,
 !      95 and 99 percent confidence intervals.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -20642,16 +20876,18 @@ subroutine corrs ( ym, n, m, iym, ldstak, nprt, vcv, ivcv )
 !    for the vectors needed and calls the main routine, corrmn, to do
 !    the correlation analysis.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -20664,7 +20900,7 @@ subroutine corrs ( ym, n, m, iym, ldstak, nprt, vcv, ivcv )
 !     integer ciup
 !                  occupies the same space as slsc and is the upper
 !                  confidence interval
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !                  the double precision version of
 !                  the /cstak/ work area.
 !     integer icor
@@ -20766,7 +21002,7 @@ subroutine corrs ( ym, n, m, iym, ldstak, nprt, vcv, ivcv )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   integer &
      avg,cilo,ciup,icor,ifp,iwrk,liwrk,lwrk,nall0,pc,qf, &
@@ -20878,16 +21114,18 @@ subroutine corrxp ( m, vcv, ivcv )
 !
 !! CORRXP prints stored output returned from CORRS.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -20943,9 +21181,18 @@ subroutine covclc ( covirc, d, iv, j, n, nn, p, r, v, x )
 !      K = 2:       SCALE * inverse ( H );
 !      K >= 3:      SCALE * inverse ( J' * J ).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    13 April 2006
+!    22 October 2024
+!
+!  Author:
+!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -21502,16 +21749,18 @@ subroutine cpyasf ( m, x, lx, y, iy )
 !
 !! CPYASF copies a symmetric matrix stored rowwise into rectangular storage.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -21554,16 +21803,18 @@ subroutine cpymss ( n, m, x, ix, y, iy )
 !
 !! CPYMSS copies an N by M matrix.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    28 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -21611,16 +21862,18 @@ subroutine cpyvii ( n, x, incx, y, incy )
 !    where lx = 1 if incx  >=  0, else lx = (-incx)*n, and ly is
 !    defined in a similar way using incy.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -21651,7 +21904,18 @@ subroutine cpyvii ( n, x, incx, y, incy )
      i,ix,iy,m,ns
 
   if(n <= 0)return
-  if(incx == incy) if(incx-1) 5,20,60
+
+  if(incx == incy) then
+!   if(incx-1) 5,20,60
+    if ( incx < 1 ) then
+      go to 5
+    else if ( incx == 1 ) then
+      go to 20
+    else
+      go to 60
+    end if
+  end if
+
     5 continue
 !
 !  code for unequal or nonpositive increments.
@@ -21718,15 +21982,18 @@ function csevl ( x, cs, n )
 !    chebyshev polys in numerical analysis, 
 !    oxford press, p.56.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Wayne Fullerton,
-!    Los Alamos National Laboratory,
-!    Los Alamos, New Mexico.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -21790,13 +22057,18 @@ function d1mach ( i )
 !      D1MACH(4) = B**(1-T), the largest relative spacing.
 !      D1MACH(5) = log10(B).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Phyllis Fox, Andrew Hall, Norman Schryer
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -21856,16 +22128,18 @@ subroutine dckcnt ( xm, n, m, ixm, mdl, drv, par, npar, neta, ntau, &
 !
 !! DCKCNT controls the derivative checking process.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -21876,7 +22150,7 @@ subroutine dckcnt ( xm, n, m, ixm, mdl, drv, par, npar, neta, ntau, &
 !     external drv
 !        the name of the user supplied subroutine which computes the
 !        analytic derivatives (jacobian matrix) of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer dtemp
 !        the starting location in the work area in which
@@ -22023,7 +22297,7 @@ subroutine dckcnt ( xm, n, m, ixm, mdl, drv, par, npar, neta, ntau, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   real &
      d,eta,fplrs,pv,scl,tau
@@ -22158,16 +22432,18 @@ subroutine dckcrv ( j, d, par, npar, eta, tau, mdl, xm, n, &
 !    This routine checks whether high curvature could be the cause
 !    of the disagreement between the numerical and analytic derivatives
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Robert Schnabel,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -22363,16 +22639,18 @@ subroutine dckdrv ( nmsub, ldstak, xm, n, m, ixm, mdl, &
 !
 !! DCKDRV is the driver to the derivative checking routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -22381,7 +22659,7 @@ subroutine dckdrv ( nmsub, ldstak, xm, n, m, ixm, mdl, &
 !     external drv
 !        the name of the user supplied subroutine which computes the
 !        analytic derivatives (jacobian matrix) of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     logical hlfrpt
 !        the variable which indicates whether the derivative
@@ -22468,7 +22746,7 @@ subroutine dckdrv ( nmsub, ldstak, xm, n, m, ixm, mdl, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer &
@@ -22517,17 +22795,18 @@ subroutine dcker( nmsub, n, m, ixm, npar, ldstak, scale, lscale )
 !
 !! DCKER does error checking for the derivative checking routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -22667,17 +22946,18 @@ subroutine dckfpa( j, d, par, npar, eta, tau, mdl, xm, n, &
 !
 !! DCKFPA checks if arithmetic precision causes poor derivative approximation.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Robert Schnabel,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -22843,17 +23123,18 @@ subroutine dckhdr ( page, wide, isubhd )
 !
 !! DCKHDR prints page headers for the derivative checking routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -22900,16 +23181,18 @@ subroutine dckls1( n, m, ixm, par, npar, neta, ntau, nrow, scale, nprt )
 !
 !! DCKLS1 sets up a problem for testing the step size selection family.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -22979,24 +23262,25 @@ subroutine dcklsc ( xm, n, m, ixm, mdl, drv, par, npar, ldstak, &
 !    analytic derivatives against numerical derivatives
 !    for the nonlinear least squares routines (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
 !     external drv
 !        the name of the user supplied subroutine which computes the
 !        analytic derivatives (jacobian matrix) of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value returned by this routine designating
@@ -23058,7 +23342,7 @@ subroutine dcklsc ( xm, n, m, ixm, mdl, drv, par, npar, ldstak, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   integer lscale
 !
@@ -23099,24 +23383,25 @@ subroutine dckls ( xm, n, m, ixm, mdl, drv, par, npar, ldstak )
 !    analytic derivatives against numerical derivatives
 !    for the nonlinear least squares routines (short call).
 !
+!!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
 !     external drv
 !        the name of the user supplied subroutine which computes the
 !        analytic derivatives (jacobian matrix) of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value returned by this routine designating
@@ -23179,7 +23464,7 @@ subroutine dckls ( xm, n, m, ixm, mdl, drv, par, npar, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   integer lscale,neta,nprt,nrow,ntau
 !
@@ -23224,17 +23509,18 @@ subroutine dckmn ( j, d, par, scale, npar, eta, tau, mdl, xm, &
 !
 !! DCKMN is the main routine for checking analytic versus numeric derivatives.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Robert Schnabel,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -23379,16 +23665,18 @@ subroutine dckout ( xm, ixm, n, m, nrow, neta, ntau, npar, msg, &
 !
 !! DCKOUT prints results from the derivative checking routine.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -23643,16 +23931,18 @@ subroutine dckzro ( j, par, npar, mdl, xm, n, nrow, m, ixm, pv, &
 !    difference derivative disagrees with the analytic derivative and t
 !    analytic derivative is zero.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Robert Schnabel,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -23792,16 +24082,18 @@ subroutine dcoef ( ndf, nd, iod, npardf, pardf, mbo, work )
 !    This routine expands the difference filter specified by ndf,
 !    iod and nd into pardf.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -23895,18 +24187,18 @@ subroutine demdrv ( y, n, fd, fc, k, hlp, ampl, phase, iphase, &
 !    frequency fc, and to extract the amplitude and phase components
 !    of the resulting filtered series .
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    30 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Peter Bloomfield
-!
-!    Adapted by Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -23987,18 +24279,18 @@ subroutine demod ( y, n, fd, fc, k, ldstak )
 !    frequency fc, and to extract the amplitude and phase components
 !    of the resulting filtered series (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    30 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Peter Bloomfield
-!
-!    Adapted by Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -24011,7 +24303,7 @@ subroutine demod ( y, n, fd, fc, k, ldstak )
 !     integer ampl
 !        the starting location in rstak/dstak of
 !        the array in which the amplitudes are stored.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     logical err01, err02, err03, err04, err05, err06, err07
 !        values indicating whether an error was detected (true) or not
@@ -24083,7 +24375,7 @@ subroutine demod ( y, n, fd, fc, k, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -24226,18 +24518,18 @@ subroutine demods ( y, n, fd, fc, k, ampl, phas, ndem, nprt, ldstak )
 !    frequency fc, and to extract the amplitude and phase components
 !    of the resulting filtered series (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    30 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Peter Bloomfield
-!
-!    Adapted by Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -24249,7 +24541,7 @@ subroutine demods ( y, n, fd, fc, k, ampl, phas, ndem, nprt, ldstak )
 !
 !     real ampl(n)
 !        the array in which the amplitudes are stored.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     logical err01, err02, err03, err04, err05, err06, err07
 !        value(s) indicating whether an error was detected (true) or not
@@ -24327,7 +24619,7 @@ subroutine demods ( y, n, fd, fc, k, ampl, phas, ndem, nprt, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -24481,18 +24773,18 @@ subroutine demodu ( y, n, fd, ampl, phas )
 !    fd.  the real and imaginary parts of the demodulated
 !    series are returned in ampl and phas, respectively.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    30 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Peter Bloomfield
-!
-!    Adapted by Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -24555,16 +24847,18 @@ subroutine demord ( phas1, phas2, ndem, n )
 !
 !! DEMORD sets up the data for the phase plots.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -24611,16 +24905,18 @@ subroutine demout ( fd, fc, k, ampl, phase, iphase, ndem, nmsub )
 !
 !! DEMOUT prints output for the time series demodulation routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -24726,13 +25022,18 @@ subroutine dfault ( iv, v )
 !    Only entries in the first 25 positions of IV and the first 45
 !    positions of V are reset.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    05 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -24843,16 +25144,18 @@ subroutine dfbw ( n, lag, w, lw, df, bw )
 !
 !! DFBW computes degrees of freedom and bandwidth for a given lag window.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -24908,16 +25211,18 @@ subroutine dfbwm ( n, lag, w, lw, nlppa1, nlppa2, lnlppa, df, bw )
 !    freedom and bandwidth for a given lag window when missing data are
 !    involved.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -24981,20 +25286,22 @@ subroutine difc ( y, n, nfac, nd, iod, iar, phi, lphi, yf, nyf, ldstak )
 !    iod and nd into phi and performs the difference filtering
 !    operation defined by phi, returning the filtered series in yf.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     logical err01, err02, err03, err04
 !        value(s) indicating whether an error was detected (true) or not
@@ -25063,7 +25370,7 @@ subroutine difc ( y, n, nfac, nd, iod, iar, phi, lphi, yf, nyf, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer ldsmin,nall0,work
@@ -25184,16 +25491,18 @@ subroutine dif ( y, n, yf, nyf )
 !
 !! DIF performs a first difference filtering operation.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -25301,20 +25610,22 @@ subroutine difmc ( y, ymiss, n, nfac, nd, iod, iar, phi, lphi, yf, &
 !    operation defined by PHI on a series containing missing data,
 !    returning the filtered series in YF.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     logical err01, err02, err03, err04
 !        values indicating whether an error was detected (true) or not
@@ -25392,7 +25703,7 @@ subroutine difmc ( y, ymiss, n, nfac, nd, iod, iar, phi, lphi, yf, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer ldsmin,nall0,work
@@ -25520,16 +25831,18 @@ subroutine difm ( y, ymiss, n, yf, yfmiss, nyf )
 !    returning the filtered series in yf, for an input series
 !    containing missing values.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -25642,16 +25955,18 @@ subroutine difser ( y, n, ndf, nd, iod, ydiff, ndiff )
 !    defined by nd, iod and ndf on the series y, resulting in
 !    the series ydiff.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -25711,16 +26026,18 @@ subroutine dotc ( y, ymean, ny, x, xmean, nx, dotxy, ndotxy )
 !
 !! DOTC computes the dot product of two series, centered about their means.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -25779,16 +26096,18 @@ subroutine dotcm ( y, ymean, ymiss, ny, x, xmean, xmiss, nx, dotxy, ndotxy )
 !
 !    The series are centered about their respective means.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -25858,13 +26177,18 @@ function dotprd ( p, x, y )
 !
 !! DOTPRD returns the inner product of two vectors.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    04 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -25925,16 +26249,18 @@ subroutine drv1a ( coef, ncoef, xm, n, m, ixm, d )
 !
 !! DRV1A derivative function for NLS family exerciser subroutine MDL1.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -25973,16 +26299,18 @@ subroutine drv1b ( par, npar, xm, n, m, ixm, d )
 !
 !! DRV1B is an INCORRECT derivative function for the NLS exerciser MDL1.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -26023,16 +26351,18 @@ subroutine drv2 ( par, npar, xm, n, m, ixm, d )
 !
 !! DRV2 is a derivative function for the NLS exerciser routine MD12.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -26073,16 +26403,18 @@ subroutine drv3 ( par, npar, xm, n, m, ixm, d )
 !
 !! DRV3 is the derivative function for NLS family exerciser subroutine MDL3.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -26122,17 +26454,18 @@ subroutine drv4a ( coef, ncoef, xm, n, m, ixm, d )
 !
 !! DRV4A is a (correct) derivative for testing derivative checking routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -26184,16 +26517,18 @@ subroutine drv4b ( coef, ncoef, xm, n, m, ixm, d )
 !
 !! DRV4B is an (incorrect) derivative for testing derivative checking routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -26252,16 +26587,18 @@ subroutine drv ( par, npar, xm, n, m, ixm, d )
 !    The user's routine would return the information defining the problem
 !    being studied.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    19 May 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -26306,13 +26643,18 @@ subroutine dupdat ( d, iv, j, n, nn, p, v )
 !
 !! DUPDAT updates the scale vector for NL2ITR.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    05 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -26494,16 +26836,18 @@ subroutine ecvf ( nmsub )
 !    the last covariance computed before one was not computed
 !    due to missing data does not exceed zero.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -26545,16 +26889,18 @@ subroutine ehdr ( nmsub, head )
 !
 !! EHDR prints the heading for the error checking routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -26607,16 +26953,18 @@ subroutine eiage ( nmsub, nmvar, ym, n, m, iym, ymmn, nvmx, &
 !    with msgtyp.  if an error is found, the error is printed and
 !    an error flag and the number of violatins are returned.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -26710,16 +27058,18 @@ subroutine eiagep ( nmsub, nmvar, ymmn, nvmx, head, msgtyp, nv, nmmin )
 !
 !! EIAGEP prints the error messages for ERAGT and ERAGTM.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -26818,16 +27168,18 @@ subroutine eiseq ( nmsub, nmvar1, nval, neq, msgtyp, head, error, nmvar2 )
 !
 !    This is a surprisingly cumbersome routine for such a simple task!
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -26908,16 +27260,18 @@ subroutine eisge( nmsub, nmvar1, nval, nmin, msgtyp, head, error, nmvar2 )
 !    This routine checks whether the value   nval   is greater than
 !    or equal to   nmin   and prints a diagnostic if it is not.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -27096,16 +27450,18 @@ subroutine eisii ( nmsub, nmvar, ival, ivalmn, ivalmx, msgtyp, &
 !    the range ivalmn (inclusive) to ivalmx (inclusive), and prints a
 !    diagnostic if it is not.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -27209,16 +27565,18 @@ subroutine eisle ( nmsub, nmvar1, nval, nmax, msgtyp, head, error, &
 !    This routine checks whether the value   nval   is less than
 !    or equal to   nmax   and prints a diagnostic if it is not.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -27309,16 +27667,18 @@ subroutine eisrng ( nmsub, iseed, iseedu, head )
 !       iseedu = min[ abs(iseed)-mod(abs(iseed),2)+1, 2**(mdig-1)-1]
 !                and an error message is printed.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -27399,16 +27759,18 @@ subroutine eiveo ( nmsub, nmvar, ivec, n, even, head )
 !    vector ivec are even (or odd) and prints a
 !    diagnostic if they are not.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -27482,16 +27844,18 @@ subroutine eiveq ( nmsub, nmvar1, ivec, n, ival, neqmn, head, neq, &
 !
 !! EIVEQ warns if the vector does not have at least NEQMN entries equal to IVAL.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -27596,16 +27960,18 @@ subroutine eivii ( nmsub, nmvar, ivec, n, iveclb, ivecub, nvmx, &
 !    number of violations allowed, and returns the number of
 !    violations and an error flag indicating the results.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -27738,16 +28104,18 @@ subroutine enfft ( nmsub, nfft, ndiv, n, lyfft, nfft2, head, error )
 !    using the singleton fft providing the proper value of ndiv
 !    is chosen.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -27842,16 +28210,18 @@ subroutine eprint ( )
 !
 !! EPRINT prints the last error message, if any.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -27876,16 +28246,18 @@ subroutine eragt ( nmsub, nmvar, ym, n, m, iym, ymmn, nvmx, &
 !    with msgtyp.  if an error is found, the error is printed and
 !    an error flag and the number of violatins are returned.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -27989,16 +28361,18 @@ subroutine eragtm ( nmsub, nmvar, ym, ymmiss, n, m, iym, ymmn, &
 !    an error flag and the number of violatins are returned.
 !    elements of ym(*, i) equal to ymmiss(i) are exempt from checking.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -28098,16 +28472,18 @@ subroutine eragtp ( nmsub, nmvar, ymmn, nvmx, head, msgtyp, nv, nmmin )
 !
 !! ERAGTP prints the error messages for ERAGT and ERAGTM.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -28204,16 +28580,18 @@ subroutine erdf ( nmsub, ndf, iod, nd, n, head, error )
 !
 !! ERDF checks the values that specify differencing on a time series.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -28302,263 +28680,6 @@ subroutine erdf ( nmsub, ndf, iod, nd, n, head, error )
      ' must be less than or equal to n-1.  the computed value for'/ &
      ' mbod is ', i6, ', while the input value for n is ', i6, '.')
 end
-function erfc ( x )
-
-!*****************************************************************************80
-!
-!! ERFC evaluates the complementary error function.
-!
-!  Modified:
-!
-!    24 April 2006
-!
-!  Author:
-!
-!    Wayne Fullerton,
-!    Los Alamos National Laboratory,
-!    Los Alamos, New Mexico.
-!
-!  variable declarations
-!
-  implicit none
-
-  real erfc
-  real x
-!
-!
-  real eta,sqeps,sqrtpi,xmax,xsml,y
-  integer nterc2,nterf,nterfc
-!
-!  local arrays
-  real erc2cs(23),erfccs(24),erfcs(13)
-!
-!  external functions
-  real csevl
-  integer inits
-  external csevl,inits
-!
-!
-! series for erf        on the interval  0.          to  1.00000d+00
-!                                        with weighted error   7.10e-18
-!                                         log weighted error  17.15
-!                               significant figures required  16.31
-!                                    decimal places required  17.71
-!
-  data erfcs( 1) /   -.049046121234691808e0 /
-  data erfcs( 2) /   -.14226120510371364e0 /
-  data erfcs( 3) /    .010035582187599796e0 /
-  data erfcs( 4) /   -.000576876469976748e0 /
-  data erfcs( 5) /    .000027419931252196e0 /
-  data erfcs( 6) /   -.000001104317550734e0 /
-  data erfcs( 7) /    .000000038488755420e0 /
-  data erfcs( 8) /   -.000000001180858253e0 /
-  data erfcs( 9) /    .000000000032334215e0 /
-  data erfcs(10) /   -.000000000000799101e0 /
-  data erfcs(11) /    .000000000000017990e0 /
-  data erfcs(12) /   -.000000000000000371e0 /
-  data erfcs(13) /    .000000000000000007e0 /
-!
-! series for erfc       on the interval  0.          to  2.50000d-01
-!                                        with weighted error   4.81e-17
-!                                         log weighted error  16.32
-!                        approx significant figures required  15.0
-! series for erc2       on the interval  2.50000d-01 to  1.00000d+00
-!                                        with weighted error   5.22e-17
-!                                         log weighted error  16.28
-!                        approx significant figures required  15.0
-!                                    decimal places required  16.96
-!
-  data erc2cs( 1) /   -.069601346602309501e0 /
-  data erc2cs( 2) /   -.041101339362620893e0 /
-  data erc2cs( 3) /    .003914495866689626e0 /
-  data erc2cs( 4) /   -.000490639565054897e0 /
-  data erc2cs( 5) /    .000071574790013770e0 /
-  data erc2cs( 6) /   -.000011530716341312e0 /
-  data erc2cs( 7) /    .000001994670590201e0 /
-  data erc2cs( 8) /   -.000000364266647159e0 /
-  data erc2cs( 9) /    .000000069443726100e0 /
-  data erc2cs(10) /   -.000000013712209021e0 /
-  data erc2cs(11) /    .000000002788389661e0 /
-  data erc2cs(12) /   -.000000000581416472e0 /
-  data erc2cs(13) /    .000000000123892049e0 /
-  data erc2cs(14) /   -.000000000026906391e0 /
-  data erc2cs(15) /    .000000000005942614e0 /
-  data erc2cs(16) /   -.000000000001332386e0 /
-  data erc2cs(17) /    .000000000000302804e0 /
-  data erc2cs(18) /   -.000000000000069666e0 /
-  data erc2cs(19) /    .000000000000016208e0 /
-  data erc2cs(20) /   -.000000000000003809e0 /
-  data erc2cs(21) /    .000000000000000904e0 /
-  data erc2cs(22) /   -.000000000000000216e0 /
-  data erc2cs(23) /    .000000000000000052e0 /
-!
-!                                    decimal places required  17.01
-!
-  data erfccs( 1) /   0.0715179310202925e0 /
-  data erfccs( 2) /   -.026532434337606719e0 /
-  data erfccs( 3) /    .001711153977920853e0 /
-  data erfccs( 4) /   -.000163751663458512e0 /
-  data erfccs( 5) /    .000019871293500549e0 /
-  data erfccs( 6) /   -.000002843712412769e0 /
-  data erfccs( 7) /    .000000460616130901e0 /
-  data erfccs( 8) /   -.000000082277530261e0 /
-  data erfccs( 9) /    .000000015921418724e0 /
-  data erfccs(10) /   -.000000003295071356e0 /
-  data erfccs(11) /    .000000000722343973e0 /
-  data erfccs(12) /   -.000000000166485584e0 /
-  data erfccs(13) /    .000000000040103931e0 /
-  data erfccs(14) /   -.000000000010048164e0 /
-  data erfccs(15) /    .000000000002608272e0 /
-  data erfccs(16) /   -.000000000000699105e0 /
-  data erfccs(17) /    .000000000000192946e0 /
-  data erfccs(18) /   -.000000000000054704e0 /
-  data erfccs(19) /    .000000000000015901e0 /
-  data erfccs(20) /   -.000000000000004729e0 /
-  data erfccs(21) /    .000000000000001432e0 /
-  data erfccs(22) /   -.000000000000000439e0 /
-  data erfccs(23) /    .000000000000000138e0 /
-  data erfccs(24) /   -.000000000000000048e0 /
-
-  data sqrtpi /1.7724538509055160e0/
-  data nterf, nterfc, nterc2, xsml, xmax, sqeps /3*0, 3*0./
-
-  if ( nterf == 0 ) then
-    eta = 0.05 * epsilon ( eta )
-    nterf = inits (erfcs, 13, eta)
-    nterfc = inits (erfccs, 24, eta)
-    nterc2 = inits (erc2cs, 23, eta)
-    xsml = -sqrt (-log(sqrtpi* 0.5 * epsilon ( xsml ) ))
-    xmax = sqrt (-log(sqrtpi* tiny ( xmax ) ))
-    xmax = xmax - 0.5*log(xmax)/xmax - 0.01
-    sqeps = sqrt ( epsilon ( sqeps ) )
-  end if
-!
-! erfc(x) = 1.0 - erf(x) for x < xsml
-!
-  if ( x <= xsml ) then
-    erfc = 2.0
-    return
-  end if
-
-  if (x > xmax) go to 40
-  y = abs(x)
-  if (y > 1.0) go to 30
-!
-! erfc(x) = 1.0 - erf(x) for -1. <= x <= 1.
-!
-  if (y<sqeps) then
-     erfc = 1.0 - 2.0*x/sqrtpi
-  else
-     erfc = 1.0 - x*(1.0 + csevl (2.*x*x-1., erfcs, nterf) )
-  end if
-!
-  return
-!
-! erfc(x) = 1.0 - erf(x) for 1. < abs(x) <= xmax
-!
- 30   y = y*y
-  if (y <= 4.0 ) then
-     erfc = exp(-y)/abs(x) * &
-           (0.5 + csevl ((8.0/y-5.0)/3.0, erc2cs, nterc2) )
-  else
-     erfc = exp(-y)/abs(x) * &
-            (0.5 + csevl (8.0/y-1.0, erfccs, nterfc) )
-  end if
-  if (x<0.0) erfc = 2.0 - erfc
-  return
-
- 40   call xerror ('erfc    x so big erfc underflows', 1, 1)
-  erfc = 0.0
-
-  return
-end
-function erf ( x )
-
-!*****************************************************************************80
-!
-!! ERF evaluates the error function.
-!
-!  Modified:
-!
-!    24 April 2006
-!
-!  Author:
-!
-!    Wayne Fullerton,
-!    Los Alamos National Laboratory,
-!    Los Alamos, New Mexico.
-!
-!  variable declarations
-!
-  implicit none
-
-  real erf
-  real x
-!
-!
-  real sqeps,sqrtpi,xbig,y
-  integer nterf
-!
-!  local arrays
-  real erfcs(13)
-!
-!  external functions
-  real csevl,erfc
-  integer inits
-  external csevl,erfc,inits
-!
-!
-! series for erf        on the interval  0.          to  1.00000d+00
-!                                        with weighted error   7.10e-18
-!                                         log weighted error  17.15
-!                               significant figures required  16.31
-!                                    decimal places required  17.71
-!
-  data erfcs( 1) /   -.049046121234691808e0 /
-  data erfcs( 2) /   -.14226120510371364e0 /
-  data erfcs( 3) /    .010035582187599796e0 /
-  data erfcs( 4) /   -.000576876469976748e0 /
-  data erfcs( 5) /    .000027419931252196e0 /
-  data erfcs( 6) /   -.000001104317550734e0 /
-  data erfcs( 7) /    .000000038488755420e0 /
-  data erfcs( 8) /   -.000000001180858253e0 /
-  data erfcs( 9) /    .000000000032334215e0 /
-  data erfcs(10) /   -.000000000000799101e0 /
-  data erfcs(11) /    .000000000000017990e0 /
-  data erfcs(12) /   -.000000000000000371e0 /
-  data erfcs(13) /    .000000000000000007e0 /
-
-  data sqrtpi /1.7724538509055160e0/
-  data nterf, xbig, sqeps / 0, 0., 0./
-
-  if ( nterf == 0 ) then
-    nterf = inits (erfcs, 13, 0.05 * epsilon ( x ) )
-    xbig = sqrt ( -log ( sqrtpi * 0.5 * epsilon ( xbig )  ) )
-    sqeps = sqrt( epsilon ( sqeps ) )
-  end if
-
-  y = abs(x)
-
-  if ( y <= 1.0 ) then
-
-    if (y <= sqeps) then
-      erf = 2.0*x/sqrtpi
-    else
-      erf = x*(1.0 + csevl(2.*x**2-1., erfcs, nterf))
-    end if
-
-  else
-
-    if (y <= xbig) then
-      erf = sign (1.0-erfc(y), x)
-    else
-      erf = sign (1.0, x)
-    end if
-
-  end if
-
-  return
-end
 subroutine eriodd ( nmsub, nmvar, nval, msgtyp, head, error )
 
 !*****************************************************************************80
@@ -28573,16 +28694,18 @@ subroutine eriodd ( nmsub, nmvar, nval, msgtyp, head, error )
 !    if   head   is true, then a heading for the calling subroutine
 !    is also printed out.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -28666,16 +28789,18 @@ subroutine ersei ( nmsub, nmvar, val, valmn, valmx, msgtyp, head, &
 !    the range valmn (exclusive) to valmx (inclusive), and prints a
 !    diagnostic if it is not.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -28775,17 +28900,18 @@ subroutine ersge ( nmsub, nmvar, val, valmn, msgtyp, head, error, nmmin )
 !    This routine checks whether the value val is greater than or
 !    equal to valmn, and prints a diagnostic if it is not.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -28868,17 +28994,18 @@ subroutine ersgt ( nmsub, nmvar, val, valmn, msgtyp, head, error, nmmin )
 !
 !! ERSGT warns if the input value is not greater than a specified minumum.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -28968,17 +29095,18 @@ subroutine ersie ( nmsub, nmvar, val, valmn, valmx, msgtyp, head, &
 !    the range valmn (inclusive) to valmx (exclusive), and prints a
 !    diagnostic if it is not.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -29079,17 +29207,18 @@ subroutine ersii ( nmsub, nmvar, val, valmn, valmx, msgtyp, head, &
 !    the range valmn (inclusive) to valmx (inclusive), and prints a
 !    diagnostic if it is not.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -29183,17 +29312,18 @@ subroutine erslf ( nmsub, nmvar, k, h, head, error )
 !
 !! ERSLF checks the definition of a symmetric linear filter.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -29294,17 +29424,18 @@ subroutine erslfs ( nmsub, fc, k, head, error )
 !
 !! ERSLFS checks values specifying a symmetric linear filter for a time series.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -29386,17 +29517,18 @@ subroutine ervgt ( nmsub, nmvar, vec, n, veclb, nvmx, &
 !    with msgtyp.  if an error is found, the error is printed and
 !    an error flag and the number of violatins are returned.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -29502,17 +29634,18 @@ subroutine ervgtm ( nmsub, nmvar, vec, vcmiss, n, veclb, nvmx, &
 !    an error flag and the number of violatins are returned.
 !    values of vec equal to vcmiss are exempted from the checking.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -29619,17 +29752,18 @@ subroutine ervgtp ( nmsub, nmvar, veclb, nvmn, nvmx, head, msgtyp, nv, nmmin )
 !
 !! ERVGTP prints the error messages for ERVGT and ERVGTM.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -29765,17 +29899,18 @@ subroutine ervii ( nmsub, nmvar, y, n, ylb, yub, nvmx, head, msgtyp, &
 !        if (msgtyp = 2) violations are counted only if the
 !                        the first element is not in violation.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    28 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -29909,16 +30044,18 @@ subroutine ervwt ( nmsub, nmvar1, wt, n, nnzwmn, head, nnzw, &
 !    addition, returns the number of nonzero weights and the number
 !    of zero weights.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -30038,17 +30175,18 @@ subroutine etamdl ( mdl, par, npar, xm, n, m, ixm, eta, neta, &
 !    This routine computes the noise and number of good digits in
 !    results of model routine at row <nrow>.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -30183,18 +30321,18 @@ function extend ( x, i, n, sym )
 !    (the value zero will result in the extended value being zero.)
 !    this routine is taken from bloomfields book, page 179.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    30 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Peter Bloomfield
-!
-!    Adapted by Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -30256,17 +30394,18 @@ subroutine factor ( n, npf, ipf, ipfexp )
 !    This routine is adapted from the factoring routine given
 !    in acm algorithm 467 (cacm, 1973, vol. 16, no. 11, page 692-694).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    30 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Adapted by Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -30369,13 +30508,18 @@ subroutine fdump ( )
 !    active error output units.  The number and value of these
 !    units can be determined by calling XGETUA.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    05 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Ron Jones
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -30409,9 +30553,18 @@ subroutine fftct ( x, n2, ix )
 !
 !! FFTCT does a cosine transform of n=2*n2 symmetric data points.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    29 April 2006
+!    22 October 2024
+!
+!  Author:
+!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -31175,16 +31328,18 @@ subroutine fftlen ( n, ndiv, nfft )
 !    using the singleton fft providing the proper value of ndiv
 !    is chosen.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -31280,16 +31435,18 @@ subroutine fftr ( yfft, n, nfft, iextnd, nf, ab, lab )
 !
 !! FFTR is the user-callable routine for the Fourier transform of a series.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -31435,16 +31592,18 @@ subroutine fitext ( rss, yss, exact )
 !
 !! FITEXT checks whether the fit is exact to machine precision.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -31490,16 +31649,18 @@ subroutine fitpt1 ( n, m, xm, y, pv, sdpv, res, sdres, wt, ixm, &
 !
 !! FITPT1 prints the data summary for nonlinear least squares routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -31668,17 +31829,18 @@ subroutine fitpt2 ( sdres, pv, wt, n, nnzw, weight, res, rss )
 !
 !! FITPT2 prints the four standardized residual plots.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -31796,7 +31958,7 @@ subroutine fitpt2 ( sdres, pv, wt, n, nnzw, weight, res, rss )
      ierr
 
   real &
-     annzw,dot,fac1,fac2,fplm,gamma,pi,pvdiv,pvmax,pvmid,pvmin, &
+     annzw,dot,fac1,fac2,fplm,gamm,pi,pvdiv,pvmax,pvmid,pvmin, &
      ratio,rowdiv,rowmax,rowmid,rowmin,w
   real ylabel, &
      ymax,ymin
@@ -31837,9 +31999,9 @@ subroutine fitpt2 ( sdres, pv, wt, n, nnzw, weight, res, rss )
 !  initialize variables for probability plot
 !
   call getpi(pi)
-  gamma = pi/8.0e0
+  gamm = pi/8.0e0
   annzw = real ( nnzw )
-  fac1 = 1.0e0 / (annzw - 2.0e0*gamma + 1.0e0)
+  fac1 = 1.0e0 / (annzw - 2.0e0*gamm + 1.0e0)
   fac2 = 10.0e0
 !
 !  initialize the plot size (in plot units)
@@ -31969,7 +32131,7 @@ subroutine fitpt2 ( sdres, pv, wt, n, nnzw, weight, res, rss )
 !
 !  set plot line for probability plot
 !
-                 ratio = (annzw-gamma) * fac1
+                 ratio = (annzw-gamm) * fac1
                  iprb = int(4.91e0*(ratio**0.14e0- &
                            (1.0e0-ratio)**0.14e0)*fac2) + 77
                  if (iprb <= ncol) iprb = ncol+1
@@ -31977,7 +32139,7 @@ subroutine fitpt2 ( sdres, pv, wt, n, nnzw, weight, res, rss )
                  line(iprb) = istar
                  annzw = annzw - 1.0e0
                  if ((annzw<2.0e0) .and. (nnzw <= 10)) then
-                    gamma = 1.0e0/3.0e0
+                    gamm = 1.0e0/3.0e0
                  end if
               end if
            end if
@@ -32072,16 +32234,18 @@ subroutine fitsxp ( par, pv, sdpv, res, sdres, vcv, n, npar, ivcv, rsd )
 !
 !! FITSXP generates reporst for least squares exerciser returned storage.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -32153,16 +32317,18 @@ subroutine fitxsp ( par, pv, sdpv, res, sdres, vcv, n, npar, ivcv, &
 !
 !! FITXSP generates reports for least squares exerciser returned storage.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -32241,16 +32407,18 @@ subroutine fixprt ( ifix, fixed )
 !
 !! FIXPRT sets the character array 'FIXED'.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -32305,16 +32473,18 @@ subroutine fltar ( y, n, iar, phi, yf, nyf )
 !    of the autoregressive filter phi, copying the filtered series
 !    into yf.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -32383,16 +32553,18 @@ subroutine fltarm ( y, ymiss, n, iar, phi, yf, yfmiss, nyf )
 !    data, using the iar terms of the autoregressive filter phi,
 !    copying the filtered series into yf.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -32497,16 +32669,18 @@ subroutine fltma ( y, n, k, hma, yf, nyf )
 !    This routine filters the input series y using the k terms
 !    of h, copying the filtered series into yf.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -32576,18 +32750,18 @@ subroutine fltmd ( x, y, n, kmd, sym )
 !    This routine applies one modified daniel filter to a symmetric
 !    series.  this routine is adapted from bloomfield's routine moddan.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Peter Bloomfield
-!
-!    Adapted by Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -32673,16 +32847,18 @@ subroutine fltsl ( y, n, k, h, yf, nyf )
 !    This routine filters the input series y using the k terms
 !    of h, copying the filtered series into yf.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -32763,15 +32939,18 @@ function gami ( a, x )
 !    when gami is very large or very small, because logarithmic variables
 !    are used.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Wayne Fullerton,
-!    Los Alamos National Laboratory,
-!    Los Alamos, New Mexico.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -32827,15 +33006,18 @@ function gamit ( a, x )
 !    of accuracy, which is reported if the result is less than half
 !    machine precision.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Wayne Fullerton,
-!    Los Alamos National Laboratory,
-!    Los Alamos, New Mexico.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -32949,15 +33131,18 @@ subroutine gamlim ( xmin, xmax )
 !    xmin and xmax are not the only bounds, but they are the only non-
 !    trivial ones to calculate.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Wayne Fullerton,
-!    Los Alamos National Laboratory,
-!    Los Alamos, New Mexico.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -33006,180 +33191,28 @@ subroutine gamlim ( xmin, xmax )
 
   return
 end
-function gamma ( x )
-
-!*****************************************************************************80
-!
-!! GAMMA evaluates the Gamma function.
-!
-!  Modified:
-!
-!    24 April 2006
-!
-!  Author:
-!
-!    Wayne Fullerton,
-!    Los Alamos National Laboratory,
-!    Los Alamos, New Mexico.
-!
-  implicit none
-
-  real gamma
-  real x
-
-  real dxrel,pi,sinpiy,sq2pil,xmax,xmin,y
-  integer i,n,ngcs
-!
-!  local arrays
-  real gcs(23)
-!
-!  external functions
-  real csevl,r9lgmc
-  integer inits
-  external csevl,r9lgmc,inits
-
-  data gcs   ( 1) / .008571195590989331e0/
-  data gcs   ( 2) / .004415381324841007e0/
-  data gcs   ( 3) / .05685043681599363e0/
-  data gcs   ( 4) /-.004219835396418561e0/
-  data gcs   ( 5) / .001326808181212460e0/
-  data gcs   ( 6) /-.0001893024529798880e0/
-  data gcs   ( 7) / .0000360692532744124e0/
-  data gcs   ( 8) /-.0000060567619044608e0/
-  data gcs   ( 9) / .0000010558295463022e0/
-  data gcs   (10) /-.0000001811967365542e0/
-  data gcs   (11) / .0000000311772496471e0/
-  data gcs   (12) /-.0000000053542196390e0/
-  data gcs   (13) / .0000000009193275519e0/
-  data gcs   (14) /-.0000000001577941280e0/
-  data gcs   (15) / .0000000000270798062e0/
-  data gcs   (16) /-.0000000000046468186e0/
-  data gcs   (17) / .0000000000007973350e0/
-  data gcs   (18) /-.0000000000001368078e0/
-  data gcs   (19) / .0000000000000234731e0/
-  data gcs   (20) /-.0000000000000040274e0/
-  data gcs   (21) / .0000000000000006910e0/
-  data gcs   (22) /-.0000000000000001185e0/
-  data gcs   (23) / .0000000000000000203e0/
-
-  data pi /3.14159265358979324e0/
-! sq2pil is log (sqrt (2.*pi) )
-  data sq2pil /0.91893853320467274e0/
-  data ngcs, xmin, xmax, dxrel /0, 3*0.0 /
-!
-!  initialize.  find legal bounds for x, and determine the number of
-!  terms in the series required to attain an accuracy ten times better
-!  than machine precision.
-!
-  if ( ngcs == 0) then
-
-    ngcs = inits (gcs, 23, 0.05 * epsilon ( x ) )
-
-    call gamlim (xmin, xmax)
-    dxrel = sqrt ( epsilon ( dxrel ) )
-
-  end if
-!
-!  finish initialization.  start evaluating gamma(x).
-!
-  y = abs(x)
-  if (y > 10.0) go to 50
-!
-!  compute gamma(x) for abs(x) <= 10.0.  reduce interval and
-!  find gamma(1+y) for 0. <= y < 1. first of all.
-!
-  n = int ( x )
-  if (x<0.0 ) n = n - 1
-  y = x - real ( n )
-  n = n - 1
-  gamma = 0.9375 + csevl(2.0*y-1.0, gcs, ngcs)
-
-  if (n == 0) return
-
-  if ( 0 < n ) then
-
-    do i=1,n
-      gamma = (y+real ( i ))*gamma
-    end do
-
-  else
-
-    n = -n
-    if (x == 0.0 ) call xerror ('gamma   x is 0', 4, 2)
-    if (x<0. .and. x+ real ( n-2 ) == 0.0) call xerror ( &
-      'gamma   x is a negative integer', 4, 2)
-
-    if (x<(-0.5) .and. abs((x-aint(x-0.5))/x)<dxrel) then
-      call xerror (  &
-        'gamma   answer lt half precision, x too near negative integer', &
-        1, 1)
-    end if
-
-    do i=1,n
-      gamma = gamma / (x+real ( i-1 ) )
-    end do
-
-  end if
-
-  return
-!
-!  compute gamma(x) for abs(x) > 10.0.  recall y = abs(x).
-!
- 50   if (x > xmax) call xerror ('gamma   x so big gamma overflows', &
-    3, 2)
-
-  gamma = 0.0
-
-  if (x<xmin) then
-    call xerror ('gamma   x so small gamma underflows', 2, 1)
-  end if
-
-  if (x<xmin) then
-    return
-  end if
-
-  gamma = exp((y-0.5)*log(y) - y + sq2pil + r9lgmc(y) )
-
-  if (x > 0.) then
-    return
-  end if
-
-  if (abs((x-aint(x-0.5))/x)<dxrel) then
-    call xerror ( &
-    'gamma   answer lt half precision, x too near negative integer', &
-    1, 1)
-  end if
-
-  sinpiy = sin ( pi * y )
-
-  if (sinpiy == 0.0 ) then
-    call xerror ( 'gamma   x is a negative integer', 4, 2)
-  end if
-
-  gamma = - pi / ( y * sinpiy * gamma )
-
-  return
-end
 function gamr ( x )
 
 !*****************************************************************************80
 !
 !! GAMR computes the reciprocal of the Gamma function.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Wayne Fullerton,
-!    Los Alamos National Laboratory,
-!    Los Alamos, New Mexico.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
   real alngx
-  real gamma
   real gamr
   integer irold
   real sgngx
@@ -33215,16 +33248,18 @@ subroutine geni ( ivect, n, iinit, istp )
 !    This routine puts values iinit step istp through iinit + (n - 1)*istp 
 !    into a vector ivect of length n.  no error checking is done.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -33272,17 +33307,18 @@ subroutine genr ( rvect, n, rinit, rstp )
 !    This routine puts values rinit step rstp through rinit + (n - 1)*rstp into
 !    a vector rvect of length n.  no error checking is done.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -33329,16 +33365,18 @@ subroutine getpi ( pi )
 !
 !! GETPI returns the value of PI.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -33360,15 +33398,18 @@ subroutine gfaest ( phi, iar, nf, freq, gain, phas, delta )
 !    linear filter using the algorithm given on pages 419 and 420
 !    jenkins and watts.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
-!  Reference:
+!  Author:
 !
-!    Gwilym Jenkins, Donald Watts,
-!    Spectral Analysis and its Applications,
-!    Holden-Day 1968.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Author:
 !
@@ -33493,16 +33534,18 @@ subroutine gfarf ( phi, iar )
 !
 !! GFARF: short call to compute gain function of autoregressive filter.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -33661,16 +33704,18 @@ subroutine gfarfs ( phi, iar, nf, fmin, fmax, gain, phas, freq, &
 !
 !! GFARFS: short call to compute gain function of autoregressive filter.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -33688,7 +33733,7 @@ subroutine gfarfs ( phi, iar, nf, fmin, fmax, gain, phas, freq, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -33727,7 +33772,7 @@ subroutine gfarfs ( phi, iar, nf, fmin, fmax, gain, phas, freq, &
 !
 !     real delta
 !        the sampling interval.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     logical err01, err02, err03
 !        values indicating whether an error was detected (true) or not
@@ -33913,16 +33958,18 @@ subroutine gford ( freq, gain, isort, nf, xord, yord, &
 !
 !! GFORD produces ordinants for the gain function plots.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -34036,16 +34083,18 @@ subroutine gfout ( xord, yord, nord, freq, phas, nf, &
 !
 !! GFOUT produces the gain function plots.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -34153,14 +34202,14 @@ subroutine gfout ( xord, yord, nord, freq, phas, nf, &
 !  Determine the bounds for the x and y axis and complete the
 !  error checking.
 !
-  call pplmt (yord, yord, xord, xord, nord, 1, nord, &
+  call pplmt (yord, yord, xord, xord(1), nord, 1, nord, &
      ypltmn, ypltmx, ymn, ymx, xpltmn, xpltmx, xmn, xmx, &
      error, nmsub, .false.)
   if (error) then
     ierr = 1
     return
   else
-    call ppmn (yord, yord, xord, xord, nord, 1, nord, 0, isym, 1, 0, &
+    call ppmn (yord, yord, xord, xord(1), nord, 1, nord, 0, isym, 1, 0, &
      0, ymn, ymx, xmn, xmx, .false., ilog)
   end if
 
@@ -34182,14 +34231,14 @@ subroutine gfout ( xord, yord, nord, freq, phas, nf, &
 
   write ( *, 1005) nterm
 
-  call pplmt (phas, phas, freq, freq, nord, 1, nord, &
+  call pplmt (phas, phas, freq, freq(1), nord, 1, nord, &
      -pi, pi, ymn, ymx, xpltmn, xpltmx, xmn, xmx, &
      error, nmsub, .false.)
   if (error) then
     ierr = 1
     return
   else
-    call ppmn (phas, phas, freq, freq, nord, 1, nord, 0, isym, 1, 0, &
+    call ppmn (phas, phas, freq, freq(1), nord, 1, nord, 0, isym, 1, 0, &
      0, ymn, ymx, xmn, xmx, .false., 0)
   end if
 
@@ -34227,16 +34276,18 @@ subroutine gfsest ( h, k, nf, freq, gain, delta )
 !    linear filter at the frequencies specified in freq using the
 !    transform algorithm shown on page 311 of jenkins and watts.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -34319,16 +34370,18 @@ subroutine gfslf ( h, k )
 !
 !! GFSLF: short call for gain function of symmetric linear filter.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -34491,16 +34544,18 @@ subroutine gfslfs ( h, k, nf, fmin, fmax, gain, freq, nprt, ldstak )
 !
 !! GFSLFS: short call for gain function of symmetric linear filter.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -34518,7 +34573,7 @@ subroutine gfslfs ( h, k, nf, fmin, fmax, gain, freq, nprt, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   real &
      delta,fmn,fmx,ypltmn,ypltmx
@@ -34556,7 +34611,7 @@ subroutine gfslfs ( h, k, nf, fmin, fmax, gain, freq, nprt, ldstak )
 !
 !     real delta
 !        the sampling interval.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     logical err01, err02, err03, err04, err05
 !        value(s) indicating whether an error was detected (true) or not
@@ -34749,16 +34804,18 @@ subroutine gmean ( y, n, ymean )
 !
 !    The series values must be nonzero.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -34835,13 +34892,18 @@ subroutine gqtstp ( d, dig, dihdi, ka, l, p, step, v, w )
 !    PSI(STEP) exceeds its optimal value by less than
 !    -V(EPSLON)*PSI(STEP).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    04 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -35619,17 +35681,18 @@ subroutine hipass ( y, n, fc, k, hhp, yf, nyf )
 !    has a transition band of width delta surrounding fc,
 !    where delta = 4*pi/k.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -35753,21 +35816,22 @@ subroutine histc ( y, n, ncell, ylb, yub, ldstak )
 !
 !! HISTC: long call for producing a histogram.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer idp
 !        the code value for double precision for framework.
@@ -35831,7 +35895,7 @@ subroutine histc ( y, n, ncell, ylb, yub, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   integer &
      idp,ifp,iint,lsort,nall0,ncells,ydist
@@ -35917,21 +35981,22 @@ subroutine hist ( y, n, ldstak )
 !
 !! HIST: short call for producing a histogram.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer idp
 !        the code value for double precision for framework.
@@ -35988,7 +36053,7 @@ subroutine hist ( y, n, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -36078,17 +36143,18 @@ subroutine hpcoef ( hlp, k, hhp )
 !
 !! HPCOEF computes hi-pass filter given K-term low pass filter coefficients.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -36189,16 +36255,18 @@ subroutine hpflt ( hlp, k, hhp )
 !
 !! HPFLT compute high pass filter coefficients corresponding to low pass filter.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -36247,16 +36315,18 @@ subroutine hster ( nmsub, y, n, ncells, ldstak, ylb, yub, ierr )
 !    for errors and reports any that it finds, besides
 !    returning a flag indicating that errors have been found.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -36381,16 +36451,18 @@ subroutine hstmn ( y, n, ncells, ylb, yub, lsort, ydist )
 !
 !! HSTMN is the main routine for producing histograms.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -36781,13 +36853,18 @@ function i1mach ( i )
 !      I1MACH(15) = EMIN, the smallest exponent E.
 !      I1MACH(16) = EMAX, the largest exponent E.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Phyllis Fox, Andrew Hall, Norman Schryer
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -36908,16 +36985,18 @@ function icnti ( iv, niv, i )
 !
 !! ICNTI counts the number of occurences of a value in an integer vector.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -36966,16 +37045,18 @@ subroutine icopy ( n, isx, incx, isy, incy )
 !    where lx = 1 if incx  >=  0, else lx = (-incx)*n, and ly is
 !    defined in a similar way using incy.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -37013,7 +37094,18 @@ subroutine icopy ( n, isx, incx, isy, incy )
      i,ix,iy,m,ns
 
   if(n <= 0)return
-  if(incx == incy) if(incx-1) 5,20,60
+
+  if(incx == incy) then
+!   if(incx-1) 5,20,60
+    if ( incx < 1 ) then
+      go to 5
+    else if ( incx == 1 ) then
+      go to 20
+    else
+      go to 60
+    end if
+  end if
+
     5 continue
 !
 !  code for unequal or nonpositive increments.
@@ -37109,15 +37201,18 @@ function inits ( os, nos, eta )
 !    needed to insure the error is no larger than eta.  ordinarily, eta
 !    will be chosen to be one-tenth machine precision.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Wayne Fullerton,
-!    Los Alamos National Laboratory,
-!    Los Alamos, New Mexico.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -37180,16 +37275,18 @@ function inperl ( )
 !       between elements (iew) is 15.
 !    4) maximum elements per line (imaxe) is 7.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -37230,16 +37327,18 @@ subroutine ipgdv ( per, nf, n, peri, freq, xaxis, yaxis, isym, lpcv, nprt )
 !
 !! IPGDV produces coordinates for the spectral plots.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -37313,20 +37412,22 @@ subroutine ipgm ( yfft, n, lyfft, ldstak )
 !
 !! IPGM: short call to compute the integrated periodogram of a series.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     logical err01, err02, err03
 !        value(s) indicating whether an error was detected (true) or not
@@ -37399,7 +37500,7 @@ subroutine ipgm ( yfft, n, lyfft, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer &
@@ -37524,17 +37625,18 @@ subroutine ipgmn ( per, nf, peri, ispcer )
 !
 !! IPGMN computes the integrated periodogram.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -37586,20 +37688,22 @@ subroutine ipgmp ( per, freq, nf, n, ldstak )
 !
 !! IPGMP: user routine for integrated periodograms of a series (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     logical err01, err02, err03
 !        value(s) indicating whether an error was detected (true) or not
@@ -37671,7 +37775,7 @@ subroutine ipgmp ( per, freq, nf, n, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   integer isym,ldsmin,lpcv,nall0,nprt,peri,xaxis,yaxis
   logical &
@@ -37776,21 +37880,22 @@ subroutine ipgmps ( per, freq, nf, n, ldstak, peri, nprt )
 !
 !! IPGMPS: user routine for the integrated periodogram of a series (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     logical err01, err02, err03
 !        value(s) indicating whether an error was detected (true) or not
@@ -37857,7 +37962,7 @@ subroutine ipgmps ( per, freq, nf, n, ldstak, peri, nprt )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   integer isym,ldsmin,lpcv,nall0,xaxis,yaxis
   logical &
@@ -37971,21 +38076,22 @@ subroutine ipgms ( yfft, n, lyfft, ldstak, nf, peri, lperi, freq, &
 !
 !! IPGMS: user routine for the integrated periodogram of a series (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     logical err01, err02, err03, err04, err05
 !        value(s) indicating whether an error was detected (true) or not
@@ -38065,7 +38171,7 @@ subroutine ipgms ( yfft, n, lyfft, ldstak, nf, peri, lperi, freq, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer &
@@ -38210,16 +38316,18 @@ subroutine ipgord ( peri, nf, n, freq, xaxis, yaxis, isym, npts, lpcv )
 !
 !! IPGORD produces coordinates for the spectral plots.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -38337,16 +38445,18 @@ subroutine ipgout ( xaxis, yaxis, isym, npts, lpcv, ispcer )
 !
 !! IPGOUT produces the integrated periodogram plots.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -38380,7 +38490,7 @@ subroutine ipgout ( xaxis, yaxis, isym, npts, lpcv, ispcer )
     return
   end if
 
-  call ppmn (yaxis, yaxis, xaxis, xaxis, npts, 1, lpcv, 1, isym, &
+  call ppmn (yaxis, yaxis, xaxis, xaxis(1), npts, 1, lpcv, 1, isym, &
     lpcv, 0, -1, 0.0e0, 1.0e0, 0.0e0, 0.5e0, .false., 0)
 
   write ( *, 1002)
@@ -38406,16 +38516,18 @@ subroutine iprint ( iprt )
 !
 !! IPRINT sets the logical unit for printed output.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -38442,13 +38554,18 @@ function isamax ( n, x, incx )
 !
 !! ISAMAX indexes the real array element of maximum absolute value.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    08 April 1999
+!    22 October 2024
 !
 !  Author:
 !
-!    Fortran90 translation by John Burkardt.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -38536,13 +38653,18 @@ subroutine itsmry ( d, iv, p, v, x )
 !
 !! ITSMRY prints an iteration summary.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    06 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -38949,13 +39071,18 @@ function j4save ( which, value, set )
 !    #8 = -1, fourth error output unit (-1 means not being used).
 !    #9 = -1, fifth error output unit (-1 means not being used).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    05 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Ron Jones
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -39043,16 +39170,18 @@ subroutine ldscmp ( narr, nlog, nint, nreal, ndbl, ncmp, &
 !    that double precision and complex data elements are twice as long
 !    as integer and logical elements.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -39122,13 +39251,18 @@ subroutine linvrt ( n, lin, l )
 !    LIN = inverse ( L ), both N by N lower triangular matrices stored
 !    compactly by rows.  LIN and L may share the same storage.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    05 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -39201,13 +39335,18 @@ subroutine litvmu ( n, x, l, y )
 !    triangular matrix stored compactly by rows.  X and Y may occupy
 !    the same storage.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    04 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -39274,13 +39413,18 @@ subroutine livmul ( n, x, l, y )
 !    triangular matrix stored compactly by rows.  X and Y may occupy
 !    the same storage.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    04 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -39325,16 +39469,18 @@ subroutine llcnt ( y, wt, lwt, xm, n, m, ixm, npar, res, ldstak, &
 !
 !! LLCNT is the controlling subroutine for linear least squares.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -39343,7 +39489,7 @@ subroutine llcnt ( y, wt, lwt, xm, n, m, ixm, npar, res, ldstak, &
 !        the number of accurate digits.
 !     integer c
 !        *
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer fc
 !        the starting location in the work area for
@@ -39498,7 +39644,7 @@ subroutine llcnt ( y, wt, lwt, xm, n, m, ixm, npar, res, ldstak, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer &
@@ -39610,21 +39756,22 @@ subroutine llcntg ( y, wt, lwt, xm, n, ixm, npar, res, ldstak, nprt, &
 !
 !! LLCNTG is the controlling subroutine for general linear least squares.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value designating whether any errors were
@@ -39711,7 +39858,7 @@ subroutine llcntg ( y, wt, lwt, xm, n, ixm, npar, res, ldstak, nprt, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer &
@@ -39741,21 +39888,22 @@ subroutine llcntp ( y, wt, lwt, xm, n, ndeg, npar, res, ldstak, &
 !
 !! LLCNTP is the controlling subroutine for polynomial linear least squares.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value designating whether any errors were
@@ -39844,7 +39992,7 @@ subroutine llcntp ( y, wt, lwt, xm, n, ndeg, npar, res, ldstak, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer &
@@ -39875,17 +40023,18 @@ subroutine ller ( nmsub, ixm, ivcv, n, npar, lpar, ldstak, wt, lnwt, &
 !
 !! LLER is the error checking routine for the linear least squares routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -40068,17 +40217,18 @@ subroutine llhdrg ( page, wide, isubhd )
 !
 !! LLHDRG: page headings for the unrestricted linear least squares routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -40127,17 +40277,18 @@ subroutine llhdrp ( page, wide, isubhd )
 !
 !! LLHDRP: page headings for polynomial linear least squares routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -40195,21 +40346,22 @@ subroutine lls ( y, xm, n, ixm, npar, res, ldstak )
 !    no storage other than residuals
 !    four pages automatic printout
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value designating whether any errors were
@@ -40289,7 +40441,7 @@ subroutine lls ( y, xm, n, ixm, npar, res, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -40343,17 +40495,18 @@ subroutine llsmn ( y, x, wt, n, m, npar, ix, res, par, nnzw, &
 !
 !! LLSMN: main program for the linear least squares fitting.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -40998,21 +41151,22 @@ subroutine llsp ( y, xm, n, ndeg, res, ldstak )
 !
 !! LLSP does an unweighted polynomial model least squares fit.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value designating whether any errors were
@@ -41092,7 +41246,7 @@ subroutine llsp ( y, xm, n, ndeg, res, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   real &
      rsd
@@ -41149,21 +41303,22 @@ subroutine llsps ( y, xm, n, ndeg, res, ldstak, &
 !    full storage
 !    user control of automatic printout
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value designating whether any errors were
@@ -41239,7 +41394,7 @@ subroutine llsps ( y, xm, n, ndeg, res, ldstak, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   integer lpv,lsdpv,lsdres,lwt
   logical &
@@ -41296,21 +41451,22 @@ subroutine llspw ( y, wt, xm, n, ndeg, res, ldstak )
 !    no storage other than residuals
 !    four pages automatic printout
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value designating whether any errors were
@@ -41390,7 +41546,7 @@ subroutine llspw ( y, wt, xm, n, ndeg, res, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   real &
      rsd
@@ -41451,21 +41607,22 @@ subroutine llspws ( y, wt, xm, n, ndeg, res, ldstak, &
 !    full storage
 !    user control of automatic printout
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value designating whether any errors were
@@ -41541,7 +41698,7 @@ subroutine llspws ( y, wt, xm, n, ndeg, res, ldstak, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer lpv,lsdpv,lsdres,lwt
@@ -41596,21 +41753,22 @@ subroutine llss ( y, xm, n, ixm, npar, res, ldstak, &
 !    full storage
 !    user control of automatic printout
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value designating whether any errors were
@@ -41686,7 +41844,7 @@ subroutine llss ( y, xm, n, ixm, npar, res, ldstak, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer lpar,lpv,lsdpv,lsdres,lwt
@@ -41741,20 +41899,22 @@ subroutine llsw ( y, wt, xm, n, ixm, npar, res, ldstak )
 !    no storage other than residuals
 !    four pages automatic printout
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value designating whether any errors were
@@ -41834,7 +41994,7 @@ subroutine llsw ( y, wt, xm, n, ixm, npar, res, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   real &
      rsd
@@ -41893,20 +42053,22 @@ subroutine llsws ( y, wt, xm, n, ixm, npar, res, ldstak, &
 !    full storage
 !    user control of automatic printout
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value designating whether any errors were
@@ -41983,7 +42145,7 @@ subroutine llsws ( y, wt, xm, n, ixm, npar, res, ldstak, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer lpar,lpv,lsdpv,lsdres,lwt
@@ -42058,13 +42220,18 @@ subroutine lmstep ( d, g, ierr, ipivot, ka, p, qtr, r, step, v, w )
 !    where J and R denote the original jacobian and residual.  See
 !    reference 2 for more details.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    04 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -42671,16 +42838,18 @@ subroutine loglmt ( ilogy, ymn, ymx, ylabel, numrow, istep, dely, &
 !
 !! LOGLMT adjusts plot limits for log plots, and computes log axis labels.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -42857,18 +43026,18 @@ subroutine lopass ( y, n, fc, k, hlp, yf, nyf )
 !    has a transition band of width delta surrounding fc,
 !    where delta = 4*pi/k.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    30 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Peter Bloomfield
-!
-!    Adapted by Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -43004,18 +43173,18 @@ subroutine lpcoef ( fc, k, hlp )
 !    has a transition band of width delta surrounding fc,
 !    where delta = 4*pi/k.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    30 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Peter Bloomfield
-!
-!    Adapted by Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -43126,16 +43295,18 @@ subroutine lpflt ( fc, k, hlp )
 !
 !! LPFLT computes the low-pass filter coefficients.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -43218,13 +43389,18 @@ function lsame ( ca, cb )
 !
 !! LSAME returns TRUE if CA is the same letter as CB regardless of case.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    16 May 2005
+!    22 October 2024
 !
 !  Author:
 !
-!    Fortran90 translation by John Burkardt.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -43339,13 +43515,18 @@ subroutine lsqrt ( n1, n, l, a, irc )
 !    principal J x J submatrix of A is not positive definite,
 !    and L(J*(J+1)/2) contains the nonpositive reduced J-th diagonal.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    04 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -43434,16 +43615,18 @@ function lstlag ( nlppa, lagmax, lacov )
 !    This routine finds the lag value of the last autocovariance
 !    computed before one could not be computed due to missing data.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -43498,16 +43681,18 @@ subroutine lstvcf ( n, vec, lmask, mask )
 !    vec.  the i th element of vec is identified with the index
 !    of the i th zero element of mask.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -43614,16 +43799,18 @@ subroutine lstvec ( n, vec )
 !
 !! LSTVEC prints indices and values of a real vector.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -43697,13 +43884,18 @@ function lsvmin ( p, l, x, y )
 !    which passes the spectral test with flying colors; see Hoaglin and
 !    Knuth.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    04 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -43874,13 +44066,18 @@ subroutine ltsqar ( n, a, l )
 !
 !    A is also stored by rows, and may share storage with L.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    03 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -43991,16 +44188,18 @@ subroutine maflt ( y, n, k, yf, nyf )
 !    operation on an input series y, returning the filtered series
 !    in yf.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -44111,16 +44310,18 @@ subroutine matprf ( x, y, nc, mode, code, length, mask, lmask )
 !
 !! MATPRF prints a square matrix stored in symmetric form.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -44364,16 +44565,18 @@ subroutine matprt (x, y, nc, mode, code, irdim)
 !    lower triangular part or the full matrix with or without double
 !    printing.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -44470,20 +44673,22 @@ subroutine mdflt ( per, nf, nk, kmd, perf, ldstak )
 !
 !! MDFLT is a user routine for a modified Daniels filter of symmetric series.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     logical err01, err02, err03
 !        value(s) indicating whether an error was detected (true) or not
@@ -44537,7 +44742,7 @@ subroutine mdflt ( per, nf, nk, kmd, perf, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -44643,16 +44848,18 @@ subroutine mdl1 ( par, npar, xm, n, m, ixm, pv )
 !
 !! MDL1 is the model function for an NLS exerciser.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -44690,16 +44897,18 @@ subroutine mdl2 ( par, npar, xm, n, m, ixm, pv )
 !
 !! MDL2 is a model function for an NLS exerciser.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -44741,16 +44950,18 @@ subroutine mdl3 ( par, npar, xm, n, m, ixm, pv )
 !
 !! MDL3 is a model function for an NLS exerciser.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -44794,16 +45005,18 @@ subroutine mdl4 ( par, npar, xm, n, m, ixm, pv )
 !
 !! MDL4 is a model routine for step size and derivative checking routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -44845,20 +45058,22 @@ subroutine mdlts1 ( par, npar, xm, n, m, ixm, rests )
 !
 !! MDLTS1 is the user callable routine for estimating box-jenkins arima models.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer i
 !        an index variable.
@@ -44933,7 +45148,7 @@ subroutine mdlts1 ( par, npar, xm, n, m, ixm, rests )
      parar,pardf,parma,t,temp
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   real &
      pmu
@@ -44981,16 +45196,18 @@ subroutine mdlts2 ( par, rests, y, npar, n, nfac, mspect, pmu, &
 !
 !! MDLTS2 is the model routine for Pack's specification of box-jenkins models.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -45311,20 +45528,22 @@ subroutine mdlts3 ( par, npar, xm, n, m, ixm, rests )
 !
 !! MDLTS3 is the user callable routine for estimating Box-Jenkins ARIMA models.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer iflag
 !        an indicator variable designating whether the back forecasts
@@ -45398,7 +45617,7 @@ subroutine mdlts3 ( par, npar, xm, n, m, ixm, rests )
      parar,pardf,parma,t,temp
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -45448,16 +45667,18 @@ subroutine mgs ( a, b, n, np, x, c, d, r, ir, ia, ier )
 !    of equations  rx = c
 !    x, a, and b are not preserved on output
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    30 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Adapted by Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -45571,16 +45792,18 @@ subroutine modsum ( nfac, mspect )
 !
 !! MODSUM prints the model summary for the ARIMA routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -45622,16 +45845,18 @@ subroutine mppc ( ym, x, n, m, iym, ilog, isize, nout, ylb, yub, xlb, xub )
 !
 !    This is the long call version.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -45763,16 +45988,18 @@ subroutine mpp ( ym, x, n, m, iym )
 !
 !    This is the short call version.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -45911,16 +46138,18 @@ subroutine mppl ( ym, x, n, m, iym, ilog )
 !    this is the user callable routine which produces a simple page
 !    plot with multiple y-axis values (log option).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -46063,17 +46292,18 @@ subroutine mppmc ( ym, ymmiss, x, xmiss, n, m, iym, ilog, isize, &
 !    plot with multiple y-axis values and with missing
 !    observations (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -46211,17 +46441,18 @@ subroutine mppm ( ym, ymmiss, x, xmiss, n, m, iym )
 !    plot with multiple y-axis values and with missing
 !    observations (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -46368,16 +46599,18 @@ subroutine mppml ( ym, ymmiss, x, xmiss, n, m, iym, ilog )
 !    plot with multiple y-axis values and with missing
 !    observations (log option).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -46517,16 +46750,18 @@ subroutine msgx ( ier )
 !
 !! MSGX prints the returned and expected values for the error flag IERR.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -46563,16 +46798,18 @@ subroutine multbp ( t, lt, c, lc, temp, ltemp, mbo )
 !
 !! MULTBP multiplies two difference factors from Box-Jenkins time series model.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -46634,16 +46871,18 @@ function mvchk ( x, xmiss )
 !    (mvchk = false) in a manner which will prevent very large or
 !    very small missing value codes from causing an overflow.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -46682,16 +46921,18 @@ subroutine mvpc ( ym, n, m, iym, ns, ilog, isize, ylb, yub, xlb, xinc )
 !    This is the user callable routine which produces a vertical
 !    plot with multiple y-axis values (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -46830,16 +47071,18 @@ subroutine mvp ( ym, n, m, iym, ns )
 !    This is the user callable routine which produces a vertical
 !    plot with multiple y-axis values (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -46980,16 +47223,18 @@ subroutine mvpl ( ym, n, m, iym, ns, ilog )
 !
 !! MVPL produces a vertical plot with multiple y-axis values (log plot option).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -47130,16 +47375,18 @@ subroutine mvpmc ( ym, ymmiss, n, m, iym, ns, ilog, isize, &
 !
 !! MVPMC: vertical plot with missing data, multiple y-axis values (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -47276,16 +47523,18 @@ subroutine mvpm ( ym, ymmiss, n, m, iym, ns )
 !
 !! MVPM: vertical plot with missing data, multiple y-axis values (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -47427,16 +47676,18 @@ subroutine mvpml ( ym, ymmiss, n, m, iym, ns, ilog )
 !
 !! MVPML: vertical plot with missing data, multiple y-axis values (log option).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -47577,16 +47828,18 @@ function nchose ( n, k )
 !
 !! NCHOSE combines difference factors from a Box-Jenkins time series model.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -47634,13 +47887,19 @@ subroutine nl2itr ( d, iv, j, n, nn, p, r, v, x )
 !    NL2ITR assumes that R = R(X), the residual at X, and J = J(X),
 !    the corresponding jacobian matrix of R at X.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    04 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
+!
 !
 ! iv(1) = 1 means the caller should set r to r(x), the residual at x,
 !             and call nl2itr again, having changed none of the other
@@ -48572,13 +48831,18 @@ subroutine nl2sno ( n, p, x, calcr, iv, v, uiparm, urparm, ufparm )
 !    approximation are not included in the function evaluation
 !    count IV(NFCALL) and are not otherwise reported.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    04 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -48799,13 +49063,18 @@ subroutine nl2sol ( n, p, x, calcr, calcj, iv, v, uiparm, urparm, ufparm )
 !    may make V longer than specified above and may allow CALCJ to use
 !    elements of J beyond the first N*P as scratch storage.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    04 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -49324,17 +49593,18 @@ subroutine nlcmp ( y, weight, wt, lwt, n, npar, npare, &
 !    and/or printed by the nls family of routines when weights are
 !    involved.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -49581,16 +49851,18 @@ subroutine nlcnta ( y, wt, lwt, xm, n, m, ixm, mdl, drv, par, npar, &
 !
 !! NLCNTA: controlling routine for NLS regression with analytic derivatives.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -49619,7 +49891,7 @@ subroutine nlcnta ( y, wt, lwt, xm, n, m, ixm, mdl, drv, par, npar, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer &
@@ -49657,7 +49929,7 @@ subroutine nlcnta ( y, wt, lwt, xm, n, m, ixm, mdl, drv, par, npar, &
 !     external drv
 !        the name of the user supplied subroutine which computes the
 !        derivative (jacobian) matrix of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     logical hlfrpt
 !        the variable which indicates whether the derivative
@@ -49890,16 +50162,18 @@ subroutine nlcnt ( y, wt, lwt, xm, n, m, ixm, mdl, nldrv, aprxdv, &
 !
 !! NLCNT controlling subroutine for nonlinear least squares regression.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -49917,7 +50191,7 @@ subroutine nlcnt ( y, wt, lwt, xm, n, m, ixm, mdl, nldrv, aprxdv, &
 !     external drv
 !        the name of the user supplied subroutine which computes the
 !        derivative (jacobian) matrix of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     logical hlfrpt
 !        the variable which indicates whether the derivative
@@ -50119,7 +50393,7 @@ subroutine nlcnt ( y, wt, lwt, xm, n, m, ixm, mdl, nldrv, aprxdv, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer &
@@ -50207,16 +50481,18 @@ subroutine nlcntn ( y, wt, lwt, xm, n, m, ixm, mdl, par, npar, res, &
 !
 !! NLCNTN controlling routine for NLS regression with approximate derivatives.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -50245,7 +50521,7 @@ subroutine nlcntn ( y, wt, lwt, xm, n, m, ixm, mdl, par, npar, res, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -50290,7 +50566,7 @@ subroutine nlcntn ( y, wt, lwt, xm, n, m, ixm, mdl, par, npar, res, &
 !     external drv
 !        the name of the user supplied subroutine which computes the
 !        derivative (jacobian) matrix of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real exmpt
 !        the proportion of observations for which the computed
@@ -50542,16 +50818,18 @@ subroutine nldrva ( mdl, drv, done, ifixd, par, npar, xm, n, m, &
 !
 !! NLDRVA computes the analytic derivative matrix from the user DERIV routine.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -50673,16 +50951,18 @@ subroutine nldrvn ( mdl, drv, done, ifixd, par, npar, xm, n, m, &
 !
 !! NLDRVN approximates the derivative matrix.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -50825,16 +51105,18 @@ subroutine nler ( nmsub, weight, wt, lwt, n, m, ixm, ifixed, lifixd, npar, &
 !
 !! NLER does error checking routine for nonlinear least squares estimation.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -51042,16 +51324,18 @@ subroutine nlerr ( icnvcd, iskull )
 !
 !! NLERR sets the error flag ierr based on the convergence code returned by NL2.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -51134,16 +51418,18 @@ subroutine nlfin ( y, weight, nnzw, wt, lwt, xm, n, m, ixm, ifixd, &
 !
 !! NLFIN completes the NLS analysis once the estimates have been found.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -51314,16 +51600,18 @@ subroutine nlhdra ( page, wide, isubhd )
 !
 !! NLHDRA prints headings for NLS estimation using analytic derivatives.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -51373,16 +51661,18 @@ subroutine nlhdrn ( page, wide, isubhd )
 !
 !! NLHDRN prints headings for NLS estimation using approximate derivatives.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -51434,16 +51724,18 @@ subroutine nlinit ( n, ifixd, par, npar, pare, npare, mit, &
 !
 !! NLINIT initializes the NLS routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -51765,16 +52057,18 @@ subroutine nlism ( nlhdr, page, wide, hlfrpt, npar, m, n, nnzw, &
 !    estimates and the control parameters for the nonlinear
 !    least squares subroutines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -51986,16 +52280,18 @@ subroutine nlitrp ( nlhdr, head, page, wide, iptout, npar, nnzw, &
 !
 !! NLITRP prints iteration reports for nonlinear least squares regression.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -52246,16 +52542,18 @@ subroutine nlmn ( y, weight, nnzw, wt, lwt, xm, n, m, ixm, mdl, &
 !    (implementing the method of dennis, gay and welsch).
 !    this subroutine was adapted from subroutine nl2sol.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -52584,7 +52882,16 @@ subroutine nlmn ( y, weight, nnzw, wt, lwt, xm, n, m, ixm, mdl, &
   call nlsupk(pare, npare, par, ifixd, npar)
 
   newitr = (iwork(cnvcod) == 0)
-  if (iwork(1)-2) 10, 40, 60
+
+! if (iwork(1)-2) 10, 40, 60
+
+  if ( iwork(1) < 2 ) then
+    go to 10
+  else if ( iwork(1) == 2 ) then
+    go to 40
+  else
+    go to 60
+  end if
 
    60 done = .true.
   go to 40
@@ -52633,16 +52940,18 @@ subroutine nlout ( y, weight, nnzw, wt, lwt, xm, n, m, ixm, ifixd, &
 !
 !! NLOUT prints the final summary report for nonlinear least squares routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -52960,16 +53269,18 @@ subroutine nlsc ( y, xm, n, m, ixm, mdl, par, npar, res, ldstak, &
 !    squares regression using numerically approximated derivatives
 !    (control call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -52992,7 +53303,7 @@ subroutine nlsc ( y, xm, n, m, ixm, mdl, par, npar, res, ldstak, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   real &
      rsd
@@ -53019,7 +53330,7 @@ subroutine nlsc ( y, xm, n, m, ixm, mdl, par, npar, res, ldstak, &
 !     real delta
 !        the maximum change allowed in the model parameters at the
 !        first iteration.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value returned by this routine designating
@@ -53193,16 +53504,18 @@ subroutine nlsdc ( y, xm, n, m, ixm, mdl, drv, par, npar, res, &
 !    squares regression using analytic derivatives with user
 !    supplied control parameters.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -53225,7 +53538,7 @@ subroutine nlsdc ( y, xm, n, m, ixm, mdl, drv, par, npar, res, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   real &
      rsd
@@ -53254,7 +53567,7 @@ subroutine nlsdc ( y, xm, n, m, ixm, mdl, drv, par, npar, res, &
 !     external drv
 !        the name of the user supplied subroutine which computes the
 !        derivative (jacobian) matrix of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer idrvck
 !        the variable used to indicate whether or not the derivatives we
@@ -53418,16 +53731,18 @@ subroutine nlsd ( y, xm, n, m, ixm, mdl, drv, par, npar, res, ldstak )
 !
 !! NLSD: nonlinear least squares regression, analytic derivatives (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -53446,7 +53761,7 @@ subroutine nlsd ( y, xm, n, m, ixm, mdl, drv, par, npar, res, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -53480,7 +53795,7 @@ subroutine nlsd ( y, xm, n, m, ixm, mdl, drv, par, npar, res, ldstak )
 !     external drv
 !        the name of the user supplied subroutine which computes the
 !        derivative (jacobian) matrix of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer idrvck
 !        the variable used to indicate whether or not the derivatives we
@@ -53660,16 +53975,18 @@ subroutine nlsds ( y, xm, n, m, ixm, mdl, drv, par, npar, res, &
 !    supplied control parameters, and with computed values returned
 !    to the user.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -53693,7 +54010,7 @@ subroutine nlsds ( y, xm, n, m, ixm, mdl, drv, par, npar, res, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer lifixd,lpv,lscale,lsdpv,lsdres,lwt,nnzw
@@ -53721,7 +54038,7 @@ subroutine nlsds ( y, xm, n, m, ixm, mdl, drv, par, npar, res, &
 !     external drv
 !        the name of the user supplied subroutine which computes the
 !        derivative (jacobian) matrix of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer idrvck
 !        the variable used to indicate whether or not the derivatives we
@@ -53886,16 +54203,18 @@ subroutine nls ( y, xm, n, m, ixm, mdl, par, npar, res, ldstak )
 !    squares regression using numerically approximated derivatives
 !    (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -53914,7 +54233,7 @@ subroutine nls ( y, xm, n, m, ixm, mdl, par, npar, res, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   real &
      delta,rsd,stopp,stopss
@@ -53943,7 +54262,7 @@ subroutine nls ( y, xm, n, m, ixm, mdl, par, npar, res, ldstak )
 !     real delta
 !        the maximum change allowed in the model parameters at the
 !        first iteration.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value returned by this routine designating
@@ -54116,16 +54435,18 @@ subroutine nlskl ( iskull, page, wide, nlhdr )
 !
 !! NLSKL prints warning messages for the nonlinear least squares routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -54232,16 +54553,18 @@ subroutine nlspk ( par, mask, npar, ppar, nppar )
 !    unpacked version corresponding to elements of mask which
 !    have the value 1.  other elements of mask should be zero.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -54303,16 +54626,18 @@ subroutine nlss ( y, xm, n, m, ixm, mdl, par, npar, res, ldstak, &
 !    squares regression using numerically approximated derivatives
 !    (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -54336,7 +54661,7 @@ subroutine nlss ( y, xm, n, m, ixm, mdl, par, npar, res, ldstak, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer lifixd,lpv,lscale,lsdpv,lsdres,lstp,lwt,nnzw
@@ -54361,7 +54686,7 @@ subroutine nlss ( y, xm, n, m, ixm, mdl, par, npar, res, ldstak, &
 !     real delta
 !        the maximum change allowed in the model parameters at the
 !        first iteration.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value returned by this routine designating
@@ -54532,16 +54857,18 @@ subroutine nlsupk ( pare, npare, par, mask, npar )
 !    npare in pare should equal the number of elements of
 !    mask which are 1.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -54601,16 +54928,18 @@ subroutine nlswc ( y, wt, xm, n, m, ixm, mdl, par, npar, res, &
 !    squares regression using numerically approximated derivatives
 !    and weights (control call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -54633,7 +54962,7 @@ subroutine nlswc ( y, wt, xm, n, m, ixm, mdl, par, npar, res, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -54661,7 +54990,7 @@ subroutine nlswc ( y, wt, xm, n, m, ixm, mdl, par, npar, res, &
 !     real delta
 !        the maximum change allowed in the model parameters at the
 !        first iteration.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value returned by this routine designating
@@ -54834,16 +55163,18 @@ subroutine nlswdc ( y, wt, xm, n, m, ixm, mdl, drv, par, npar, res, &
 !    squares regression using analytic derivatives, weights, and
 !    user supplied control parameters.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -54866,7 +55197,7 @@ subroutine nlswdc ( y, wt, xm, n, m, ixm, mdl, drv, par, npar, res, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -54896,7 +55227,7 @@ subroutine nlswdc ( y, wt, xm, n, m, ixm, mdl, drv, par, npar, res, &
 !     external drv
 !        the name of the user supplied subroutine which computes the
 !        derivative (jacobian) matrix of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer idrvck
 !        the variable used to indicate whether the derivatives are
@@ -55064,16 +55395,18 @@ subroutine nlswd ( y, wt, xm, n, m, ixm, mdl, drv, par, npar, res, ldstak )
 !    squares regression using analytic derivatives and weights
 !    (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -55092,7 +55425,7 @@ subroutine nlswd ( y, wt, xm, n, m, ixm, mdl, drv, par, npar, res, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -55126,7 +55459,7 @@ subroutine nlswd ( y, wt, xm, n, m, ixm, mdl, drv, par, npar, res, ldstak )
 !     external drv
 !        the name of the user supplied subroutine which computes the
 !        derivative (jacobian) matrix of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer idrvck
 !        the variable used to indicate whether or not the derivatives we
@@ -55304,16 +55637,18 @@ subroutine nlswds ( y, wt, xm, n, m, ixm, mdl, drv, par, &
 !    user supplied control parameters, and with computed values
 !    returned to the user.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -55337,7 +55672,7 @@ subroutine nlswds ( y, wt, xm, n, m, ixm, mdl, drv, par, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer lifixd,lpv,lscale,lsdpv,lsdres,lwt
@@ -55363,7 +55698,7 @@ subroutine nlswds ( y, wt, xm, n, m, ixm, mdl, drv, par, &
 !     external drv
 !        the name of the user supplied subroutine which computes the
 !        derivative (jacobian) matrix of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer idrvck
 !        the variable used to indicate whether the derivatives are
@@ -55529,16 +55864,18 @@ subroutine nlsw ( y, wt, xm, n, m, ixm, mdl, par, npar, res, ldstak )
 !    squares regression using numerically approximated derivatives
 !    and weights (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -55557,7 +55894,7 @@ subroutine nlsw ( y, wt, xm, n, m, ixm, mdl, par, npar, res, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -55587,7 +55924,7 @@ subroutine nlsw ( y, wt, xm, n, m, ixm, mdl, par, npar, res, ldstak )
 !     real delta
 !        the maximum change allowed in the model parameters at the
 !        first iteration.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value returned by this routine designating
@@ -55767,16 +56104,18 @@ subroutine nlsws ( y, wt, xm, n, m, ixm, mdl, par, npar, res, &
 !    squares regression using numerically approximated derivatives
 !    and weights (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -55800,7 +56139,7 @@ subroutine nlsws ( y, wt, xm, n, m, ixm, mdl, par, npar, res, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer lifixd,lpv,lscale,lsdpv,lsdres,lstp,lwt
@@ -55823,7 +56162,7 @@ subroutine nlsws ( y, wt, xm, n, m, ixm, mdl, par, npar, res, &
 !     real delta
 !        the maximum change allowed in the model parameters at the
 !        first iteration.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value returned by this routine designating
@@ -55985,16 +56324,18 @@ subroutine nlsx1 ( mod, par, npar, pv, sdpv, res, sdres, vcv, n, &
 !
 !! NLSX1 sets the starting parameter values for NLSX.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -56096,16 +56437,18 @@ subroutine nlsx2 ( n, m, ixm, npar, ifixed, stp, idrvck, mit, &
 !
 !! NLSX2 sets a problem for testing the NLS family.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -56233,16 +56576,18 @@ subroutine nrandc ( y, n, iseed, ymean, sigma )
 !    random numbers with mean ymean and standard deviation sigma.  the
 !    numbers generated are determined by iseed.  they are returned in y
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, John Koontz, Peter Tryon,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -56367,16 +56712,18 @@ subroutine nrand ( y, n, iseed )
 !    random numbers with zero mean and unit standard deviation.  the
 !    numbers generated are determined by iseed.  they are returned in y
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, John Koontz, Peter Tryon,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -56483,13 +56830,18 @@ function numxer ( nerr )
 !
 !! NUMXER returns the most recent error number.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    05 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Ron Jones
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -56540,16 +56892,18 @@ subroutine oanova ( ysum, red, npar, rvar, nnzw, temp )
 !
 !! OANOVA computes and prints analysis of variance.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    02 May 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, David Hogben,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -56661,16 +57015,18 @@ subroutine obssm2 ( n, y, pvt, sdpvt, res, sdrest, ifirst, ilast )
 !
 !! OBSSM2 lists the data summary for the arima estimation routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -56750,16 +57106,18 @@ subroutine obssum ( n, m, xm, y, pv, sdpv, res, sdres, wt, ixm, &
 !
 !! OBSSUM lists the data summary for the least squares subroutines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -56903,13 +57261,18 @@ subroutine parchk ( iv, n, nn, p, v )
 !
 !! PARCHK checks the NL2SOL parameters.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    04 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -57189,16 +57552,18 @@ subroutine parzen ( lag, w, lw )
 !
 !! PARZEN computes and stores the Parzen lag window.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -57244,16 +57609,18 @@ subroutine pgmest ( yfft, nfft, nf, cnst, per, lper )
 !
 !! PGMEST computes the periodogram estimates.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -57329,16 +57696,18 @@ subroutine pgm ( yfft, n, lyfft, ldstak )
 !
 !    This is the short call version.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -57354,7 +57723,7 @@ subroutine pgm ( yfft, n, lyfft, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   integer &
      freq,iextnd,ldsmin,nall0,nf,nfft,nprt,yaxis
@@ -57384,7 +57753,7 @@ subroutine pgm ( yfft, n, lyfft, ldstak )
 !
 !     variable definitions (alphabetically)
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     logical err01, err02, err03
 !        value(s) indicating whether an error was detected (true) or not
@@ -57520,16 +57889,18 @@ subroutine pgmmn ( yfft, n, nfft, iextnd, nf, per, lper, yaxis, &
 !
 !! PGMMN is the main routine for computing the raw periodogram.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -57630,16 +58001,18 @@ subroutine pgms ( yfft, n, nfft, lyfft, iextnd, nf, per, lper, &
 !
 !! PGMS computes the (raw) periodogram of a series (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -57786,16 +58159,18 @@ subroutine pgord ( per, npts, yaxis, nprt )
 !
 !! PGORD produces coordinates for the periodogram plot.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -57859,16 +58234,18 @@ subroutine pgout ( yaxis, xaxis, npts, nprt, nmsub )
 !
 !! PGOUT produces the periodogram plots.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -57991,16 +58368,18 @@ subroutine pline ( imin, imax, isymbl, line )
 !
 !! PLINE defines one line of a plot string for the vertical plot routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -58035,16 +58414,18 @@ subroutine pltchk ( ym, ymmiss, x, xmiss, n, m, iym, multi, &
 !
 !! PLTCHK checks for errors for the multiple plot routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -58301,16 +58682,18 @@ subroutine pltplx ( point, ymn, scale, ipoint, iend )
 !
 !! PLTPLX computes the point location in the plot string.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -58344,16 +58727,18 @@ subroutine pltsym ( iptsym, i, j, isym, n, ipoint, line, icount )
 !
 !! PLTSYM supplies the plot symbol for the plot line.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -58445,18 +58830,18 @@ subroutine polar ( ampl, phas, n )
 !    numbers to their magnitudes and phases.  the conversion is
 !    done in place.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    30 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Peter Bloomfield
-!
-!    Adapted by Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -58510,16 +58895,18 @@ subroutine ppc ( ym, x, n, ilog, isize, nout, ylb, yub, xlb, xub )
 !
 !! PPC produces a simple page plot (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -58660,16 +59047,18 @@ subroutine ppcnt ( ym, ymmiss, x, xmiss, n, m, iym, multi, ilog, &
 !
 !! PPCNT is the controling routine for user called page plot routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -58814,16 +59203,18 @@ subroutine pp ( ym, x, n )
 !
 !! PP: user callable routine which produces a simple page plot (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -59050,7 +59441,7 @@ function ppfchs ( p, nu )
   real ppfchs
 
   real &
-     a,aj,b,c,cut1,cut2,cutoff,den,dx,fp,gamma, &
+     a,aj,b,c,cut1,cut2,cutoff,den,dx,fp,gamm, &
      pcalc,sum,term,xdel,xlower,xmax,xmid,xmin,xmin0,xupper, &
      z,z2,z3,z4,z5
   integer &
@@ -59100,7 +59491,7 @@ function ppfchs ( p, nu )
 !  and then evaluate the latter.
 !
   fp = p
-  gamma = real ( nu ) / 2.0e0
+  gamm = real ( nu ) / 2.0e0
   maxit = 10000
 !
 !  Compute the Gamma function using the algorithm in the
@@ -59109,7 +59500,7 @@ function ppfchs ( p, nu )
 !  It is used in the calculation of the cdf based on
 !  the tentative value of the ppfchs in the iteration.
 !
-  z = gamma
+  z = gamm
   den = 1.0e0
 
   do
@@ -59135,7 +59526,7 @@ function ppfchs ( p, nu )
 !  Determine lower and upper limits on the desired 100p percent point.
 !
   iloop = 1
-  xmin0 = exp((1.0e0/gamma)*(log(fp)+log(gamma)+(a+b)-log(den)))
+  xmin0 = exp((1.0e0/gamm)*(log(fp)+log(gamm)+(a+b)-log(den)))
   xmin = xmin0
   xlower = xmin
   xmid = xmin
@@ -59195,14 +59586,14 @@ function ppfchs ( p, nu )
 !
   600 continue
 
-  sum = 1.0e0/gamma
-  term = 1.0e0/gamma
-  cut1 = dx-gamma
+  sum = 1.0e0/gamm
+  term = 1.0e0/gamm
+  cut1 = dx-gamm
   cut2 = dx*10000000000.0e0
 
   do j=1,maxit
      aj = real ( j )
-     term = dx*term/(gamma+aj)
+     term = dx*term/(gamm+aj)
      sum = sum+term
      cutoff = cut1+(cut2*term/sum)
      if (aj > cutoff) go to 750
@@ -59219,7 +59610,7 @@ function ppfchs ( p, nu )
   return
 
   750 continue
-  pcalc = exp(gamma*log(dx) + log(sum) + log(den) - dx - a - b)
+  pcalc = exp(gamm*log(dx) + log(sum) + log(den) - dx - a - b)
   if (iloop == 1) go to 360
   go to 560
 
@@ -59780,16 +60171,18 @@ subroutine ppl ( ym, x, n, ilog )
 !
 !! PPL produces a simple page plot (log option).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -59934,16 +60327,18 @@ subroutine pplmt ( ym, ymmiss, x, xmiss, n, m, iym, ylb, yub, ymn, &
 !
 !! PPLMT sets the plot limits for page plots with missing values.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -60206,16 +60601,18 @@ subroutine ppmc ( ym, ymmiss, x, xmiss, n, ilog, isize, nout, ylb, &
 !
 !! PPMC: simple page plot for data with missing observations (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -60350,16 +60747,18 @@ subroutine ppm ( ym, ymmiss, x, xmiss, n )
 !
 !! PPM: simple page plot for data with missing observations (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -60503,16 +60902,18 @@ subroutine ppml ( ym, ymmiss, x, xmiss, n, ilog )
 !
 !! PPML plots data with missing observations (log option).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -60655,16 +61056,18 @@ subroutine ppmn ( ym, ymmiss, x, xmiss, n, m, iym, ischck, isym, &
 !
 !! PPMN is the main routine for page plots.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     input arguments - (in order of usage)
 !
@@ -61259,16 +61662,18 @@ subroutine prtcnt ( nprt, ndigit, iptout )
 !
 !! PRTCNT sets up the print control parameters.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -61325,13 +61730,18 @@ subroutine qapply ( nn, n, p, j, r, ierr )
 !    are normalized so that their 2-norm squared is 2.  The use of
 !    these transformations here is in the spirit of Businger and Golub.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    06 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -61422,13 +61832,18 @@ subroutine qrfact ( nm, m, n, qr, alpha, ipivot, ierr, nopivk, sum )
 !    to initialize (and sometimes update) the sum array, and
 !    with calls on DOTPRD in place of some loops.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    04 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -61653,13 +62068,18 @@ function r1mach ( i )
 !      R1MACH(4) = B**(1-T), the largest relative spacing.
 !      R1MACH(5) = log10(B)
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Phyllis Fox, Andrew Hall, Norman Schryer
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -61717,15 +62137,18 @@ function r9gmit ( a, x, algap1, sgngam, alx )
 !
 !! R9GMIT computes Tricomi's incomplete gamma function for small X.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Wayne Fullerton,
-!    Los Alamos National Laboratory,
-!    Los Alamos, New Mexico.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -61829,15 +62252,18 @@ function r9lgic ( a, x, alx )
 !
 !    This routine is suitable for large x and for a <= x.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Wayne Fullerton,
-!    Los Alamos National Laboratory,
-!    Los Alamos, New Mexico.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -61882,16 +62308,18 @@ function r9lgit ( a, x, algap1 )
 !
 !! R9LGIT computes the log of Tricomi's incomplete Gamma function.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Wayne Fullerton,
-!    Los Alamos National Laboratory,
-!    Los Alamos, New Mexico.
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 ! compute the log of tricomi-s incomplete gamma function with perron-s
 ! continued fraction for large x and for a  >=  x.
@@ -61964,15 +62392,18 @@ function r9lgmc ( x )
 !    compute the log gamma correction factor for x  >=  10.0 so that
 !    log (gamma(x)) = log(sqrt(2*pi)) + (x-.5)*log(x) - x + r9lgmc(x)
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Wayne Fullerton,
-!    Los Alamos National Laboratory,
-!    Los Alamos, New Mexico.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -62319,11 +62750,18 @@ function randu ( jd )
 !            the thousandth evaluation
 !              z=randu(0) gives   z=.19797357...
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
+!  Modified:
+!
+!    22 October 2024
+!
 !  Author:
 !
-!    James Blue, David Kahaner, George Marsaglia.
-!
-!    Modified by Janet Donaldson.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -62635,16 +63073,18 @@ subroutine relcom ( n, v, w, reltol, abstol, nfail, ifail )
 !    relative difference between v(i) and w(i), i = 1, 2, ..., n,
 !    is greater than   reltol  .
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Robert Schnabel,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -62700,13 +63140,18 @@ function reldst ( p, d, x, x0 )
 !
 !! RELDST computes the relative difference between two real values.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    03 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -62758,16 +63203,18 @@ subroutine repck ( d, nrests, npar, n )
 !    by nlcmp.  future revisions to nlcmp should be made to eliminate
 !    the need for this routine.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -62876,13 +63323,18 @@ subroutine rptmul ( func, ipivot, j, nn, p, rd, x, y, z )
 !
 !    X and Y may share storage.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    10 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -63033,16 +63485,18 @@ subroutine sample ( y, n, ns, ys, nys )
 !
 !! SAMPLE creates a new series by sampling every K-th item of the input.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -63141,15 +63595,18 @@ function sasum ( n, x, incx )
 !
 !! SASUM takes the sum of the absolute values of a real vector.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    15 February 2001
+!    22 October 2024
 !
 !  Author:
 !
-!    Jack Dongarra
-!
-!    Fortran90 translation by John Burkardt.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -63191,15 +63648,18 @@ subroutine saxpy ( n, sa, x, incx, y, incy )
 !
 !! SAXPY adds a real constant times one vector to another.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    08 April 1999
+!    22 October 2024
 !
 !  Author:
 !
-!    Jack Dongarra
-!
-!    Fortran90 translation by John Burkardt.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -63278,15 +63738,18 @@ subroutine scopy ( n, x, incx, y, incy )
 !
 !! SCOPY copies one real vector into another.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    08 April 1999
+!    22 October 2024
 !
 !  Author:
 !
-!    Jack Dongarra
-!
-!    Fortran90 translation by John Burkardt.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -63359,15 +63822,18 @@ function sdot ( n, x, incx, y, incy )
 !
 !! SDOT forms the dot product of two real vectors.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    02 June 2000
+!    22 October 2024
 !
 !  Author:
 !
-!    Jack Dongarra
-!
-!    Fortran90 translation by John Burkardt.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -63464,16 +63930,18 @@ subroutine setesl ( n, ndiv, nfft )
 !    using the singleton fft providing the proper value of ndiv
 !    is chosen.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -63547,16 +64015,18 @@ subroutine setfrq ( freq, nf, nprt, fmin, fmax, h )
 !
 !! SETFRQ computes the frequencies at which the spectrum is to be estimated.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -63638,16 +64108,18 @@ subroutine setiv ( vector, n, value )
 !
 !! SETIV sets the entries of an integer vector to a value.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -63677,16 +64149,18 @@ subroutine setlag ( n, lagmax )
 !
 !! SETLAG sets the number of autocorrelations to be computed.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -63713,16 +64187,18 @@ subroutine setra ( array, im, m, n, value )
 !
 !! SETRA sets the entries of a real array to a given value.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -63758,16 +64234,18 @@ subroutine setrow ( nrow, xm, n, m, ixm, nrowu )
 !
 !! SETROW selects the row used by the derivative checking procedure.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -63825,16 +64303,18 @@ subroutine setrv ( vector, n, value )
 !
 !! SETRV sets the elements of a real vector to a value.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -63867,16 +64347,18 @@ subroutine slflt ( y, n, k, h, yf, nyf )
 !    this subroutine performs a symmetric filtering operation
 !    on an input series y, returning the filtered series in yf.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -63994,13 +64476,18 @@ subroutine slupdt ( a, cosmin, p, size, step, u, w, wchmtd, wscale, y )
 !    Update the symmetric matrix A so that A * STEP = Y.  Only the lower
 !    triangle of A is stored, by rows.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    04 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -64074,13 +64561,18 @@ subroutine slvmul ( p, y, s, x )
 !    S is a P by P symmetric matrix.  The lower triangle of S is
 !    stored by rows.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    04 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -64146,13 +64638,18 @@ function smach ( job )
 !      TINY = 100.0 * B**(-L+T)
 !      HUGE = 0.01 * B**(U-T)
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    19 February 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    FORTRAN90 version by John Burkardt
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -64237,16 +64734,18 @@ subroutine smply ( y, n, ns, ys, nys )
 !    this subroutine samples every kth observation from the input
 !    series y, storing the sampled series in ys.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -64292,15 +64791,18 @@ function snrm2 ( n, x, incx )
 !
 !! SNRM2 computes the Euclidean norm of a real vector.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    01 June 2000
+!    22 October 2024
 !
 !  Author:
 !
-!    Sven Hammarling
-!
-!    Fortran90 translation by John Burkardt.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -64381,16 +64883,18 @@ subroutine spcck ( spc, isort, nf, spcmn, spcmx, nspc, ispcer )
 !    value are considered insignificant and are culled from the
 !    ordinates.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -64494,16 +64998,18 @@ subroutine sppc ( ym, x, n, isym, ilog, isize, nout, ylb, yub, &
 !
 !! SPPC: simple page plot with user control of plot symbols (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -64645,16 +65151,18 @@ subroutine spp ( ym, x, n, isym )
 !
 !! SPP: simple page plot with user control of plot symbols (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -64798,16 +65306,18 @@ subroutine sppl ( ym, x, n, isym, ilog )
 !
 !! SPPL: simple page plot with user control of plot symbols (log option).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -64953,16 +65463,18 @@ subroutine sppltc ( xaxis, yaxis, isym, npts, xpltmn, xpltmx, bw, &
 !
 !! SPPLTC: confidence interval and bandwidth coordinates for spectrum plots.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -65043,16 +65555,18 @@ subroutine sppltd ( spcmn, spcmx, alow, aup, ypltmn, ypltmx, &
 !
 !! SPTLTD sets various y axis limits for decibel spectrum plots.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -65101,16 +65615,18 @@ subroutine sppltl ( spcmn, spcmx, alow, aup, ypltmn, ypltmx, cilow, cimid, &
 !
 !! SPPLTL sets various y axis limits for decibel spectrum plots.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -65165,16 +65681,18 @@ subroutine sppmc ( ym, ymmiss, x, xmiss, n, isym, ilog, isize, nout, &
 !
 !! SPPMC: page plot with user plot symbols and missing observations (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -65310,16 +65828,18 @@ subroutine sppm ( ym, ymmiss, x, xmiss, n, isym )
 !
 !! SPPM page plot with user plot symbols and missing observations (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -65463,16 +65983,18 @@ subroutine sppml ( ym, ymmiss, x, xmiss, n, isym, ilog )
 !
 !! SPPML: page plot with user plot symbols, missing observations (log option).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -65615,15 +66137,18 @@ subroutine srot ( n, x, incx, y, incy, c, s )
 !
 !! SROT applies a real plane rotation.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    08 April 1999
+!    22 October 2024
 !
 !  Author:
 !
-!    Jack Dongarra
-!
-!    Fortran90 translation by John Burkardt.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -65740,15 +66265,18 @@ subroutine srotg ( sa, sb, c, s )
 !    If abs ( Z ) < 1, set C = sqrt ( 1 - Z * Z ) and S = Z;
 !    if abs ( Z ) > 1, set C = 1/ Z and S = sqrt ( 1 - C * C );
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    15 May 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Jack Dongarra
-!
-!    Fortran90 translation by John Burkardt.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -66019,16 +66547,18 @@ subroutine srtirr ( ir, rr, la, a )
 !    later be sorted again with ir as the key, in order to
 !    restore a and rr to their original order.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -66205,9 +66735,18 @@ subroutine srtri ( a, la, ir )
 !    (unpermuted) order.
 !    permutations returned
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    30 April 2006
+!    22 October 2024
+!
+!  Author:
+!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -66368,16 +66907,18 @@ subroutine srtrri ( a, rr, la, ir )
 !    sorting on ir restores a to the order that it had before
 !    srtirr was applied.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -66555,15 +67096,18 @@ subroutine sscal ( n, sa, x, incx )
 !
 !! SSCAL scales a real vector by a constant.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    08 April 1999
+!    22 October 2024
 !
 !  Author:
 !
-!    Jack Dongarra
-!
-!    Fortran90 translation by John Burkardt.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -66645,13 +67189,18 @@ subroutine ssidi ( a, lda, n, kpvt, det, inert, work, job )
 !
 !    Variables not requested by JOB are not used.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    02 March 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    FORTRAN90 translation by John Burkardt.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -66914,13 +67463,18 @@ subroutine ssifa ( a, lda, n, kpvt, info )
 !
 !    To compute inverse(A), follow SSIFA by SSIDI.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    02 March 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    FORTRAN90 translation by John Burkardt.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -67165,13 +67719,18 @@ subroutine sswap ( n, x, incx, y, incy )
 !
 !! SSWAP interchanges two real vectors.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    08 April 1999
+!    22 October 2024
 !
 !  Author:
 !
-!    Fortran90 translation by John Burkardt.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -67278,16 +67837,18 @@ subroutine stat1 ( y, n, ymed, ymin, ymax, ymidrg, yrange, ncells, &
 !    sally peavy.  the original adaptation to starpac was made
 !    by janet donaldson.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -67434,16 +67995,18 @@ subroutine stat1w ( y, wt, n, ymed, ymin, ymax, ymidrg, yrange, &
 !    sally peavy.  the original adaptation to starpac was made
 !    by janet donaldson.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -67647,16 +68210,18 @@ subroutine stat2 ( y, n, sts, sumda, sumdi, sumd2, sumd3, sumd4 )
 !    sally peavy.  the original adaptation to starpac was
 !    done by janet donaldson.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -67904,16 +68469,18 @@ subroutine stat2w ( y, wt, n, nnzw, sts, sumda, sumdi, sumwd2, &
 !    sally peavy.  the original adaptation to starpac was
 !    done by janet donaldson.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -68203,16 +68770,18 @@ subroutine stater ( nmsub, wt, n, ldstak, wts, nnzw, stack, ierr )
 !    returning a flag indicating that errors have been
 !    found.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -68331,22 +68900,28 @@ subroutine stater ( nmsub, wt, n, ldstak, wts, nnzw, stack, ierr )
 
   return
 end
-subroutine stat ( y, n, ldstak )
+subroutine stat_external ( y, n, ldstak )
 
 !*****************************************************************************80
 !
-!! STAT computes 53 statistics for an unweighted vector.
+!! stat_external() computes 53 statistics for an unweighted vector.
+!
+!  Discussion:
+!
+!    The original subroutine name "stat()" conflicted with an intrinsic.
+!
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
 !
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -68362,7 +68937,7 @@ subroutine stat ( y, n, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -68401,7 +68976,7 @@ subroutine stat ( y, n, ldstak )
 !     real alpha
 !        the percentage to be trimmed off each end of y for the
 !        trimmed means calculations.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer idp
 !        the code value for double precision for framework.
@@ -68525,7 +69100,7 @@ subroutine stat ( y, n, ldstak )
   return
 
  1000 format (/' the correct form of the call statement is'// &
-     '       call stat (y, n, ldstak)')
+     '       call stat_external (y, n, ldstak)')
 end
 subroutine stats ( y, n, ldstak, sts, nprt )
 
@@ -68533,16 +69108,18 @@ subroutine stats ( y, n, ldstak, sts, nprt )
 !
 !! STATS computes 53 different statistics for an unweighted vector.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -68558,7 +69135,7 @@ subroutine stats ( y, n, ldstak, sts, nprt )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -68597,7 +69174,7 @@ subroutine stats ( y, n, ldstak, sts, nprt )
 !     real alpha
 !        the percentage to trim from each end in the trimmed
 !        means.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer idp
 !        framework code value for double precision numbers.
@@ -68739,16 +69316,18 @@ subroutine statw ( y, wt, n, ldstak )
 !    vector y, with weights specified.  one page of automatic
 !    printout is produced.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -68764,7 +69343,7 @@ subroutine statw ( y, wt, n, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -68804,7 +69383,7 @@ subroutine statw ( y, wt, n, ldstak )
 !     real alpha
 !        the percentage of points to be trimmed from either end of
 !        y in calculating the trimmed means.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer idp
 !        framework code value for double precision numbers.
@@ -68952,16 +69531,18 @@ subroutine statws ( y, wt, n, ldstak, sts, nprt )
 !    y, with weights specified.  one page of automatic
 !    printout is produced.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -68977,7 +69558,7 @@ subroutine statws ( y, wt, n, ldstak, sts, nprt )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -69015,7 +69596,7 @@ subroutine statws ( y, wt, n, ldstak, sts, nprt )
 !     real alpha
 !        the percentage to be trimmed from each end of the
 !        sorted array y.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer idp
 !        framework code value for double precision numbers.
@@ -69167,16 +69748,18 @@ subroutine stkclr ( nall0 )
 !    made since the nall0 existing on entry to the starpac routine,
 !    without knowing how many allocations must be released.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -69253,20 +69836,22 @@ function stkget ( nitems, itype )
 !
 !     this function was adapted from the framework function istkgt
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    28 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer i
 !        the location of a pointer to the end of the previous allocation
@@ -69296,7 +69881,7 @@ function stkget ( nitems, itype )
 !
   implicit none
 
-  double precision dstak(12)
+  double precision dstak(3000)
   integer i
   integer ierr
   integer isize(5)
@@ -69365,20 +69950,22 @@ subroutine stkrel ( number )
 !
 !    this function was adapted from the framework function istkgt
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    28 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value returned by this routine designating
@@ -69406,7 +69993,7 @@ subroutine stkrel ( number )
   integer number
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer &
@@ -69484,20 +70071,22 @@ subroutine stkset ( nitems, itype )
 !
 !    this function was adapted from the framework subroutine istkin
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    28 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer isize(5)
 !        the number of words in each of the various data types.
@@ -69523,7 +70112,7 @@ subroutine stkset ( nitems, itype )
   integer nitems
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer &
@@ -69596,16 +70185,18 @@ function stkst ( nfact )
 !    it does not check to see if it is.  in fact, there
 !    is no way that it could check.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -69614,7 +70205,7 @@ function stkst ( nfact )
   integer stkst
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local arrays
   integer &
@@ -69629,7 +70220,7 @@ function stkst ( nfact )
 !
 !     variable definitions (alphabetically)
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer istak(12)
 !        the integer version of the /cstak/ work area.
@@ -69670,13 +70261,18 @@ function stopx ( )
 !    function that returns TRUE if and only if the interrupt
 !    (break) key has been pressed since the last call on STOPX.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    04 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -69694,16 +70290,18 @@ subroutine stpadj ( xm, n, m, ixm, mdl, par, npar, &
 !
 !! STPADJ adjusts the selected step sizes to optimal values.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Robert Schnabel,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -69902,16 +70500,18 @@ subroutine stpamo ( head, n, exm, nexmpt, neta, j, par, npar, stp, &
 !
 !    Ignore compiler warning messages about unused variables!
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    19 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -70008,16 +70608,18 @@ subroutine stpcnt ( xm, n, m, ixm, mdl, par, npar, stp, &
 !
 !! STPCNT controls the stepsize selection process.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -70044,7 +70646,7 @@ subroutine stpcnt ( xm, n, m, ixm, mdl, par, npar, stp, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -70085,7 +70687,7 @@ subroutine stpcnt ( xm, n, m, ixm, mdl, par, npar, stp, &
 !        the starting location in the work area of
 !        the central difference quotient approximation to the
 !        derivative of the model with respect to the jth parameter.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real eta
 !        the relative noise in the model
@@ -70377,16 +70979,18 @@ subroutine stpdrv ( nmsub, xm, n, m, ixm, mdl, par, npar, ldstak, &
 !     to be used in computing forward difference quotient estimates
 !     of the numerical derivatives.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -70409,7 +71013,7 @@ subroutine stpdrv ( nmsub, xm, n, m, ixm, mdl, par, npar, ldstak, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer &
@@ -70430,7 +71034,7 @@ subroutine stpdrv ( nmsub, xm, n, m, ixm, mdl, par, npar, ldstak, &
 !
 !     variable definitions (alphabetically)
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real exmpt
 !        the proportion of observations for which the computed
@@ -70528,16 +71132,18 @@ subroutine stper ( nmsub, n, m, ixm, npar, ldstak, scale, lscale )
 !
 !! STPER does error checking for the stepsize selection routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -70671,16 +71277,18 @@ subroutine stphdr ( page, wide, isubhd )
 !
 !! STPHDR prints page headings for the stepsize selection routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -70727,16 +71335,18 @@ subroutine stpls1 ( n, m, ixm, par, npar, neta, exmpt, scale, nprt )
 !
 !! STPLS1 sets a test problem for the step size selection family.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -70797,16 +71407,18 @@ subroutine stpls2 ( npar, stp )
 !
 !! STPLS2 sets a test problem for the step size selection family.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -70856,16 +71468,18 @@ subroutine stplsc ( xm, n, m, ixm, mdl, par, npar, ldstak, stp, &
 !    of the numerical derivatives for the nonlinear least squares
 !    routines (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -70886,7 +71500,7 @@ subroutine stplsc ( xm, n, m, ixm, mdl, par, npar, ldstak, stp, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   integer &
@@ -70905,7 +71519,7 @@ subroutine stplsc ( xm, n, m, ixm, mdl, par, npar, ldstak, stp, &
 !
 !     variable definitions (alphabetically)
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real exmpt
 !        the proportion of observations for which the computed
@@ -70988,16 +71602,18 @@ subroutine stpls ( xm, n, m, ixm, mdl, par, npar, ldstak, stp )
 !    of the numerical derivatives for the nonlinear least squares
 !    routines (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -71016,7 +71632,7 @@ subroutine stpls ( xm, n, m, ixm, mdl, par, npar, ldstak, stp )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -71039,7 +71655,7 @@ subroutine stpls ( xm, n, m, ixm, mdl, par, npar, ldstak, stp )
 !
 !     variable definitions (alphabetically)
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real exmpt
 !        the proportion of observations for which the computed
@@ -71119,16 +71735,18 @@ subroutine stpmn ( j, xm, n, m, ixm, mdl, par, npar, &
 !
 !! STPMN: main routine for numerical derivative step size selection.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Robert Schnabel,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -71456,17 +72074,18 @@ subroutine stpout ( head, n, exm, nexmpt, neta, j, par, npar, stp, &
 !
 !! STPOUT prints results for the step size selection routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -71791,16 +72410,18 @@ subroutine stpsel ( xm, n, m, ixm, mdl, par, npar, &
 !    is not met does not exceed nexmpt or until no further
 !    improvement can be made.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, Robert Schnabel,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -72051,13 +72672,18 @@ subroutine strco ( t, ldt, n, rcond, z, job )
 !
 !! STRCO estimates the condition of a real triangular matrix.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    02 March 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    FORTRAN90 translation by John Burkardt.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -72278,13 +72904,18 @@ subroutine strdi ( t, ldt, n, det, job, info )
 !
 !! STRDI computes the determinant and inverse of a real triangular matrix.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    02 March 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    FORTRAN90 translation by John Burkardt.
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -72435,16 +73066,18 @@ subroutine sumbs ( x, n, lo, mid, hi )
 !
 !! SUMBS finds a zero or value closest to zero in a sorted vector.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -72536,16 +73169,18 @@ subroutine sumds ( x, n, lo, mid, hi, xmeanw, sumda, sumd2, sumd3, sumd4 )
 !    vector in which the midth element is the element
 !    closest to zero.  used by the stat family.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -72675,16 +73310,18 @@ subroutine sumid ( x, n, xmean, sumdi )
 !    a routine to calculate the sum of the products of i and the i th
 !    difference among the elements of the vector x - xmean.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -72740,17 +73377,18 @@ subroutine sumidw ( x, w, n, xmeanw, sumdi )
 !    are not weighted zero.  (elements weighted zero do not
 !    produce an increment in i.)
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
-!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !     variable definitions (alphabetically)
 !
@@ -73009,16 +73647,18 @@ subroutine sumss ( x, n, lo, mid, hi, sum1, sum2, suma, xmean )
 !    the element closest to zero.  used by the stat
 !    family.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -73133,16 +73773,18 @@ subroutine sumts ( x, n, alpha, sumt1, xtrm )
 !    a sorted vector in which the midth element is the element
 !    closest to zero.  used by the stat family.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -73265,16 +73907,18 @@ subroutine sumwds ( x, w, n, lo, mid, hi, xmeanw, sumda, sumwd2, &
 !    sorted vector in which the midth element is the element
 !    closest to zero.  used by the stat family.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -73444,16 +74088,18 @@ subroutine sumwss ( x, w, n, lo, mid, hi, nnzw, sum1, sumw1, sumw2, &
 !    element is the element closest to zero.  used by the stat
 !    family.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -73616,16 +74262,18 @@ subroutine sumwts ( x, w, n, nnzw, alpha, sumt1, sumtw1, xtrm, xtrmw )
 !    for a sorted vector in which the midth element is the
 !    element closest to zero.  used by the stat family.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -73813,16 +74461,18 @@ subroutine svpc ( ym, n, ns, isym, ilog, isize, irlin, ibar, &
 !
 !! SVPC produces a vertical plot with user plot symbols (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -73956,16 +74606,18 @@ subroutine svp ( ym, n, ns, isym )
 !
 !! SVP: vertical plot with user plot symbols (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -74106,16 +74758,18 @@ subroutine svpl ( ym, n, ns, isym, ilog )
 !
 !! SVPL produces a vertical log plot with user control of the plot symbol.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -74255,16 +74909,18 @@ subroutine svpmc ( ym, ymmiss, n, ns, isym, ilog, isize, &
 !
 !! SVPMC: vertical plot with missing data and user plot symbols (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -74400,16 +75056,18 @@ subroutine svpm ( ym, ymmiss, n, ns, isym )
 !
 !! SVPM: vertical plot with missing data and user plot symbols (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -74552,16 +75210,18 @@ subroutine svpml ( ym, ymmiss, n, ns, isym, ilog )
 !
 !! SVPML: vertical plot with missing data, user plot symbols (log plot option).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -74709,18 +75369,18 @@ subroutine taper ( y, n, taperp, yt )
 !    series in yt.  this routine is adapted from bloomfields
 !    routine taper.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    30 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Peter Bloomfield
-!
-!    Adapted by Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -74856,10 +75516,6 @@ subroutine timestamp ( )
 !
 !    John Burkardt
 !
-!  Parameters:
-!
-!    None
-!
   implicit none
 
   character ( len = 8 ) ampm
@@ -74922,16 +75578,18 @@ subroutine uas ( y, n )
 !
 !    This is the short call version.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -75130,16 +75788,18 @@ subroutine uascft ( acov, lagmax, lacov, iar, phi, n, var )
 !    this routine computes the autoregressive model coefficients
 !    for an order iar model using durbins recursive method.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -75193,16 +75853,18 @@ subroutine uasdv ( acov, spca, spcf, lspc, iar, phi, nf, fmin, fmax, &
 !
 !! UASDV is the driver for computing the autoregressive and Fourier spectrums.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    02 December 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -75441,16 +76103,18 @@ subroutine uaser ( nmsub, n, acov, iar, phi, lagmax, lag, lacov, &
 !
 !! UASER: error checks for time series Fourier univariate spectrum analysis.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -75668,16 +76332,18 @@ subroutine uasest ( iar, var, phi, nf, freq, delta, spca, lphi, ispc )
 !
 !    This routine is modeled after subroutine UASEC by Dick Jones.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -75788,16 +76454,18 @@ subroutine uasf ( yfft, n, lyfft, ldstak )
 !    This routine uses the fast Fourier transform.  This is the version with
 !    a short calling sequence.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -75813,7 +76481,7 @@ subroutine uasf ( yfft, n, lyfft, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -75861,7 +76529,7 @@ subroutine uasf ( yfft, n, lyfft, ldstak )
 !        the desired confidence level.
 !     real delta
 !        the sampling interval.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fmax, fmin
 !        the maximum and minimum frequency for which the
@@ -76042,16 +76710,18 @@ subroutine uasfs ( yfft, n, lyfft, ldstak, iar, phi, lagmax, lag, &
 !
 !! UASFS: interface, autoregressive spectrum estimation using FFT (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -76069,7 +76739,7 @@ subroutine uasfs ( yfft, n, lyfft, ldstak, iar, phi, lagmax, lag, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -76117,7 +76787,7 @@ subroutine uasfs ( yfft, n, lyfft, ldstak, iar, phi, lagmax, lag, &
 !        the desired confidence level.
 !     real delta
 !        the sampling interval.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fmax, fmin
 !        the maximum and minimum frequency for which the
@@ -76351,16 +77021,18 @@ subroutine uasord ( spcf, spca, spcfmn, spcfmx, spcamn, spcamx, &
 !
 !! UASORD produces coordinates for the spectrum plots.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -76518,16 +77190,18 @@ subroutine uasout ( xaxis, yaxis, isym, npts, bw, idf, lag, &
 !
 !! UASOUT produces the spectrum plots for the autoregressive spectrum estimates.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -76661,12 +77335,12 @@ subroutine uasout ( xaxis, yaxis, isym, npts, bw, idf, lag, &
     ilog = 1
   end if
 
-  call pplmt ( yaxis, yaxis, xaxis, xaxis, npts, 1, lpcv, ypltmn, &
+  call pplmt ( yaxis, yaxis, xaxis, xaxis(1), npts, 1, lpcv, ypltmn, &
     ypltmx, ymn, ymx, xpltmn, xpltmx, xmn, xmx, error, nmsub, &
     .false.)
 
   if (.not.error) then
-    call ppmn ( yaxis, yaxis, xaxis, xaxis, npts, 1, lpcv, 1, isym, &
+    call ppmn ( yaxis, yaxis, xaxis, xaxis(1), npts, 1, lpcv, 1, isym, &
       lpcv, 0, -1, ymn, ymx, xmn, xmx, .false., ilog )
   end if
 
@@ -76688,16 +77362,18 @@ subroutine uass ( y, n, iar, phi, lagmax, lag, nf, fmin, fmax, &
 !
 !! UASS: user interface for autoregressive spectrum estimation (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    02 December 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -76711,7 +77387,7 @@ subroutine uass ( y, n, iar, phi, lagmax, lag, nf, fmin, fmax, &
 !        the desired confidence level.
 !     real delta
 !        the sampling interval.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fmax, fmin
 !        the maximum and minimum frequency for which the
@@ -76820,7 +77496,7 @@ subroutine uass ( y, n, iar, phi, lagmax, lag, nf, fmin, fmax, &
   integer acov
   integer aic
   real alpha
-  double precision dstak(12)
+  double precision dstak(3000)
   real delta
   real fmax
   real fmin
@@ -77005,16 +77681,18 @@ subroutine uasvar ( y, ymean, n, iar, phi, var )
 !
 !! UASVAR computes the variance for a given series and autoregressive model.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -77082,16 +77760,18 @@ subroutine uasv ( acov, lagmax, n )
 !    spectrum estimation when the acvf have previously been
 !    computed and stored (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    02 December 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -77275,16 +77955,18 @@ subroutine uasvs ( acov, lagmax, y, n, iar, phi, lag, nf, &
 !    spectrum estimation when the acvf have previously been
 !    computed and stored (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -77302,7 +77984,7 @@ subroutine uasvs ( acov, lagmax, y, n, iar, phi, lag, nf, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -77349,7 +78031,7 @@ subroutine uasvs ( acov, lagmax, y, n, iar, phi, lag, nf, &
 !        the desired confidence level.
 !     real delta
 !        the sampling interval.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fmax, fmin
 !        the maximum and minimum frequency for which the
@@ -77572,9 +78254,18 @@ subroutine ufparm ( )
 !
 !! UFPARM is a dummy version of the optional user function for NL2SOL.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    30 April 2006
+!    22 October 2024
+!
+!  Author:
+!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -77589,16 +78280,18 @@ subroutine ufsdrv ( y, ly, ymiss, acov, nlppa, spcf, ispcf, nf, &
 !
 !! UFSDRV is the controlling routine for time series Fourier spectrum analysis.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -77900,16 +78593,18 @@ subroutine ufser ( nmsub, n, lagmax, lacov, nf, ispcf, nw, &
 !
 !! UFSET checks errors for time series Fourier univariate spectrum analysis.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -78103,16 +78798,18 @@ subroutine ufsest ( acov, w, lag, spcf, ispcf, lacov, lw, nf, freq, &
 !    their lower and upper confidence limits, spclcl and spcucl,
 !    respectively.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -78196,16 +78893,18 @@ subroutine ufs ( y, n )
 !
 !! UFS: user routine for time series Fourier spectrum analysis (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -78374,16 +79073,18 @@ subroutine ufsf ( yfft, n, lyfft, ldstak )
 !
 !! UFSF: user routine for Fourier spectrum analysis using fft (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -78393,7 +79094,7 @@ subroutine ufsf ( yfft, n, lyfft, ldstak )
 !        the desired confidence level.
 !     real delta
 !        the sampling interval.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fmax, fmin
 !        the maximum and minimum frequences at which the
@@ -78491,7 +79192,7 @@ subroutine ufsf ( yfft, n, lyfft, ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   real &
      alpha,delta,fmax,fmin,ymiss
@@ -78595,16 +79296,18 @@ subroutine ufsfs ( yfft, n, lyfft, ldstak, nw, lags, nf, fmin, fmax, &
 !
 !! UFSFS: user routine for Fourier spectrum analysis using the fft (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    02 December 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -78626,7 +79329,7 @@ subroutine ufsfs ( yfft, n, lyfft, ldstak, nw, lags, nf, fmin, fmax, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -78666,7 +79369,7 @@ subroutine ufsfs ( yfft, n, lyfft, ldstak, nw, lags, nf, fmin, fmax, &
 !        the desired confidence level.
 !     real delta
 !        the sampling interval.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fmax, fmin
 !        the maximum and minimum frequency at which the spectrum
@@ -78853,16 +79556,18 @@ subroutine ufslag ( acov, lagmax, lags, n, nw, nwused, lacov )
 !
 !! UFSLAG computes the lag window truncation points for spectrum analysis.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -78980,16 +79685,18 @@ subroutine ufsm ( y, ymiss, n )
 !
 !! UFSM: user routine, Fourier spectrum analysis with missing data (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -79168,16 +79875,18 @@ subroutine ufsmn ( acov, nlppa, lag, df, nf, freq, alpha, bw, spcf, &
 !
 !! UFSMN computes autocorrelations and partial autocorrelations of time series.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -79277,16 +79986,18 @@ subroutine ufsms ( y, ymiss, n, nw, lags, nf, fmin, fmax, nprt, &
 !
 !! UFSMS: time series Fourier spectrum analysis with missing data (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    02 December 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -79309,7 +80020,7 @@ subroutine ufsms ( y, ymiss, n, nw, lags, nf, fmin, fmax, nprt, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   real &
      alpha,delta
@@ -79348,7 +80059,7 @@ subroutine ufsms ( y, ymiss, n, nw, lags, nf, fmin, fmax, nprt, &
 !        the desired confidence level.
 !     real delta
 !        the sampling interval.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fmax, fmin
 !        the maximum and minimum frequency at which the spectrum
@@ -79543,16 +80254,18 @@ subroutine ufsmv ( acov, nlppa, lagmax, n )
 !
 !! UFSMV: Fourier spectrum analysis, missing data, user ACVF values (short).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    02 December 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -79716,16 +80429,18 @@ subroutine ufsmvs ( acov, nlppa, lagmax, n, nw, lags, nf, &
 !
 !! UFSMVS: time series Fourier spectrum analysis with missing data (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -79745,7 +80460,7 @@ subroutine ufsmvs ( acov, nlppa, lagmax, n, nw, lags, nf, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !
   real &
@@ -79788,7 +80503,7 @@ subroutine ufsmvs ( acov, nlppa, lagmax, n, nw, lags, nf, &
 !        the desired confidence level.
 !     real delta
 !        the sampling interval.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fmax, fmin
 !        the maximum and minimum frequency at which the spectrum
@@ -79968,16 +80683,18 @@ subroutine ufsout ( xaxis, yaxis, isym, npts, bw, idf, lag, laglst, &
 !
 !! UFSOUT produces the Fourier bivariate spectrum output.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -80097,12 +80814,12 @@ subroutine ufsout ( xaxis, yaxis, isym, npts, bw, idf, lag, laglst, &
 !
 !  plot squared coherency component of spectrum
 !
-    call pplmt(yaxis, yaxis, xaxis, xaxis, npts, 1, lpcv, ypltmn, &
+    call pplmt(yaxis, yaxis, xaxis, xaxis(1), npts, 1, lpcv, ypltmn, &
       ypltmx, ymn, ymx, xpltmn, xpltmx, xmn, xmx, error, nmsub, &
       .false.)
 
     if (.not.error) &
-      call ppmn(yaxis, yaxis, xaxis, xaxis, npts, 1, lpcv, 1, isym, &
+      call ppmn(yaxis, yaxis, xaxis, xaxis(1), npts, 1, lpcv, 1, isym, &
       lpcv, 0, -1, ymn, ymx, xmn, xmx, .false., ilog)
 
     if (xpltmn == 0.0e0 .and. xpltmx == 0.5e0) write ( *, 1030)
@@ -80130,12 +80847,12 @@ subroutine ufsout ( xaxis, yaxis, isym, npts, bw, idf, lag, laglst, &
   call versp(.true.)
   write ( *,1000)
   write ( *,1020) lag, bw, idf
-  call pplmt(yaxis, yaxis, xaxis, xaxis, 2*nf, 1, 2*nf, -2*pi, 2*pi, &
+  call pplmt(yaxis, yaxis, xaxis, xaxis(1), 2*nf, 1, 2*nf, -2*pi, 2*pi, &
     ymn, ymx, xpltmn, xpltmx, xmn, xmx, error, nmsub, .false.)
   if (error) then
     ierr = 1
   else
-    call ppmn(yaxis, yaxis, xaxis, xaxis, &
+    call ppmn(yaxis, yaxis, xaxis, xaxis(1), &
               2*nf, 1, 2*nf, 0, isym, lpcv, &
               0, -1, ymn, ymx, xmn, xmx, .false., ilog)
     if (xpltmn == 0.0e0 .and. xpltmx == 0.5e0) write ( *, 1030)
@@ -80169,16 +80886,18 @@ subroutine ufspcv ( spcf, spcmn, spcmx, freq, nf, xaxis, yaxis, &
 !
 !! UFSPCV produces coordinates for the spectrum plots.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -80304,16 +81023,18 @@ subroutine ufss ( y, n, nw, lags, nf, fmin, fmax, nprt, &
 !
 !! UFSS: time series Fourier spectrum analysis (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -80333,7 +81054,7 @@ subroutine ufss ( y, n, nw, lags, nf, fmin, fmax, nprt, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
   real &
      alpha,delta,ymiss
@@ -80375,7 +81096,7 @@ subroutine ufss ( y, n, nw, lags, nf, fmin, fmax, nprt, &
 !        the desired confidence level.
 !     real delta
 !        the sampling interval.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fmax, fmin
 !        the maximum and minimum frequency at which the spectrum
@@ -80558,16 +81279,18 @@ subroutine ufsv ( acov, lagmax, n )
 !
 !! UFSV: Fourier spectrum analysis, user supplied ACVF values (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -80734,16 +81457,18 @@ subroutine ufsvs ( acov, lagmax, n, nw, lags, nf, &
 !
 !! UFSVS: Fourier spectrum analysis and user supplied acvf values (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -80763,7 +81488,7 @@ subroutine ufsvs ( acov, lagmax, n, nw, lags, nf, &
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 
   real &
      alpha,delta,ymiss
@@ -80805,7 +81530,7 @@ subroutine ufsvs ( acov, lagmax, n, nw, lags, nf, &
 !        the desired confidence level.
 !     real delta
 !        the sampling interval.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fmax, fmin
 !        the maximum and minimum frequency at which the spectrum
@@ -80979,13 +81704,18 @@ function v2norm ( p, x )
 !
 !! V2NORM computes the L2 norm of a vector.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    04 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -81082,13 +81812,18 @@ subroutine vcopy ( p, y, x )
 !
 !! VCOPY copies a vector.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    04 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    David Gay
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -81126,16 +81861,18 @@ subroutine vcvotf ( npar, vcv, lvcv, est, lmask, mask, ivcvpt )
 !    diagonal, and the correlation coefficients are below the
 !    diagonal.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    25 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -81290,16 +82027,18 @@ subroutine vcvout ( np, vcv, ivcv, est )
 !    diagonal, and the correlation coefficients are below the
 !    diagonal.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -81431,16 +82170,18 @@ subroutine versp ( wide )
 !
 !! VERSP prints the version number.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -81469,16 +82210,18 @@ subroutine vp ( ym, n, ns )
 !
 !! VP is the user callable routine which produces a vertical plot (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -81622,16 +82365,18 @@ subroutine vpc ( ym, n, ns, ilog, isize, irlin, ibar, ylb, yub, xlb, xinc )
 !
 !! VPC is the user callable routine which produces a vertical plot (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -81772,16 +82517,18 @@ subroutine vpcnt ( ym, ymmiss, n, m, iym, multi, ilog, ylb, yub, &
 !
 !! VPCNT is the controlling routine for user-called vertical plots
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    02 December 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -81903,7 +82650,7 @@ subroutine vpcnt ( ym, ymmiss, n, m, iym, multi, ilog, ylb, yub, &
 
   xcheck = .false.
 
-  call pltchk ( ym, ymmiss, ym, ymmiss, n, m, iym, multi, &
+  call pltchk ( ym, ymmiss, ym, ymmiss(1), n, m, iym, multi, &
      ilog, ylb, yub, xlb, xinc, nmsub, miss, xcheck )
 
   if ( ierr == 0 ) then
@@ -81943,16 +82690,18 @@ subroutine vphead ( nsampl, irlin, ibar, ywidth, ymn, ymx, &
 !
 !! VPHEAD prints the heading for the vertical plot output.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -81996,6 +82745,8 @@ subroutine vphead ( nsampl, irlin, ibar, ywidth, ymn, ymx, &
   real ydmn,ydmx,ymn,ymx,ywidth
   integer &
      ibar,ilog,ilogy,irlin,isize,nsampl,numcol
+  integer ndigit
+  integer nprt
 !
 !  array arguments
   character &
@@ -82013,7 +82764,7 @@ subroutine vphead ( nsampl, irlin, ibar, ywidth, ymn, ymx, &
      ylabel(20)
   integer &
      ispace(20)
-
+  integer iptout(1)
 !
 !  check plot sequence.
 !
@@ -82045,7 +82796,12 @@ subroutine vphead ( nsampl, irlin, ibar, ywidth, ymn, ymx, &
 !
 !  adjust for log plots if necessary and find axis labels
 !
-  call prtcnt (mod(max(0,ilog),10),1,ilogy)
+  nprt = mod ( max ( 0, ilog ), 10 )
+  ndigit = 1
+  iptout(1) = ilogy
+  call prtcnt ( nprt, ndigit, iptout )
+  ilogy = iptout(1)
+
   call loglmt (ilogy, ymn, ymx, ylabel, numcol, 10, dely, ywidth, &
     nlably, ydmn, ydmx)
 !
@@ -82118,16 +82874,18 @@ subroutine vpl ( ym, n, ns, ilog )
 !
 !! VPL is the user callable routine which produces a vertical log plot.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -82270,16 +83028,18 @@ subroutine vplmt ( ym, ymmiss, n, m, iym, ylb, yub, ymn, &
 !
 !! VPLMT sets the plot limits for vertical plots
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -82462,16 +83222,18 @@ subroutine vpm ( ym, ymmiss, n, ns )
 !
 !! VPM produces a vertical plot with missing data (short call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -82615,16 +83377,18 @@ subroutine vpmc ( ym, ymmiss, n, ns, ilog, isize, &
 !
 !! VPMC produces a vertical plot with missing data (long call).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -82759,16 +83523,18 @@ subroutine vpml ( ym, ymmiss, n, ns, ilog )
 !
 !! VPML produces a vertical plot with missing data (log plot option).
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    26 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -82913,16 +83679,18 @@ subroutine vpmn ( ym, ymmiss, n, m, iym, nsampl, ischck, isym, &
 !
 !! VPMN produces vertical plots.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    02 December 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -83110,7 +83878,7 @@ subroutine vpmn ( ym, ymmiss, n, m, iym, nsampl, ischck, isym, &
     else
 
       if ( miss ) then
-        call ameanm ( ym, ymmiss, n, nused, refpt )
+        call ameanm ( ym, ymmiss(1), n, nused, refpt )
       else
         call amean ( ym, n, refpt )
       end if
@@ -83236,13 +84004,18 @@ subroutine xerabt ( messg, nmessg )
 !    XERRWV are employed.  The similar routine XERHLT is to be used 
 !    when the more modern error message handler XERMSG is used.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    05 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Ron Jones
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -83296,9 +84069,18 @@ subroutine xerbla ( subrou, nerr )
 !    This routine is called by Level 2 and 3 BLAS routines if an input 
 !    parameter is invalid.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    06 April 2007
+!    22 October 2024
+!
+!  Author:
+!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -83340,13 +84122,18 @@ subroutine xerclr ( )
 !    a certain error has occurred again since the last time
 !    NUMXER was referenced.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    05 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Ron Jones
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -83507,13 +84294,18 @@ subroutine xerctl ( messg, nmessg, nerr, level, kontrl )
 !    If KONTRL is set to a value outside the range from -2 to 2,
 !    it will be moved back into that range.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    05 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Ron Jones
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -83565,13 +84357,18 @@ subroutine xerdmp ( )
 !
 !! XERDMP prints the error tables and then clears them.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    05 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Ron Jones
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -83630,13 +84427,18 @@ subroutine xerhlt ( messg )
 !    employed.  The similar routine XERABT is to be used when the
 !    older error message handlers XERROR and XERRWV are used.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    06 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Ron Jones
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -83684,13 +84486,18 @@ subroutine xermax ( maxmes )
 !    suppression mode has been set.  That is the case if the variable
 !    KONTRL has been set to zero.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    05 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Ron Jones
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -83750,13 +84557,18 @@ subroutine xermsg ( librar, subrou, messg, nerr, level )
 !
 !    See subroutine XSETF for details on KONTRL.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    08 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Kirby Fong
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -84152,13 +84964,18 @@ subroutine xerprn ( prefix, npref, messg, nwrap )
 !    print and sometimes with a (potentially very long) message that may
 !    wrap around into multiple lines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    04 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Kirby Fong
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -84411,13 +85228,18 @@ subroutine xerprt ( messg, nmessg )
 !    A related routine, XERPRN, is used by the more modern error handling 
 !    routines XERMSG.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    05 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Ron Jones
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -84507,13 +85329,18 @@ subroutine xerror ( messg, nerr, level )
 !
 !    call xerror ( 'EXP    -- underflows being set to zero.', 1, -1 )
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    05 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Ron Jones
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -84599,13 +85426,18 @@ subroutine xerrwv ( messg, nmessg, nerr, level, ni, i1, i2, nr, r1, r2 )
 !      'QUADXY -- Requested error (R1) less than minimum(R2).', &
 !      54, 77, 1, 0, 0, 0, 2, errreq, errmin )
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    05 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Ron Jones
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -84888,13 +85720,18 @@ subroutine xersav ( messg, nmessg, nerr, level, count )
 !
 !! XERSAV records that an error occurred.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    05 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Ron Jones
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -85080,13 +85917,18 @@ subroutine xersve ( librar, subrou, messg, kflag, nerr, level, icount )
 !    was used with the older pair of error handling routines XERROR
 !    and XERRWV.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    06 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Ron Jones
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -85295,13 +86137,18 @@ subroutine xgetf ( kontrl )
 !          0     not printed      printed        printed
 !         -1     not printed      printed once   printed once
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    05 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Ron Jones
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -85352,13 +86199,18 @@ subroutine xgetua ( iunit, nunit )
 !    These unit numbers may have been set by a call to XSETUN,
 !    or a call to XSETUA, or may be default values.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    05 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Ron Jones
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -85441,13 +86293,18 @@ subroutine xgetun ( iunit )
 !    To find out if more than one file is being used for error output, 
 !    one must use the XGETUA routine.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    05 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Ron Jones
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -85514,13 +86371,18 @@ subroutine xsetf ( kontrl )
 !          0     not printed      printed        printed
 !         -1     not printed      printed once   printed once
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    08 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Ron Jones
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -85598,13 +86460,18 @@ subroutine xsetua ( iunita, nunit )
 !    say, a main output file, an interactive terminal, and other files 
 !    such as graphics communication files.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    08 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Ron Jones
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -85719,13 +86586,18 @@ subroutine xsetun ( iunit )
 !    Copies of the error output may also be sent to up to four auxilliary 
 !    units, which can be defined by calling XSETUA.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    05 April 2007
+!    22 October 2024
 !
 !  Author:
 !
-!    Ron Jones
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
