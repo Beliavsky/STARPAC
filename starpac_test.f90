@@ -2,15 +2,24 @@ program main
 
 !*****************************************************************************80
 !
-!! MAIN is the main program for STARPAC_TEST.
+!! starpac_test() tests starpac().
 !
-!  Discussion:
+!  Licensing:
 !
-!    STARPAC_TEST tests the STARPAC library.
+!    This code is distributed under the MIT license.
+!
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
 !
 !  Modified:
 !
-!    03 December 2006
+!    22 October 2024
+!
+!  Author:
+!
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
   implicit none
 
@@ -48,9 +57,9 @@ program main
 
   call timestamp ( )
   write ( *, '(a)' ) ' '
-  write ( *, '(a)' ) 'STARPAC_TEST:'
-  write ( *, '(a)' ) '  FORTRAN90 version'
-  write ( *, '(a)' ) '  Test the STARPAC library.'
+  write ( *, '(a)' ) 'starpac_test():'
+  write ( *, '(a)' ) '  Fortran90 version'
+  write ( *, '(a)' ) '  Test starpac().'
 
   call xacf ( ldstak )
   call xaimd ( ldstak )
@@ -96,7 +105,7 @@ program main
 !  Terminate.
 !
   write ( *, '(a)' ) ' '
-  write ( *, '(a)' ) 'STARPAC_TEST:'
+  write ( *, '(a)' ) 'starpac_test():'
   write ( *, '(a)' ) '  Normal end of execution.'
   write ( *, '(a)' ) ' '
   call timestamp ( )
@@ -107,7 +116,7 @@ subroutine xacf ( lds )
 
 !*****************************************************************************80
 !
-!! XACF tests the time series correlation subroutines.
+!! xacf() tests the time series correlation subroutines.
 !
 !  Discussion:
 !
@@ -115,16 +124,18 @@ subroutine xacf ( lds )
 !
 !    Series yd is listed as series g on page 531 of box and jenkins.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    01 December 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -144,7 +155,7 @@ subroutine xacf ( lds )
 !     real amiss
 !        the missing value code for the returned acvf estimates
 !        (vector acov).
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer i
 !        an indexing variable.
@@ -198,7 +209,7 @@ subroutine xacf ( lds )
 
   real acov(21)
   real amiss
-  double precision dstak(12)
+  double precision dstak(3000)
   integer i
   integer iar
   integer ierr
@@ -311,7 +322,7 @@ subroutine xacf ( lds )
       /  622.0e0, 606.0e0, 508.0e0, 461.0e0, 390.0e0, 432.0e0/
 
   write ( *, '(a)' ) ' '
-  write ( *, '(a)' ) 'XACF'
+  write ( *, '(a)' ) 'xacf():'
   write ( *, '(a)' ) '  Test the time series correlation routines.'
   write ( *, '(a)' ) ' '
 
@@ -491,23 +502,25 @@ subroutine xaimd ( ldstak )
 !
 !! XAIMD demonstrates the user callable routines in the ARIMA family.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
 !     real delta
 !        the maximum change allowed in the model parameters at the
 !        first iteration.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fcst(200, 10)
 !        the forecasts.
@@ -615,7 +628,7 @@ subroutine xaimd ( ldstak )
   implicit none
 
   real delta
-  double precision dstak(12)
+  double precision dstak(3000)
   integer ierr
   integer ldstak
   integer mspec(4,10)
@@ -864,16 +877,18 @@ subroutine xaimt ( ldstak )
 !
 !    Series y is the airline data listed on page 531 of box and jenkins
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -887,7 +902,7 @@ subroutine xaimt ( ldstak )
 !     real delta
 !        the maximum change allowed in the model parameters at the
 !        first iteration.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fcst(50,5)
 !        the forecasts.
@@ -988,7 +1003,7 @@ subroutine xaimt ( ldstak )
 !
   implicit none
 
-  double precision dstak(12)
+  double precision dstak(3000)
   integer ierr
   integer ldstak
 !
@@ -1004,6 +1019,8 @@ subroutine xaimt ( ldstak )
      yt(200)
   integer &
      ifixed(50),mspec(4,50)
+
+  integer ny_vec(1)
 !
 !  external subroutines
   external aime,aimec,aimes,aimf,aimfs,iprint
@@ -1108,8 +1125,9 @@ subroutine xaimt ( ldstak )
   par(1) = 0.0e0
   par(2) = 0.395e0
   par(3) = 0.615e0
+  ny_vec(1) = ny
   call aimfs ( ylog, ny, mspec, nfac, &
-     par, npar, ldstak, ny/10+1, 1, ny, nprt, fcst, 50, fcstsd )
+     par, npar, ldstak, ny/10+1, 1, ny_vec, nprt, fcst, 50, fcstsd )
 
   scale(1) = 1.0e-7
   scale(2) = 1.0e-7
@@ -1240,8 +1258,10 @@ subroutine xaimt ( ldstak )
      scale, delta, ivaprx, nprt, npare, rsd, pv, sdpv, sdres, vcv, &
      ivcv )
   call aimf ( y, ny, mspec, nfac, par, npar, ldstak )
+
+  ny_vec(1) = ny
   call aimfs ( y, ny, mspec, nfac, &
-     par, npar, ldstak, ny/10+1, 1, ny, nprt, fcst, 50, fcstsd )
+     par, npar, ldstak, ny/10+1, 1, ny_vec, nprt, fcst, 50, fcstsd )
 
   ny = 144
   nfac = 2
@@ -1256,8 +1276,10 @@ subroutine xaimt ( ldstak )
      scale, delta, ivaprx, nprt, npare, rsd, pv, sdpv, sdres, vcv, &
      ivcv )
   call aimf ( y, ny, mspec, nfac, par, npar, ldstak )
+
+  ny_vec(1) = ny
   call aimfs ( y, ny, mspec, nfac, &
-     par, npar, ldstak, ny/10+1, 1, ny, nprt, fcst, 50, fcstsd )
+     par, npar, ldstak, ny/10+1, 1, ny_vec, nprt, fcst, 50, fcstsd )
   ny = 144
   nfac = 2
   mspec(1,1) = 0
@@ -1272,8 +1294,10 @@ subroutine xaimt ( ldstak )
      scale, delta, ivaprx, nprt, npare, rsd, pv, sdpv, sdres, vcv, &
      ivcv )
   call aimf ( y, ny, mspec, nfac, par, npar, ldstak )
+
+  ny_vec(1) = ny
   call aimfs ( y, ny, mspec, nfac, &
-     par, npar, ldstak, ny/10+1, 1, ny, nprt, fcst, 50, fcstsd )
+     par, npar, ldstak, ny/10+1, 1, ny_vec, nprt, fcst, 50, fcstsd )
   ny = 144
   nfac = 2
   mspec(1,1) = 0
@@ -1288,8 +1312,10 @@ subroutine xaimt ( ldstak )
      par, npar, res, ldstak, ifixed, stp, mit, stopss, stopp, &
      scale, delta, ivaprx, nprt, npare, rsd, pv, sdpv, sdres, vcv, &
      ivcv )
+
+  ny_vec(1) = ny
   call aimfs ( y, ny, mspec, nfac, &
-     par, npar, ldstak, ny/10+1, 1, ny, nprt, fcst, ifcst, fcstsd )
+     par, npar, ldstak, ny/10+1, 1, ny_vec, nprt, fcst, ifcst, fcstsd )
   ifixed(1:npar) = 1
   ivcv = 0
   stp(2) = -1.0e0
@@ -1309,20 +1335,22 @@ subroutine xaov1 ( ldstak )
 !
 !! XAOV1 exercises the oneway family routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fi
 !        float of index i
@@ -1358,7 +1386,7 @@ subroutine xaov1 ( ldstak )
   integer ldstak
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   real &
@@ -1599,16 +1627,18 @@ subroutine xbfs ( lds )
 !    series y1 and y2 are listed as series x1 and x2 on page of 361 of
 !    jenkins and watts.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -1624,7 +1654,7 @@ subroutine xbfs ( lds )
 !        the covariances.
 !     real cspc2(300,2)
 !        the squared coherency component of the spectrum.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fmax, fmin
 !        the maximum and minimum frequencies at which the
@@ -1700,7 +1730,7 @@ subroutine xbfs ( lds )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   real &
@@ -2342,16 +2372,18 @@ subroutine xccf ( lds )
 !    jenkins and watts.  ccf for series y1 and y2 are plotted on page 3
 !    and listed on page 420.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -2366,7 +2398,7 @@ subroutine xccf ( lds )
 !     real cmiss
 !        the missing value code for the returned ccvf estimates
 !        (vector ccov).
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer iccov
 !        the first dimension of the array ccov.
@@ -2427,7 +2459,7 @@ subroutine xccf ( lds )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   real &
@@ -2791,16 +2823,18 @@ subroutine xcorr ( ldstak )
 !
 !! XCORR exercises all aspects of the correlation family routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Linda Mitchell,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -2810,7 +2844,7 @@ subroutine xcorr ( ldstak )
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer i
 !         an index variable.
@@ -2848,7 +2882,7 @@ subroutine xcorr ( ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   integer &
@@ -3028,7 +3062,7 @@ subroutine xcorr ( ldstak )
   call corrxp(m, vcv, ivcv )
   call msgx ( 1 )
 
-  z(1:10,1) = i
+  z(1:10,1) = 1
   z(1:10,2) = 0.0e0
   call corr(z, 10, 4, 10, ldstak)
   call msgx ( 1 )
@@ -3089,16 +3123,18 @@ subroutine xdckld ( ldstak )
 !
 !! XDCKLD tests the derivative checking routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -3107,7 +3143,7 @@ subroutine xdckld ( ldstak )
 !     external drv4a
 !        the name of the user supplied subroutine which computes the
 !        analytic derivatives (jacobian matrix) of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer i
 !        an index variable.
@@ -3165,7 +3201,7 @@ subroutine xdckld ( ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   real &
@@ -3255,16 +3291,18 @@ subroutine xdckle ( ldstak )
 !
 !! XDCKLE tests the derivative checking routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -3273,7 +3311,7 @@ subroutine xdckle ( ldstak )
 !     external drv4a, drv4b
 !        the name of the user supplied subroutine which computes the
 !        analytic derivatives (jacobian matrix) of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer i
 !        an index variable.
@@ -3331,7 +3369,7 @@ subroutine xdckle ( ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   real &
@@ -3430,16 +3468,18 @@ subroutine xdcklt ( ldstak )
 !
 !! XDCKLT tests the derivative checking routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -3448,7 +3488,7 @@ subroutine xdcklt ( ldstak )
 !     external drv4a, drv4b
 !        the name of the user supplied subroutine which computes the
 !        analytic derivatives (jacobian matrix) of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer i
 !        an index variable.
@@ -3514,7 +3554,7 @@ subroutine xdcklt ( ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   real &
@@ -3573,7 +3613,7 @@ subroutine xdcklt ( ldstak )
   nettst(3) = 1
   nettst(4) = 2
 
-  nettst(5) = -log10(r1mach(4))
+  nettst(5) = - int ( log10(r1mach(4)) )
   nettst(6) = nettst(5) + 1
 
   ntatst(1) = -1
@@ -3800,16 +3840,18 @@ subroutine xdemod ( lds )
 !    Series Y is the Wolf sunspot data from 1700 to 1960 as
 !    tabulated by Waldmeier.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -3821,7 +3863,7 @@ subroutine xdemod ( lds )
 !
 !     real ampl(300)
 !        the array in which the amplitudes are stored.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fc
 !        the cutoff frequency used for the low pass filter.
@@ -3864,7 +3906,7 @@ subroutine xdemod ( lds )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   real &
@@ -4043,16 +4085,18 @@ subroutine xdflt ( lds )
 !    series y is the wolf sunspot data from 1700 to 1960 as
 !    tabulated by waldmeier
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -4062,7 +4106,7 @@ subroutine xdflt ( lds )
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fc
 !        the cutoff frequency used for the low pass filter.
@@ -4144,7 +4188,7 @@ subroutine xdflt ( lds )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   real &
@@ -4559,20 +4603,22 @@ subroutine xhist ( ldstak )
 !
 !! XHIST tests the HIST family.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson and John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer i
 !        a loop index.
@@ -4620,7 +4666,7 @@ subroutine xhist ( ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   real &
@@ -4828,20 +4874,22 @@ subroutine xlls ( lds )
 !
 !! XLLS tests the linear least squares subroutines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer i
 !        an index.
@@ -4912,7 +4960,7 @@ subroutine xlls ( lds )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   real &
@@ -5497,16 +5545,18 @@ subroutine xnlsd ( ldstak )
 !
 !! XNLSD demonstrates the nonlinear least squares family.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -5516,7 +5566,7 @@ subroutine xnlsd ( ldstak )
 !     external drv1a
 !        the name of the user supplied subroutine which computes the
 !        derivative (jacobian) matrix of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer idrvck
 !        the variable used to indicate whether the derivatives are
@@ -5640,7 +5690,7 @@ subroutine xnlsd ( ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   real &
@@ -5935,16 +5985,18 @@ subroutine xnlse ( ldstak )
 !
 !! XNLSE demonstrate the nonlinear least squares family.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -5954,7 +6006,7 @@ subroutine xnlse ( ldstak )
 !     external drv1a, drv1b
 !        the name of the user supplied subroutine which computes the
 !        derivative (jacobian) matrix of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer i
 !        an index value.
@@ -6080,7 +6132,7 @@ subroutine xnlse ( ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   real &
@@ -6436,16 +6488,18 @@ subroutine xnlst ( ldstak )
 !
 !! XNLST demonstrates the nonlinear least squares family.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -6455,7 +6509,7 @@ subroutine xnlst ( ldstak )
 !     external drv1a, drv2, drv3
 !        the name of the user supplied subroutine which computes the
 !        derivative (jacobian) matrix of the model.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer i
 !        an index value.
@@ -6583,7 +6637,7 @@ subroutine xnlst ( ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   real &
@@ -7245,20 +7299,22 @@ subroutine xnrand ( ldstak )
 !
 !! XNRAND tests the NRAND family.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer i
 !        an index variable
@@ -7288,7 +7344,7 @@ subroutine xnrand ( ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   real &
@@ -7408,16 +7464,18 @@ subroutine xpgm ( ldstak )
 !    tapered series are shown on pages 95 and 176, respectively, of
 !    bloomfield.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -7434,7 +7492,7 @@ subroutine xpgm ( ldstak )
 !     real ab(600)
 !        the vector of the nf real and imaginary components of the
 !        fourier coefficients.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real freq(300)
 !        the vector of frequencies at which the spectrum is computed.
@@ -7525,7 +7583,7 @@ subroutine xpgm ( ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   real &
@@ -7943,16 +8001,18 @@ subroutine xpp ( )
 !
 !    series y is the airline data listed on page 531 of box and jenkins.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -8530,20 +8590,22 @@ subroutine xstat ( ldstak )
 !
 !! XSTAT tests the STAT family.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fplm
 !        the floating point largest magnitude.
@@ -8592,7 +8654,7 @@ subroutine xstat ( ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   real &
@@ -8611,7 +8673,7 @@ subroutine xstat ( ldstak )
   external r1mach
 !
 !  external subroutines
-  external iprint,stat,stats,statw,statws
+  external iprint,stat_external,stats,statw,statws
 !
 !  common blocks
   common /cstak/dstak
@@ -8722,7 +8784,7 @@ subroutine xstat ( ldstak )
   write ( *,1180)
   write ( *,1230)
   write ( *,1240)
-  call stat(y, 2, ldstak)
+  call stat_external (y, 2, ldstak)
   write ( *,1390) y(1:10)
   write ( *,1170) ierr
   write ( *,1230)
@@ -8746,7 +8808,7 @@ subroutine xstat ( ldstak )
   write ( *,1190)
   write ( *,1230)
   write ( *,1240)
-  call stat(y, n, n/4)
+  call stat_external (y, n, n/4)
   write ( *,1170) ierr
   write ( *,1230)
   write ( *,1250)
@@ -8801,7 +8863,7 @@ subroutine xstat ( ldstak )
   yconst(nconst) = fplm
   write ( *,1440)
   write ( *,1240)
-  call stat(yconst(2), nconst-2, ldstak)
+  call stat_external (yconst(2), nconst-2, ldstak)
   write ( *,1170) ierr
   write ( *,1440)
   write ( *,1250)
@@ -8823,7 +8885,7 @@ subroutine xstat ( ldstak )
   write ( *,1200)
   write ( *,1440)
   write ( *,1240)
-  call stat(yconst, nconst, ldstak)
+  call stat_external (yconst, nconst, ldstak)
   write ( *,1170) ierr
   write ( *,1440)
   write ( *,1250)
@@ -8859,10 +8921,10 @@ subroutine xstat ( ldstak )
   write ( *,1300)
   write ( *,1310)
   write ( *,1240)
-  call stat(y, 3, ldstak)
+  call stat_external (y, 3, ldstak)
   write ( *,1310)
   write ( *,1240)
-  call stat(y, n, ldstak)
+  call stat_external (y, n, ldstak)
   write ( *,1390) y(1:10)
   write ( *,1170) ierr
 
@@ -8913,7 +8975,7 @@ subroutine xstat ( ldstak )
   end do
   write ( *,1010)
   write ( *,1240)
-  call stat(ypath, nconst, ldstak)
+  call stat_external (ypath, nconst, ldstak)
   write ( *,1170) ierr
   write ( *,1020)
   write ( *,1400)
@@ -8927,7 +8989,7 @@ subroutine xstat ( ldstak )
   end do
   write ( *,1030)
   write ( *,1240)
-  call stat(ypath, nconst, ldstak)
+  call stat_external (ypath, nconst, ldstak)
   write ( *,1170) ierr
   write ( *,1040)
   write ( *,1400)
@@ -8941,7 +9003,7 @@ subroutine xstat ( ldstak )
   end do
   write ( *,1050)
   write ( *,1240)
-  call stat(ypath, nconst, ldstak)
+  call stat_external (ypath, nconst, ldstak)
   write ( *,1170) ierr
   write ( *,1060)
   write ( *,1400)
@@ -8955,7 +9017,7 @@ subroutine xstat ( ldstak )
   end do
   write ( *,1070)
   write ( *,1240)
-  call stat(ypath, nconst, ldstak)
+  call stat_external (ypath, nconst, ldstak)
   write ( *,1170) ierr
   write ( *,1080)
   write ( *,1400)
@@ -8969,7 +9031,7 @@ subroutine xstat ( ldstak )
   end do
   write ( *,1090)
   write ( *,1240)
-  call stat(ypath, nconst, ldstak)
+  call stat_external (ypath, nconst, ldstak)
   write ( *,1170) ierr
   write ( *,1100)
   write ( *,1400)
@@ -8983,7 +9045,7 @@ subroutine xstat ( ldstak )
   end do
   write ( *,1110)
   write ( *,1240)
-  call stat(ypath, nconst, ldstak)
+  call stat_external (ypath, nconst, ldstak)
   write ( *,1170) ierr
   write ( *,1120)
   write ( *,1400)
@@ -8997,7 +9059,7 @@ subroutine xstat ( ldstak )
   ypath(10) = 5.0e0
   write ( *,1130)
   write ( *,1240)
-  call stat(ypath, nconst, ldstak)
+  call stat_external (ypath, nconst, ldstak)
   write ( *,1170) ierr
   write ( *,1140)
   write ( *,1400)
@@ -9069,22 +9131,24 @@ subroutine xstpld ( ldstak )
 !
 !! XSTPLD tests the derivative checking routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
 !     real delta
 !        *
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real exmpt
 !        the proportion of observations for which the computed
@@ -9142,7 +9206,7 @@ subroutine xstpld ( ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   real &
@@ -9233,22 +9297,24 @@ subroutine xstple ( ldstak )
 !
 !! XSTPLE tests the derivative checking routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
 !     real delta
 !        *
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real exmpt
 !        the proportion of observations for which the computed
@@ -9306,7 +9372,7 @@ subroutine xstple ( ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   real &
@@ -9406,22 +9472,24 @@ subroutine xstplt ( ldstak )
 !
 !! XSTPLT tests the derivative checking routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
 !     real delta
 !        *
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real exmpt
 !        the proportion of observations for which the computed
@@ -9483,7 +9551,7 @@ subroutine xstplt ( ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   real &
@@ -9564,7 +9632,7 @@ subroutine xstplt ( ldstak )
   nettst(3) = 1
   nettst(4) = 2
 
-  nettst(5) = -log10(r1mach(4))
+  nettst(5) = - int ( log10(r1mach(4)) )
   nettst(6) = nettst(5) + 1
 
   scale(1) = 0.0e0
@@ -9667,16 +9735,18 @@ subroutine xuas ( ldstak )
 !    318 of jenkins and watts.  the spectrum of this series is shown
 !    for various bandwidth on page 270 of jenkins and watts.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    02 December 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -9688,7 +9758,7 @@ subroutine xuas ( ldstak )
 !
 !     real acov(101)
 !        the autocovariance vector.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fmax, fmin
 !        the maximum and minimum frequencies at which the
@@ -9745,7 +9815,7 @@ subroutine xuas ( ldstak )
   implicit none
 
   real acov(101)
-  double precision dstak(12)
+  double precision dstak(3000)
   real fmax
   real fmin
   real freq(300)
@@ -10252,16 +10322,18 @@ subroutine xufs ( ldstak )
 !    tapered series are shown on pages 95 and 176, respectively, of
 !    bloomfield.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -10279,7 +10351,7 @@ subroutine xufs ( ldstak )
 !        the autocovariance vector.
 !     real amiss
 !         the missing value code for the returned acvf estimates.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fmax, fmin
 !        the maximum and minimum frequencies at which the
@@ -10354,7 +10426,7 @@ subroutine xufs ( ldstak )
      ierr
 !
 !  arrays in common
-  double precision dstak(12)
+  double precision dstak(3000)
 !
 !  local scalars
   real &
@@ -10830,16 +10902,18 @@ subroutine xvp ( )
 !
 !    series y is the airline data listed on page 531 of box and jenkins.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -11393,20 +11467,22 @@ subroutine xxch1 ( ldstak )
 !
 !    The data set is 84 relative humidity measurememts from pikes peak.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson and John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer i
 !        an index variable.
@@ -11432,7 +11508,7 @@ subroutine xxch1 ( ldstak )
          ierr
 !
 !  arrays in common
-      double precision dstak(12)
+      double precision dstak(3000)
 !
 !  local scalars
       integer &
@@ -11443,7 +11519,7 @@ subroutine xxch1 ( ldstak )
          x(100),y(100)
 !
 !  external subroutines
-      external iprint,pp,stat
+      external iprint,pp,stat_external
 !
 !  common blocks
       common /cstak/dstak
@@ -11517,7 +11593,7 @@ subroutine xxch1 ( ldstak )
 !     perform simple test of stat
 !
       write ( *,1200)
-      call stat(y, n, ldstak)
+      call stat_external (y, n, ldstak)
       write ( *,2000) ierr
 
       return
@@ -11539,16 +11615,18 @@ subroutine xxch2 ( )
 !
 !    Data is the airline data listed on page 531 of box and jenkins.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -11682,16 +11760,18 @@ subroutine xxch3 ( )
 !
 !! XXCH3 tests the normal random number generator family of routines.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson and John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
@@ -11791,20 +11871,22 @@ subroutine xxch4 ( ldstak )
 !
 !    Data set is from page 39 of mandel [1964]
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson and John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        error flag
@@ -11825,7 +11907,7 @@ subroutine xxch4 ( ldstak )
          ierr
 !
 !  arrays in common
-      double precision dstak(12)
+      double precision dstak(3000)
 !
 !  local scalars
       integer n
@@ -11895,20 +11977,22 @@ subroutine xxch5 ( ldstak )
 !
 !    Data set is from page 39 of mandel [1964]
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson, John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        error flag
@@ -11929,7 +12013,7 @@ subroutine xxch5 ( ldstak )
          ierr
 !
 !  arrays in common
-      double precision dstak(12)
+      double precision dstak(3000)
 !
 !  local scalars
       integer n
@@ -11939,7 +12023,7 @@ subroutine xxch5 ( ldstak )
          y(40)
 !
 !  external subroutines
-      external iprint,stat
+      external iprint,stat_external
 !
 !  common blocks
       common /cstak/dstak
@@ -11977,7 +12061,7 @@ subroutine xxch5 ( ldstak )
 !     perform simple test of stat
 !
       write ( *,1100)
-      call stat(y, n, ldstak)
+      call stat_external (y, n, ldstak)
       write ( *,2000) ierr
 !
       return
@@ -11998,20 +12082,22 @@ subroutine xxch6 ( ldstak )
 !
 !    Data set is from pages 314-316 of Brownlee [1965].
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson and John Koontz,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        error flag
@@ -12034,7 +12120,7 @@ subroutine xxch6 ( ldstak )
          ierr
 !
 !  arrays in common
-      double precision dstak(12)
+      double precision dstak(3000)
 !
 !  local scalars
       integer n
@@ -12101,16 +12187,18 @@ subroutine xxch7 ( ldstak )
 !
 !    Data is from draper and smith [1968], page 216.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -12119,7 +12207,7 @@ subroutine xxch7 ( ldstak )
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value designating whether any errors were
@@ -12148,7 +12236,7 @@ subroutine xxch7 ( ldstak )
          ierr
 !
 !  arrays in common
-      double precision dstak(12)
+      double precision dstak(3000)
 !
 !  local scalars
       integer iym,m,n
@@ -12221,20 +12309,22 @@ subroutine xxch8 ( ldstak )
 !
 !    LLSP problem is from miller and freund [1977], page 311.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value designating whether any errors were
@@ -12270,7 +12360,7 @@ subroutine xxch8 ( ldstak )
          ierr
 !
 !  arrays in common
-      double precision dstak(12)
+      double precision dstak(3000)
 !
 !  local scalars
       integer ixm,n1,n2,ndeg,npar
@@ -12399,22 +12489,24 @@ subroutine xxch9 ( ldstak )
 !
 !    Data is from daniel and wood [1980], pages 428-441.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Parameters:
 !
 !     external drv1a, drv1b
 !        the name of the ''user supplied'' derivative routines.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer ierr
 !        the integer value designating whether any errors were
@@ -12456,7 +12548,7 @@ subroutine xxch9 ( ldstak )
          ierr
 !
 !  arrays in common
-      double precision dstak(12)
+      double precision dstak(3000)
 !
 !  local scalars
       integer ixm,m,n,npar
@@ -12540,16 +12632,18 @@ subroutine xxch10 ( )
 !
 !    Data is the airline data listed on page 531 of box and jenkins.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -12562,7 +12656,7 @@ subroutine xxch10 ( )
 !
 !     real air(144)
 !        the airline data.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer i
 !        an index variable.
@@ -12592,7 +12686,7 @@ subroutine xxch10 ( )
          ierr
 !
 !  arrays in common
-      double precision dstak(12)
+      double precision dstak(3000)
 !
 !  local scalars
       integer iar,n,nyf
@@ -12710,23 +12804,25 @@ subroutine xxch11 ( ldstak )
 
 !*****************************************************************************80
 !
-!! XXCH10 tests the complex demodulation family of routines.
+!! xxch11() tests the complex demodulation family of routines.
 !
 !  Discussion:
 !
 !    Data is the wolf sunspot numbers for the years 1700 to 1960 as
 !    tabulated by waldmeier [1961].
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -12736,7 +12832,7 @@ subroutine xxch11 ( ldstak )
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real fc
 !        the cutoff frequency used for the low pass filter.
@@ -12765,7 +12861,7 @@ subroutine xxch11 ( ldstak )
          ierr
 !
 !  arrays in common
-      double precision dstak(12)
+      double precision dstak(3000)
 !
 !  local scalars
       real &
@@ -12917,16 +13013,18 @@ subroutine xxch12 ( ldstak )
 !
 !    data for bfs is taken from pp. 387-388 of jenkins and watts [1968]
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -12940,7 +13038,7 @@ subroutine xxch12 ( ldstak )
 !
 !  Parameters:
 !
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     real freq(300)
 !        the frequencies at which the periodogram is computed.
@@ -13003,7 +13101,7 @@ subroutine xxch12 ( ldstak )
          ierr
 !
 !  arrays in common
-      double precision dstak(12)
+      double precision dstak(3000)
 !
 !  local scalars
       real &
@@ -13353,16 +13451,18 @@ subroutine xxch13 ( ldstak )
 !
 !    Data is the airline data listed on page 531 of box and jenkins.
 !
+!  Licensing:
+!
+!    This code is distributed under the MIT license.
+!
 !  Modified:
 !
-!    24 April 2006
+!    22 October 2024
 !
 !  Author:
 !
-!    Janet Donaldson,
-!    Statistical Engineering Division,
-!    National Bureau of Standards,
-!    Boulder, Colorado
+!    Original Fortran77 version by Janet Donaldson.
+!    This version by John Burkardt.
 !
 !  Reference:
 !
@@ -13375,7 +13475,7 @@ subroutine xxch13 ( ldstak )
 !
 !     real air(200)
 !        the airline data.
-!     double precision dstak(12)
+!     double precision dstak(3000)
 !        the double precision version of the /cstak/ work area.
 !     integer i
 !        an index variable.
@@ -13413,7 +13513,7 @@ subroutine xxch13 ( ldstak )
          ierr
 !
 !  arrays in common
-      double precision dstak(12)
+      double precision dstak(3000)
 !
 !  local scalars
       integer n,nfac,npar
