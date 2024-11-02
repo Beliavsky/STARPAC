@@ -1,5 +1,5 @@
 # STARPAC
-[Standards Time Series and Regression Package](https://water.usgs.gov/software/OTIS/addl/starpac/), a library of Fortran subroutines for statistical data analysis developed by the Statistical Engineering Division of the National Institute of Standards and Technology by Janet R. Donaldson and Peter V. Tryon, converted to free source form by [John Burkardt](https://people.math.sc.edu/Burkardt/f_src/starpac/starpac.html), who supplied the list of routines below. Compile with `gfortran -fallow-argument-mismatch starpac.f90 starpac_test.f90`.
+[Standards Time Series and Regression Package](https://water.usgs.gov/software/OTIS/addl/starpac/), a library of Fortran subroutines for statistical data analysis developed by the Statistical Engineering Division of the National Institute of Standards and Technology by Janet R. Donaldson and Peter V. Tryon, converted to free source form by [John Burkardt](https://people.math.sc.edu/Burkardt/f_src/starpac/starpac.html), who supplied the list of routines below. Compile with `gfortran starpac.f90 starpac_test.f90`. Also compiles with ifort and g95.
 
 ```
 List of Routines:
